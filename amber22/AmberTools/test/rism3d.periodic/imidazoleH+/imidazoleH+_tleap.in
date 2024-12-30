@@ -1,0 +1,11 @@
+
+                source leaprc.ff99SB
+		source leaprc.gaff
+		imidazoleH = loadmol2 "/tmp/imidazoleH+_hq.mol2"
+		check imidazoleH
+		loadamberparams "imidazoleH+.frcmod"
+		saveamberparm imidazoleH "imidazoleH+.top" "imidazoleH+.rst"
+                savepdb imidazoleH "imidazoleH+_hq.pdb"
+		quit
+
+           

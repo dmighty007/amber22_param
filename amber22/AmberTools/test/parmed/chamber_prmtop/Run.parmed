@@ -1,0 +1,23 @@
+#!/bin/sh
+
+. ../../program_error.sh
+
+if [ -z "$parmed" ]; then
+
+   parmed="$AMBERHOME/bin/parmed"
+fi
+
+output=parmed.out
+prmtop=dhfr_gas.prmtop
+
+$parmed -Oe $prmtop parmed.in > $output 2>&1 || error
+
+../../dacdif -a 1e-6 prmtop.new_type.save prmtop.new_type
+../../dacdif -a 1e-6 prmtop.NBFIX.save prmtop.NBFIX
+../../dacdif -a 1e-6 prmtop.new_chg.save prmtop.new_chg
+../../dacdif -a 1e-6 prmtop.ZEROMASS.save prmtop.ZEROMASS
+../../dacdif -a 1e-6 final.prmtop.save final.prmtop
+
+/bin/rm -f $output
+
+exit 0

@@ -1,0 +1,8 @@
+set default nocenter on
+source leaprc.music
+molecule = loadpdb PythonPDB.pdb
+set molecule box {28.837 24.973 60.000}
+savepdb molecule molecule.pdb
+saveamberparm molecule prmtop inpcrd
+
+quit

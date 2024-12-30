@@ -1,0 +1,128 @@
+-I: Adding /home/gohlke/src/amber/dat/leap/prep to search path.
+-I: Adding /home/gohlke/src/amber/dat/leap/lib to search path.
+-I: Adding /home/gohlke/src/amber/dat/leap/parm to search path.
+-I: Adding /home/gohlke/src/amber/dat/leap/cmd to search path.
+-f: Source /home/gohlke/src/amber/AmberTools/src/FEW/examples/test/calc_p_1t/TGR5_dimer_1-8_-46/topo/leap_topo_gb0_pb3.in.
+
+Welcome to LEaP!
+(no leaprc in search path)
+Sourcing: /home/gohlke/src/amber/AmberTools/src/FEW/examples/test/calc_p_1t/TGR5_dimer_1-8_-46/topo/leap_topo_gb0_pb3.in
+----- Source: /home/gohlke/src/amber/dat/leap/cmd/leaprc.protein.ff14SB
+----- Source of /home/gohlke/src/amber/dat/leap/cmd/leaprc.protein.ff14SB done
+Log file: ./leap.log
+Loading parameters: /home/gohlke/src/amber/dat/leap/parm/parm10.dat
+Reading title:
+PARM99 + frcmod.ff99SB + frcmod.parmbsc0 + OL3 for RNA
+Loading parameters: /home/gohlke/src/amber/dat/leap/parm/frcmod.ff14SB
+Reading force field modification type file (frcmod)
+Reading title:
+ff14SB protein backbone and sidechain parameters
+Loading library: /home/gohlke/src/amber/dat/leap/lib/amino12.lib
+Loading library: /home/gohlke/src/amber/dat/leap/lib/aminoct12.lib
+Loading library: /home/gohlke/src/amber/dat/leap/lib/aminont12.lib
+----- Source: /home/gohlke/src/amber/dat/leap/cmd/leaprc.water.tip3p
+----- Source of /home/gohlke/src/amber/dat/leap/cmd/leaprc.water.tip3p done
+Loading library: /home/gohlke/src/amber/dat/leap/lib/atomic_ions.lib
+Loading library: /home/gohlke/src/amber/dat/leap/lib/solvents.lib
+Loading parameters: /home/gohlke/src/amber/dat/leap/parm/frcmod.tip3p
+Reading force field modification type file (frcmod)
+Reading title:
+This is the additional/replacement parameter set for TIP3P water
+Loading parameters: /home/gohlke/src/amber/dat/leap/parm/frcmod.ionsjc_tip3p
+Reading force field modification type file (frcmod)
+Reading title:
+Monovalent ion parameters for Ewald and TIP3P water from Joung & Cheatham JPCB (2008)
+Loading parameters: /home/gohlke/src/amber/dat/leap/parm/frcmod.ions234lm_126_tip3p
+Reading force field modification type file (frcmod)
+Reading title:
+Li/Merz ion parameters of divalent to tetravalent ions for TIP3P water model (12-6 normal usage set)
+----- Source: /home/gohlke/src/amber/dat/leap/cmd/leaprc.gaff
+----- Source of /home/gohlke/src/amber/dat/leap/cmd/leaprc.gaff done
+Log file: ./leap.log
+Loading parameters: /home/gohlke/src/amber/dat/leap/parm/gaff.dat
+Reading title:
+AMBER General Force Field for organic molecules (Version 1.81, May 2017)
+Loading PDB file: /home/gohlke/src/amber/AmberTools/src/FEW/examples/test/calc_p_1t/TGR5_dimer_1-8_-46/topo/TGR5_dimer_1-8_-46_lig_noMem.pdb
+  total atoms in file: 4535
+  Leap added 6 missing atoms according to residue templates:
+       6 H / lone pairs
+Loading PDB file: /home/gohlke/src/amber/AmberTools/src/FEW/examples/test/calc_p_1t/TGR5_dimer_1-8_-46/topo/TGR5_dimer_1-8_-46_rec_noMem.pdb
+  total atoms in file: 4535
+  Leap added 6 missing atoms according to residue templates:
+       6 H / lone pairs
+Loading PDB file: /home/gohlke/src/amber/AmberTools/src/FEW/examples/test/calc_p_1t/TGR5_dimer_1-8_-46/topo/TGR5_dimer_1-8_-46_com_noMem.pdb
+  total atoms in file: 9070
+  Leap added 12 missing atoms according to residue templates:
+       12 H / lone pairs
+Checking Unit.
+
+/home/gohlke/src/amber/bin/teLeap: Warning!
+The unperturbed charge of the unit (10.000000) is not zero.
+
+/home/gohlke/src/amber/bin/teLeap: Note.
+Ignoring the warning from Unit Checking.
+
+Building topology.
+Building atom parameters.
+Building bond parameters.
+Building angle parameters.
+Building proper torsion parameters.
+Building improper torsion parameters.
+ total 887 improper torsions applied
+Building H-Bond parameters.
+Incorporating Non-Bonded adjustments.
+Not Marking per-residue atom chain types.
+Marking per-residue atom chain types.
+ (no restraints)
+Writing pdb file: /home/gohlke/src/amber/AmberTools/src/FEW/examples/test/calc_p_1t/TGR5_dimer_1-8_-46/topo/TGR5_dimer_1-8_-46_vac_lig.pdb
+Checking Unit.
+
+/home/gohlke/src/amber/bin/teLeap: Warning!
+The unperturbed charge of the unit (10.000000) is not zero.
+
+/home/gohlke/src/amber/bin/teLeap: Note.
+Ignoring the warning from Unit Checking.
+
+Building topology.
+Building atom parameters.
+Building bond parameters.
+Building angle parameters.
+Building proper torsion parameters.
+Building improper torsion parameters.
+ total 887 improper torsions applied
+Building H-Bond parameters.
+Incorporating Non-Bonded adjustments.
+Not Marking per-residue atom chain types.
+Marking per-residue atom chain types.
+ (no restraints)
+Writing pdb file: /home/gohlke/src/amber/AmberTools/src/FEW/examples/test/calc_p_1t/TGR5_dimer_1-8_-46/topo/TGR5_dimer_1-8_-46_vac_rec.pdb
+Checking Unit.
+
+/home/gohlke/src/amber/bin/teLeap: Warning!
+The unperturbed charge of the unit (20.000000) is not zero.
+
+/home/gohlke/src/amber/bin/teLeap: Note.
+Ignoring the warning from Unit Checking.
+
+Building topology.
+Building atom parameters.
+Building bond parameters.
+Building angle parameters.
+Building proper torsion parameters.
+Building improper torsion parameters.
+ total 1774 improper torsions applied
+Building H-Bond parameters.
+Incorporating Non-Bonded adjustments.
+Not Marking per-residue atom chain types.
+Marking per-residue atom chain types.
+ (no restraints)
+Writing pdb file: /home/gohlke/src/amber/AmberTools/src/FEW/examples/test/calc_p_1t/TGR5_dimer_1-8_-46/topo/TGR5_dimer_1-8_-46_vac_com.pdb
+Total unperturbed charge:  10.000000
+Total perturbed charge:    10.000000
+Total unperturbed charge:  10.000000
+Total perturbed charge:    10.000000
+Total unperturbed charge:  20.000000
+Total perturbed charge:    20.000000
+	Quit
+
+Exiting LEaP: Errors = 0; Warnings = 3; Notes = 3.

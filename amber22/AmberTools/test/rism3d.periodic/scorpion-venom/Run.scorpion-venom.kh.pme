@@ -1,0 +1,12 @@
+#! /usr/bin/env sh
+
+solvent=../xvv/spc-na-cl-kh.xvv
+
+rism3d.snglpnt --periodic pme --pdb scorpion-venom.pdb \
+               --prmtop scorpion-venom.parm7 --rst scorpion-venom.rst7 \
+               --xvv $solvent --closure kh --tolerance 0.000001 \
+               --grdspc 0.5,0.5,0.5 --buffer 1.0 --verbose 2 --volfmt ccp4 \
+               --solvcut 8 --noprogress --centering 0 \
+               > scorpion-venom.kh.pme.r3d
+
+# ../../dacdif -r 1.e-6 scorpion-venom.kh.pme.r3d.save scorpion-venom.kh.pme.r3d

@@ -1,0 +1,75 @@
+reduce: version 3.3 06/02/2016, Copyright 1997-2016, J. Michael Word
+Processing file: "1ubq.pdb"
+Database of HETATM connections: "/tmp/amber/dat/reduce_wwPDB_het_dict.txt"
+VDW dot density = 16/A^2
+Orientation penalty scale = 1 (100%)
+Eliminate contacts within 3 bonds.
+Ignore atoms with |occupancy| <= 0.01 during adjustments.
+Waters ignored if B-Factor >= 40 or |occupancy| < 0.66
+Aromatic rings in amino acids accept hydrogen bonds.
+Building His ring NH Hydrogens.
+Flipping Asn, Gln and His groups.
+For each flip state, bumps where gap is more than 0.4A are indicated with '!'.
+Building or keeping OH & SH Hydrogens.
+Rotating existing OH & SH Hydrogens
+Rotating NH3 Hydrogens.
+Not processing Met methyls.
+ Singles(size 24):1UBQ   1 MET N   :1UBQ   2 GLN     :1UBQ   6 LYS NZ  :1UBQ  11 LYS NZ  
+  :1UBQ  12 THR OG1 :1UBQ  14 THR OG1 :1UBQ  20 SER OG  :1UBQ  22 THR OG1 :1UBQ  25 ASN     
+  :1UBQ  27 LYS NZ  :1UBQ  29 LYS NZ  :1UBQ  31 GLN     :1UBQ  33 LYS NZ  :1UBQ  40 GLN     
+  :1UBQ  41 GLN     :1UBQ  48 LYS NZ  :1UBQ  49 GLN     :1UBQ  59 TYR OH  :1UBQ  60 ASN     
+  :1UBQ  62 GLN     :1UBQ  63 LYS NZ  :1UBQ  65 SER OG  :1UBQ  66 THR OG1 :1UBQ  68 HIS     
+ Set 1 (size 2):1UBQ  55 THR OG1 :1UBQ  57 SER OG  
+ Set 2 (size 2):1UBQ   7 THR OG1 :1UBQ   9 THR OG1 
+ orientation 1:1UBQ   1 MET N   :NH3+   -179: bump=-0.879, HB=3.206, total=2.327
+ orientation 1:1UBQ   2 GLN     :      amide: bump=0.000, HB=0.000, total=0.000
+ orientation 1:1UBQ   6 LYS NZ  :NH3+    180: bump=0.000, HB=0.000, total=0.000
+ orientation 2:1UBQ  11 LYS NZ  :NH3+   -174: bump=0.000, HB=0.000, total=0.000
+ orientation 2:1UBQ  12 THR OG1 :   rot -158: bump=0.000, HB=0.713, total=0.713
+ orientation 4:1UBQ  14 THR OG1 :   rot    5: bump=-0.408, HB=0.840, total=0.432, BADBUMP
+ orientation 2:1UBQ  20 SER OG  :   rot -119: bump=0.000, HB=1.223, total=1.223
+ orientation 1:1UBQ  22 THR OG1 :   rot  180: bump=0.000, HB=0.006, total=0.006
+ orientation 1:1UBQ  25 ASN     :      amide: bump=-0.566, HB=0.000, total=-0.566
+ orientation 1:1UBQ  27 LYS NZ  :NH3+    164: bump=-0.112, HB=1.877, total=1.765
+ orientation 3:1UBQ  29 LYS NZ  :NH3+    145: bump=-0.009, HB=1.291, total=1.282
+ orientation 1:1UBQ  31 GLN     :      amide: bump=-0.644, HB=0.098, total=-0.546
+ orientation 1:1UBQ  33 LYS NZ  :NH3+    180: bump=0.000, HB=0.000, total=0.000
+ orientation 2:1UBQ  40 GLN     :FLIP  amide: bump=-0.026, HB=0.000, total=-0.026
+ orientation 1:1UBQ  41 GLN     :      amide: bump=-0.063, HB=0.366, total=0.304
+ orientation 2:1UBQ  48 LYS NZ  :NH3+   -149: bump=-0.092, HB=0.000, total=-0.092
+ orientation 2:1UBQ  49 GLN     :FLIP  amide: bump=-0.044, HB=0.639, total=0.595
+ orientation 1:1UBQ  59 TYR OH  :   rot  180: bump=0.000, HB=0.251, total=0.251
+ orientation 2:1UBQ  60 ASN     :FLIP  amide: bump=-0.062, HB=0.000, total=-0.062
+ orientation 2:1UBQ  62 GLN     :FLIP  amide: bump=-0.386, HB=0.000, total=-0.386
+ orientation 1:1UBQ  63 LYS NZ  :NH3+    180: bump=0.000, HB=0.000, total=0.000
+ orientation 5:1UBQ  65 SER OG  :   rot   61: bump=-0.007, HB=2.315, total=2.308
+ orientation 1:1UBQ  66 THR OG1 :   rot  180: bump=0.000, HB=0.000, total=0.000
+ orientation 1:1UBQ  68 HIS     :     no HD1: bump=0.000, HB=0.000, total=0.000
+
+ Processing set:1UBQ  55 THR OG1 [4]:1UBQ  57 SER OG  [5]
+ permutations: 20
+ Computing dot scores
+ Num optimizations problems to be solved for this clique: 1
+ Beginning Optimization
+ Dynamic programming succeeded to fully optimize hypergraph
+ Optimal score following low resolution optimization: 1.917
+> : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.917       > : 1.952       > : 1.952       > : 1.952       > : 1.952       
+ Optimal score following high resolution, local optimization: 1.952
+
+ Processing set:1UBQ   7 THR OG1 [4]:1UBQ   9 THR OG1 [3]
+ permutations: 12
+ Computing dot scores
+ Num optimizations problems to be solved for this clique: 1
+ Beginning Optimization
+ Dynamic programming succeeded to fully optimize hypergraph
+ Optimal score following low resolution optimization: 0.138
+> : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       > : 0.138       
+ Optimal score following high resolution, local optimization: 0.138
+Found 0 hydrogens (0 hets)
+Standardized 0 hydrogens (0 hets)
+Added 630 hydrogens (0 hets)
+Removed 0 hydrogens (0 hets)
+Adjusted 20 group(s)
+If you publish work which uses reduce, please cite:
+Word, et. al. (1999) J. Mol. Biol. 285, 1735-1747.
+For more information see http://kinemage.biochem.duke.edu

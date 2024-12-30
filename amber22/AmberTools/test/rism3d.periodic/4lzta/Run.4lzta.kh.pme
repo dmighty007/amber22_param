@@ -1,0 +1,34 @@
+#! /usr/bin/env sh
+#TEST-PROGRAM rism3d.snglpnt
+#TEST-DESCRIP Tests periodic pme on protein
+#TEST-PURPOSE regression, basic
+#TEST-STATE   undocumented
+
+PROG="$AMBERHOME/bin/rism3d.snglpnt"
+
+if [ -z "$DO_PARALLEL" ]; then
+   DO_PARALLEL=" "
+else
+   PROG=$PROG.MPI
+   echo "Running $DO_PARALLEL $PROG"
+   if [ ! -x $PROG ]; then
+       echo "$PROG not found... skipping test"
+       exit 0
+   fi
+fi
+
+solvent=../xvv/spc-nacl.kh.xvv
+
+$DO_PARALLEL $PROG  --periodic pme \
+               --prmtop 4lzta.parm7 \
+               --rst 4lzta.rst7 \
+               --xvv $solvent \
+               --closure kh --tolerance 1e-6 \
+               --grdspc 1,1,1 --buffer 1.0 --verbose 1 \
+               --solvcut 9.0 --centering 0 --npropagate 0 \
+               > 4lzta_5.pse1.pme.r3d
+
+
+grep -E "^rism_" 4lzta_5.pse1.pme.r3d | grep -v "rism_DCFintegral" > erism.pme.out
+/bin/rm -f 4lzta_5.pse1.pme.r3d
+../../dacdif -r 5.e-2 erism.pme.out.save erism.pme.out

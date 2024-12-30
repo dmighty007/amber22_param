@@ -1,0 +1,20 @@
+#!/bin/sh
+
+. ../../program_error.sh
+
+if [ -z "$amb2chm" ]; then
+   amb2chm="$AMBERHOME/bin/amb2chm_psf_crd.py"
+fi
+
+input=1OKL_solv
+output=amb2chm.out
+
+$amb2chm -p $input.prmtop -c $input.inpcrd -f $input.psf -d $input.crd -b $input.charmm.pdb --dict=add_res-atom_dict.txt > $output 2>&1 || error
+
+$AMBERHOME/AmberTools/test/dacdif 1OKL_solv.psf.save 1OKL_solv.psf
+$AMBERHOME/AmberTools/test/dacdif 1OKL_solv.crd.save 1OKL_solv.crd
+$AMBERHOME/AmberTools/test/dacdif 1OKL_solv.charmm.pdb.save 1OKL_solv.charmm.pdb
+
+/bin/rm -f $output 1OKL_solv.psf 1OKL_solv.crd 1OKL_solv.charmm.pdb
+
+exit 0

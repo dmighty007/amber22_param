@@ -1,0 +1,39 @@
+| New format PARM file being parsed.
+| Version =    0.001 Date = 10:13:10 Time = 19:00:48
+| New format PARM file being parsed.
+| Version =    1.000 Date = 12/10/08 Time = 14:10:41
+
+Solute charge -1.97560126E-09 e
+
+Number of atoms in
+Volume    1
+(   start:     end:  stride)   X (   start:     end:  stride)   X (   start:     end:  stride)  
+( -11.608:  19.892:   0.500) A X ( -11.257:  20.243:   0.500) A X ( -16.128:  15.372:   0.500) A
+                    Units           O              H1            Total
+           Bulk         #  1.09117463E+03  2.18234927E+03  3.27352390E+03
+         Number         #  1.08479174E+03  2.16958330E+03  3.25437504E+03
+         Excess         # -6.38289059E+00 -1.27659676E+01 -1.91488582E+01
+       ExcessLR         # -8.18289053E+00 -1.63659675E+01 -2.45488580E+01
+         Charge         e  5.41013807E+00 -5.41021708E+00 -7.90097624E-05
+       ChargeLR         e  6.93581802E+00 -6.93589703E+00 -7.90077868E-05
+
+Excess chemical potential from
+Volume    1
+(   start:     end:  stride)   X (   start:     end:  stride)   X (   start:     end:  stride)  
+( -11.608:  19.892:   0.500) A X ( -11.257:  20.243:   0.500) A X ( -16.128:  15.372:   0.500) A
+                    Units           O              H1            Total
+         Exchem  kcal/mol  7.77255912E+01 -6.12212271E+01  1.65043641E+01
+       ExchemLR  kcal/mol  3.16629479E+01 -1.51585838E+01  1.65043640E+01
+
+Partial molar volume   1.9361869204960087E+02 A^3/mol
+
+PMV 'corrected' Number of atoms in
+Volume    1
+(   start:     end:  stride)   X (   start:     end:  stride)   X (   start:     end:  stride)  
+( -11.608:  19.892:   0.500) A X ( -11.257:  20.243:   0.500) A X ( -16.128:  15.372:   0.500) A
+                    Units           O              H1            Total
+    Number(PMV)         #  1.09123925E+03  2.18247831E+03  3.27371755E+03
+    Excess(PMV)         #  6.46132337E-02  1.29040019E-01  1.93653253E-01
+  ExcessLR(PMV)         # -1.73538671E+00 -3.47095987E+00 -5.20634659E+00
+    Charge(PMV)         e -5.47661770E-02  5.46871601E-02 -7.90168389E-05
+  ChargeLR(PMV)         e  1.47091378E+00 -1.47099279E+00 -7.90148633E-05

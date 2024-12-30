@@ -1,0 +1,259 @@
+Reading parm file (imidazoleH+.prmtop)
+title:
+1020                                                                            
+	mm_options:  cut=2.000000e+01
+	mm_options:  rism=1
+	mm_options:  ntpr_rism=1
+	mm_options:  xvvfile=../xvv/spc-na-cl-kh.xvv
+	mm_options:  volfmt=ccp4
+	mm_options:  rst=imidazoleH+.crd
+	mm_options:  closure=kh
+	mm_options:  closureOrder=1
+	mm_options:  buffer=14
+	mm_options:  solvcut=8
+	mm_options:  grdspcx=0.5
+	mm_options:  grdspcy=0.5
+	mm_options:  grdspcz=0.5
+	mm_options:  solvboxx=0
+	mm_options:  solvboxy=0
+	mm_options:  solvboxz=0
+	mm_options:  ngx=0
+	mm_options:  ngy=0
+	mm_options:  ngz=0
+	mm_options:  tolerance=1e-05
+	mm_options:  mdiis_del=0.7
+	mm_options:  mdiis_restart=10
+	mm_options:  mdiis_nvec=5
+	mm_options:  mdiis_method=2
+	mm_options:  maxstep=2000
+	mm_options:  npropagate=5
+	mm_options:  centering=0
+	mm_options:  zerofrc=1
+	mm_options:  apply_rism_force=0
+	mm_options:  polarDecomp=0
+	mm_options:  entropicDecomp=0
+	mm_options:  periodic=ewald
+	mm_options:  ntwrism=0
+	mm_options:  verbose=2
+	mm_options:  progress=1
+	mm_options:  asympCorr=1
+	mm_options:  saveprogress=0
+	mm_options:  uccoeff=-3.312,1.152
+	mm_options:  biasPotential=0
+WARNING> Xvv version:   1.000
+WARNING> Unable to calculate UC or PMV temperature derivatives
+|solutePotentialEnergy                [kcal/mol]                Total                   LJ              Coulomb                 Bond                Angle             Dihedral               H-Bond                LJ-14           Coulomb-14           Restraints              3D-RISM
+|rism_excessChemicalPotential         [kcal/mol]                Total         ExcChemPot_O        ExcChemPot_H1       ExcChemPot_Na+       ExcChemPot_Cl-
+|rism_excessChemicalPotentialGF       [kcal/mol]                Total      ExcChemPot_GF_O     ExcChemPot_GF_H1    ExcChemPot_GF_Na+    ExcChemPot_GF_Cl-
+|rism_excessChemicalPotentialUC       [kcal/mol]                Total
+|rism_solventPotentialEnergy          [kcal/mol]                Total       UV_potential_O      UV_potential_H1     UV_potential_Na+     UV_potential_Cl-
+|rism_partialMolarVolume              [A^3]                       PMV
+|rism_totalParticlesBox               [#]                                       TotalNum_O          TotalNum_H1         TotalNum_Na+         TotalNum_Cl-
+|rism_totalChargeBox                  [e]                       Total           TotalChg_O          TotalChg_H1         TotalChg_Na+         TotalChg_Cl-
+|rism_excessParticlesBox              [#]                                          ExNum_O             ExNum_H1            ExNum_Na+            ExNum_Cl-
+|rism_excessChargeBox                 [e]                       Total              ExChg_O             ExChg_H1            ExChg_Na+            ExChg_Cl-
+|rism_KirkwoodBuff                    [A^3]                                           KB_O                KB_H1               KB_Na+               KB_Cl-
+|rism_DCFintegral                     [A^3]                                         DCFI_O              DCFI_H1             DCFI_Na+             DCFI_Cl-
+
+Processing restart file: imidazoleH+.crd
+
+Running MME
+  nblist_box, number of atoms= 10
+  nblist_box, number of pairs= 5
+|FULL RISM!!!
+||Setting solvation box to
+|grid size:         60 X         60 X         60
+|box size [A]:      30.000 X     30.000 X     30.000
+|grid spacing [A]:      0.500 X      0.500 X      0.500
+|internal angles [°]:      90.000,     90.000,     90.000
+|inscribed sphere radius [A]:     15.000
+|Switching to KH closure
+ Step=    1     Resid=  9.33         IS=  1
+ Step=    2     Resid=  3.76         IS=  2
+ Step=    3     Resid=  2.63         IS=  3
+ Step=    4     Resid=  1.73         IS=  4
+ Step=    5     Resid=  1.39         IS=  5
+ Step=    6     Resid= 0.949         IS=  5
+ Step=    7     Resid= 0.901         IS=  5
+ Step=    8     Resid= 0.727         IS=  5
+ Step=    9     Resid=  1.30         IS=  5
+ Step=   10     Resid= 0.601         IS=  5
+ Step=   11     Resid= 0.397         IS=  5
+ Step=   12     Resid= 0.426         IS=  5
+ Step=   13     Resid= 0.403         IS=  5
+ Step=   14     Resid= 0.363         IS=  5
+ Step=   15     Resid= 0.186         IS=  5
+ Step=   16     Resid= 0.181         IS=  5
+ Step=   17     Resid= 9.266E-02     IS=  5
+ Step=   18     Resid= 7.373E-02     IS=  5
+ Step=   19     Resid= 6.304E-02     IS=  5
+ Step=   20     Resid= 5.022E-02     IS=  5
+ Step=   21     Resid= 4.350E-02     IS=  5
+ Step=   22     Resid= 4.143E-02     IS=  5
+ Step=   23     Resid= 3.878E-02     IS=  5
+ Step=   24     Resid= 3.437E-02     IS=  5
+ Step=   25     Resid= 3.072E-02     IS=  5
+ Step=   26     Resid= 2.531E-02     IS=  5
+ Step=   27     Resid= 2.247E-02     IS=  5
+ Step=   28     Resid= 2.150E-02     IS=  5
+ Step=   29     Resid= 2.075E-02     IS=  5
+ Step=   30     Resid= 2.031E-02     IS=  5
+ Step=   31     Resid= 1.960E-02     IS=  5
+ Step=   32     Resid= 1.898E-02     IS=  5
+ Step=   33     Resid= 1.826E-02     IS=  5
+ Step=   34     Resid= 1.753E-02     IS=  5
+ Step=   35     Resid= 1.589E-02     IS=  5
+ Step=   36     Resid= 1.409E-02     IS=  5
+ Step=   37     Resid= 1.260E-02     IS=  5
+ Step=   38     Resid= 1.565E-02     IS=  5
+ Step=   39     Resid= 1.507E-02     IS=  5
+ Step=   40     Resid= 7.650E-03     IS=  5
+ Step=   41     Resid= 7.079E-03     IS=  5
+ Step=   42     Resid= 5.847E-03     IS=  5
+ Step=   43     Resid= 5.412E-03     IS=  5
+ Step=   44     Resid= 4.937E-03     IS=  5
+ Step=   45     Resid= 4.394E-03     IS=  5
+ Step=   46     Resid= 3.224E-03     IS=  5
+ Step=   47     Resid= 2.539E-03     IS=  5
+ Step=   48     Resid= 2.093E-03     IS=  5
+ Step=   49     Resid= 1.825E-03     IS=  5
+ Step=   50     Resid= 1.612E-03     IS=  5
+ Step=   51     Resid= 1.414E-03     IS=  5
+ Step=   52     Resid= 1.299E-03     IS=  5
+ Step=   53     Resid= 1.170E-03     IS=  5
+ Step=   54     Resid= 1.108E-03     IS=  5
+ Step=   55     Resid= 1.066E-03     IS=  5
+ Step=   56     Resid= 1.016E-03     IS=  5
+ Step=   57     Resid= 8.984E-04     IS=  5
+ Step=   58     Resid= 7.423E-04     IS=  5
+ Step=   59     Resid= 6.230E-04     IS=  5
+ Step=   60     Resid= 5.581E-04     IS=  5
+ Step=   61     Resid= 5.183E-04     IS=  5
+ Step=   62     Resid= 4.695E-04     IS=  5
+ Step=   63     Resid= 4.054E-04     IS=  5
+ Step=   64     Resid= 3.551E-04     IS=  5
+ Step=   65     Resid= 3.138E-04     IS=  5
+ Step=   66     Resid= 2.761E-04     IS=  5
+ Step=   67     Resid= 2.485E-04     IS=  5
+ Step=   68     Resid= 2.278E-04     IS=  5
+ Step=   69     Resid= 2.145E-04     IS=  5
+ Step=   70     Resid= 2.075E-04     IS=  5
+ Step=   71     Resid= 1.977E-04     IS=  5
+ Step=   72     Resid= 1.883E-04     IS=  5
+ Step=   73     Resid= 1.788E-04     IS=  5
+ Step=   74     Resid= 1.685E-04     IS=  5
+ Step=   75     Resid= 1.555E-04     IS=  5
+ Step=   76     Resid= 1.455E-04     IS=  5
+ Step=   77     Resid= 1.385E-04     IS=  5
+ Step=   78     Resid= 1.276E-04     IS=  5
+ Step=   79     Resid= 1.182E-04     IS=  5
+ Step=   80     Resid= 1.114E-04     IS=  5
+ Step=   81     Resid= 1.016E-04     IS=  5
+ Step=   82     Resid= 9.462E-05     IS=  5
+ Step=   83     Resid= 8.965E-05     IS=  5
+ Step=   84     Resid= 8.334E-05     IS=  5
+ Step=   85     Resid= 7.797E-05     IS=  5
+ Step=   86     Resid= 7.090E-05     IS=  5
+ Step=   87     Resid= 6.549E-05     IS=  5
+ Step=   88     Resid= 6.182E-05     IS=  5
+ Step=   89     Resid= 5.982E-05     IS=  5
+ Step=   90     Resid= 5.819E-05     IS=  5
+ Step=   91     Resid= 5.589E-05     IS=  5
+ Step=   92     Resid= 5.299E-05     IS=  5
+ Step=   93     Resid= 5.163E-05     IS=  5
+ Step=   94     Resid= 4.979E-05     IS=  5
+ Step=   95     Resid= 4.828E-05     IS=  5
+ Step=   96     Resid= 4.702E-05     IS=  5
+ Step=   97     Resid= 4.480E-05     IS=  5
+ Step=   98     Resid= 4.259E-05     IS=  5
+ Step=   99     Resid= 4.145E-05     IS=  5
+ Step=  100     Resid= 3.964E-05     IS=  5
+ Step=  101     Resid= 3.700E-05     IS=  5
+ Step=  102     Resid= 3.400E-05     IS=  5
+ Step=  103     Resid= 3.012E-05     IS=  5
+ Step=  104     Resid= 2.599E-05     IS=  5
+ Step=  105     Resid= 2.347E-05     IS=  5
+ Step=  106     Resid= 2.181E-05     IS=  5
+ Step=  107     Resid= 1.903E-05     IS=  5
+ Step=  108     Resid= 1.653E-05     IS=  5
+ Step=  109     Resid= 1.495E-05     IS=  5
+ Step=  110     Resid= 1.307E-05     IS=  5
+ Step=  111     Resid= 1.222E-05     IS=  5
+ Step=  112     Resid= 1.174E-05     IS=  5
+ Step=  113     Resid= 1.057E-05     IS=  5
+ Step=  114     Resid= 9.425E-06     IS=  5
+|RXRISM converged in   114 steps
+solutePotentialEnergy                  4.91039850E+001  -5.29759136E-003   3.51737875E+001   1.20020531E+000   1.04444963E+001   3.95028039E-005   0.00000000E+000  -1.76596385E-001   2.07439918E+001   0.00000000E+000  -1.82766415E+001
+rism_excessChemicalPotential          -1.82766415E+001   1.82091401E+002  -1.98428074E+002  -1.53927691E+000  -4.00691471E-001
+rism_excessChemicalPotentialGF        -2.40643231E+001   1.80002092E+002  -2.02109450E+002  -1.55004307E+000  -4.06921937E-001
+rism_excessChemicalPotentialUC        -3.45832203E+001
+rism_solventPotentialEnergy           -3.96532916E+001   1.30884036E+002  -1.68526145E+002  -1.42784546E+000  -5.83336592E-001
+rism_partialMolarVolume                1.05519833E+002
+rism_totalParticlesBox                                   8.94950902E+002   1.78990336E+003   1.62500233E+000   1.62498790E+000
+rism_totalChargeBox                    6.75166816E-004  -7.58560385E+002   7.58561046E+002   1.62500233E+000  -1.62498790E+000
+rism_excessParticlesBox                                 -3.45876144E+000  -6.91596382E+000  -9.74579601E-004  -9.89012759E-004
+rism_excessChargeBox                   6.75166816E-004   2.93164620E+000  -2.93098547E+000  -9.74579601E-004   9.89012759E-004
+rism_KirkwoodBuff                                       -1.03946521E+002  -1.03923094E+002  -1.61832859E+001  -1.64229543E+001
+rism_DCFintegral                                        -4.99478504E+003   1.68894725E+003   6.72505767E+003  -9.93866438E+003
+
+Finished MME
+
+3D-RISM processing complete.
+
+|Timing summary:
+|              Initialize       1.435
+|             Molec. Dyn.       0.000
+|             Normal Mode       0.000
+|             Conj. Grad.       0.000
+|                  Newton       0.000
+|-------------------------
+|                   Total       1.435
+
+|1st derivative timing summary:
+|             constraints       0.000
+|                   bonds       0.000
+|                  angles       0.000
+|                torsions       0.000
+|                pairlist       0.000
+|                 nonbond       0.000
+|               gen. Born       0.000
+|       Poisson Boltzmann       0.000
+|                 3D-RISM      16.227
+|                   Other       0.000
+|-------------------------
+|                   Total      16.227
+
+|3D-RISM memory allocation summary
+|Type          Maximum
+|Integer       0.00083 GB
+|Real          0.15176 GB
+|Logical       0.00000 GB
+|Character     0.00000 GB
+|------------------------
+|Total         0.15218 GB
+
+|CPU Timer summary for 3D-RISM Total        
+|  3D-RISM initialization                           1.400   (  8.00%)
+|      Excess Chemical Potential                        0.072   ( 78.26%)
+|      Other                                            0.020   ( 21.74%)
+|    Thermodynamics                                   0.092   (  0.57%)
+|      Solvation box resize                             0.944   (  5.90%)
+|          FFT                                              6.224   ( 43.01%)
+|            Overlap                                          1.132   ( 30.66%)
+|            Project                                          2.560   ( 69.34%)
+|          MDIIS Advance                                    3.692   ( 25.51%)
+|          Other                                            4.556   ( 31.48%)
+|        R1RISM                                          14.472   ( 99.83%)
+|        Other                                            0.024   (  0.17%)
+|      RXRISM                                          14.496   ( 90.60%)
+|        Lennard-Jones                                    0.136   ( 24.29%)
+|          Long-Range Coulomb                               0.036   ( 19.15%)
+|          Short-Range Coulomb                              0.152   ( 80.85%)
+|        Coulomb                                          0.188   ( 33.57%)
+|        Asymptotics                                      0.232   ( 41.43%)
+|        Other                                            0.004   (  0.71%)
+|      Potential                                        0.560   (  3.50%)
+|    Solve 3D-RISM                                   16.000   ( 99.35%)
+|    Other                                            0.012   (  0.07%)
+|  3D-RISM                                         16.104   ( 92.06%)
+|3D-RISM Total                                   17.492   (100.00%)

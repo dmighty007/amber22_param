@@ -1,0 +1,175 @@
+
+Info: Bond types are assigned for valence state 1 with penalty of 1
+
+Running: /media/Gaia/projects/casegroup/amber/bin/atomtype -f ac -p bcc -o ANTECHAMBER_AM1BCC.AC -i ANTECHAMBER_AM1BCC_PRE.AC
+Running: /media/Gaia/projects/casegroup/amber/bin/bondtype -j full -i ANTECHAMBER_BOND_TYPE.AC0 -o ANTECHAMBER_BOND_TYPE.AC -f ac
+
+Running: /media/Gaia/projects/casegroup/amber/bin/atomtype -i ANTECHAMBER_AC.AC0 -o ANTECHAMBER_AC.AC -p gaff
+Total number of electrons: 36; net charge: 1
+
+Running: /media/Gaia/projects/casegroup/amber/bin/sqm -O -i sqm.in -o sqm.out
+
+Running: /media/Gaia/projects/casegroup/amber/bin/am1bcc -i ANTECHAMBER_AM1BCC_PRE.AC -o ANTECHAMBER_AM1BCC.AC -f ac -p /media/Gaia/projects/casegroup/amber/dat/antechamber/BCCPARM.DAT -s 2 -j 1
+
+-I: Adding /media/Gaia/projects/casegroup/amber/dat/leap/prep to search path.
+-I: Adding /media/Gaia/projects/casegroup/amber/dat/leap/lib to search path.
+-I: Adding /media/Gaia/projects/casegroup/amber/dat/leap/parm to search path.
+-I: Adding /media/Gaia/projects/casegroup/amber/dat/leap/cmd to search path.
+-f: Source imidazoleH+_tleap.in.
+
+Welcome to LEaP!
+(no leaprc in search path)
+Sourcing: ./imidazoleH+_tleap.in
+----- Source: /media/Gaia/projects/casegroup/amber/dat/leap/cmd/leaprc.ff12SB
+----- Source of /media/Gaia/projects/casegroup/amber/dat/leap/cmd/leaprc.ff12SB done
+Log file: ./leap.log
+Loading parameters: /media/Gaia/projects/casegroup/amber/dat/leap/parm/parm10.dat
+Reading title:
+PARM99 + frcmod.ff99SB + frcmod.parmbsc0 + OL3 for RNA
+Loading parameters: /media/Gaia/projects/casegroup/amber/dat/leap/parm/frcmod.ff12SB
+Reading force field modification type file (frcmod)
+Reading title:
+ff12SB protein backbone and sidechain parameters
+Loading library: /media/Gaia/projects/casegroup/amber/dat/leap/lib/amino12.lib
+Loading library: /media/Gaia/projects/casegroup/amber/dat/leap/lib/aminoct12.lib
+Loading library: /media/Gaia/projects/casegroup/amber/dat/leap/lib/aminont12.lib
+Loading library: /media/Gaia/projects/casegroup/amber/dat/leap/lib/nucleic12.lib
+Loading library: /media/Gaia/projects/casegroup/amber/dat/leap/lib/ions08.lib
+Loading library: /media/Gaia/projects/casegroup/amber/dat/leap/lib/solvents.lib
+----- Source: /media/Gaia/projects/casegroup/amber/dat/leap/cmd/leaprc.gaff
+----- Source of /media/Gaia/projects/casegroup/amber/dat/leap/cmd/leaprc.gaff done
+Log file: ./leap.log
+Loading parameters: /media/Gaia/projects/casegroup/amber/dat/leap/parm/gaff.dat
+Reading title:
+AMBER General Force Field for organic molecules (Version 1.7, Nov 2013)
+Loading Mol2 file: /tmp/imidazoleH+_hq.mol2
+Reading MOLECULE named 1020
+Checking 'imidazoleH'....
+WARNING: The unperturbed charge of the unit: 1.001000 is not zero.
+Checking parameters for unit 'imidazoleH'.
+Checking for bond parameters.
+Checking for angle parameters.
+Could not find angle parameter: na - cc - na
+There are missing parameters.
+check:  Warnings: 1
+Unit is OK.
+Loading parameters: ./imidazoleH+.frcmod
+Reading force field modification type file (frcmod)
+Reading title:
+Remark line goes here
+Checking Unit.
+WARNING: The unperturbed charge of the unit: 1.001000 is not zero.
+
+ -- ignoring the warning.
+
+Building topology.
+Building atom parameters.
+Building bond parameters.
+Building angle parameters.
+Building proper torsion parameters.
+Building improper torsion parameters.
+ total 5 improper torsions applied
+Building H-Bond parameters.
+Incorporating Non-Bonded adjustments.
+Not Marking per-residue atom chain types.
+Marking per-residue atom chain types.
+  (Residues lacking connect0/connect1 - 
+   these don't have chain types marked:
+
+	res	total affected
+
+	LIG	1
+  )
+ (no restraints)
+Writing pdb file: imidazoleH+_hq.pdb
+	Quit
+
+Info: Bond types are assigned for valence state 1 with penalty of 1
+Running: /media/Gaia/projects/casegroup/amber/bin/bondtype -j full -i ANTECHAMBER_BOND_TYPE.AC0 -o ANTECHAMBER_BOND_TYPE.AC -f ac
+
+Running: /media/Gaia/projects/casegroup/amber/bin/atomtype -i ANTECHAMBER_AC.AC0 -o ANTECHAMBER_AC.AC -p gaff
+Total number of electrons: 37; net charge: 0
+INFO: Number of electrons is odd: 37
+      Please check the total charge (-nc flag) and spin multiplicity (-m flag)
+
+Running: /media/Gaia/projects/casegroup/amber/bin/sqm -O -i sqm.in -o sqm.out
+Error: cannot run "/media/Gaia/projects/casegroup/amber/bin/sqm -O -i sqm.in -o sqm.out" of bcc() in charge.c properly, exit
+-I: Adding /media/Gaia/projects/casegroup/amber/dat/leap/prep to search path.
+-I: Adding /media/Gaia/projects/casegroup/amber/dat/leap/lib to search path.
+-I: Adding /media/Gaia/projects/casegroup/amber/dat/leap/parm to search path.
+-I: Adding /media/Gaia/projects/casegroup/amber/dat/leap/cmd to search path.
+-f: Source imidazoleH+_tleap.in.
+
+Welcome to LEaP!
+(no leaprc in search path)
+Sourcing: ./imidazoleH+_tleap.in
+----- Source: /media/Gaia/projects/casegroup/amber/dat/leap/cmd/leaprc.ff12SB
+----- Source of /media/Gaia/projects/casegroup/amber/dat/leap/cmd/leaprc.ff12SB done
+Log file: ./leap.log
+Loading parameters: /media/Gaia/projects/casegroup/amber/dat/leap/parm/parm10.dat
+Reading title:
+PARM99 + frcmod.ff99SB + frcmod.parmbsc0 + OL3 for RNA
+Loading parameters: /media/Gaia/projects/casegroup/amber/dat/leap/parm/frcmod.ff12SB
+Reading force field modification type file (frcmod)
+Reading title:
+ff12SB protein backbone and sidechain parameters
+Loading library: /media/Gaia/projects/casegroup/amber/dat/leap/lib/amino12.lib
+Loading library: /media/Gaia/projects/casegroup/amber/dat/leap/lib/aminoct12.lib
+Loading library: /media/Gaia/projects/casegroup/amber/dat/leap/lib/aminont12.lib
+Loading library: /media/Gaia/projects/casegroup/amber/dat/leap/lib/nucleic12.lib
+Loading library: /media/Gaia/projects/casegroup/amber/dat/leap/lib/ions08.lib
+Loading library: /media/Gaia/projects/casegroup/amber/dat/leap/lib/solvents.lib
+----- Source: /media/Gaia/projects/casegroup/amber/dat/leap/cmd/leaprc.gaff
+----- Source of /media/Gaia/projects/casegroup/amber/dat/leap/cmd/leaprc.gaff done
+Log file: ./leap.log
+Loading parameters: /media/Gaia/projects/casegroup/amber/dat/leap/parm/gaff.dat
+Reading title:
+AMBER General Force Field for organic molecules (Version 1.7, Nov 2013)
+Loading Mol2 file: /tmp/imidazoleH+_hq.mol2
+Reading MOLECULE named 1020
+Checking 'imidazoleH'....
+WARNING: The unperturbed charge of the unit: 1.001000 is not zero.
+Checking parameters for unit 'imidazoleH'.
+Checking for bond parameters.
+Checking for angle parameters.
+Could not find angle parameter: na - cc - na
+There are missing parameters.
+check:  Warnings: 1
+Unit is OK.
+Loading parameters: ./imidazoleH+.frcmod
+Reading force field modification type file (frcmod)
+Reading title:
+Remark line goes here
+Checking Unit.
+WARNING: The unperturbed charge of the unit: 1.001000 is not zero.
+
+ -- ignoring the warning.
+
+Building topology.
+Building atom parameters.
+Building bond parameters.
+Building angle parameters.
+Building proper torsion parameters.
+Building improper torsion parameters.
+ total 5 improper torsions applied
+Building H-Bond parameters.
+Incorporating Non-Bonded adjustments.
+Not Marking per-residue atom chain types.
+Marking per-residue atom chain types.
+  (Residues lacking connect0/connect1 - 
+   these don't have chain types marked:
+
+	res	total affected
+
+	LIG	1
+  )
+ (no restraints)
+Writing pdb file: imidazoleH+_hq.pdb
+	Quit
+
+
+
+2014-07-01 15:50 /home/jesse/projects/casegroup/scripts/amber-params imidazoleH+.mol2
+
+
+2014-07-01 15:50 /home/jesse/projects/casegroup/scripts/amber-params imidazoleH+.pdb

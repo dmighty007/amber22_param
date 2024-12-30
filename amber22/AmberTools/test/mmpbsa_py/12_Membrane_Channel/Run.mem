@@ -1,0 +1,58 @@
+#!/bin/sh
+
+. ../../program_error.sh
+. ../cannot_run.sh
+
+# This is a test file to run the PB test for MMPBSA
+
+if [ -z "$AMBERHOME" ]; then
+   echo "Error: AMBERHOME must be set!"
+   exit 1
+fi
+
+# Define executable
+if [ -z "$DO_PARALLEL" ]; then
+   EXE=$AMBERHOME/bin/MMPBSA.py
+else
+   if [ `$DO_PARALLEL ../../numprocs` -gt 2 ]; then
+      echo "Cannot have more than 2 processors for this test."
+      exit 0
+   fi
+   EXE=$AMBERHOME/bin/MMPBSA.py.MPI
+fi
+
+test -x $EXE || cannot_run $EXE
+
+# Write input file
+cat > mmpbsa.in << EOF
+MMPBSA input file for running PB
+&general
+   use_sander=1,
+   startframe=1, endframe=2, interval=1,
+   keep_files=0, debug_printlevel=2
+/
+&pb
+  radiopt=0, indi=20.0, istrng=0.150, emem=7.0,
+  fillratio=1.25, ipb=1, memopt=1, nfocus=1,
+  bcopt=10, eneopt=1, cutfd=7.0, cutnb = 99.0,
+  npbverb=1, mctrdz=-10.383, poretype=1, solvopt=2,
+  mthick=36.086, maxarcdot=15000, inp=1
+/
+EOF
+
+# Execute the program
+$DO_PARALLEL $EXE -O -i mmpbsa.in \
+                     -cp 1K4C_AMI_strip.prmtop \
+                     -rp 1K4C_protein.prmtop \
+                     -lp AMI.prmtop \
+                     -eo energies.csv \
+                     -o FINAL_RESULTS_AMI.dat \
+                     -y 1K4C_AMI_strip.mdcrd > mmpbsa.out 2>&1 || error
+
+../../dacdif -t 3 -a 0.2 FINAL_RESULTS_AMI.dat.save FINAL_RESULTS_AMI.dat
+
+# Strip out the commas so we can use relative error comparisons
+sed -i -e "s@,@ @g" energies.csv
+../../dacdif -r 1e-2 energies.csv.save energies.csv
+
+/bin/rm -f mmpbsa.in mmpbsa.out *-e

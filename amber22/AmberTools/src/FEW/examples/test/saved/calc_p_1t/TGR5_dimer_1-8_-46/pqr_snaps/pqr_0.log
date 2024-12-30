@@ -1,0 +1,75 @@
+
+CPPTRAJ: Trajectory Analysis. V18.00b
+    ___  ___  ___  ___
+     | \/ | \/ | \/ | 
+    _|_/\_|_/\_|_/\_|_
+
+| Date/time: 03/29/18 13:33:12
+| Available memory: 1.105 GB
+
+INPUT: Reading input from '/home/gohlke/src/amber/AmberTools/src/FEW/examples/test/calc_p_1t/TGR5_dimer_1-8_-46/pqr_snaps/pqr_1.ptraj'
+  [parm /home/gohlke/src/amber/AmberTools/src/FEW/examples/test/calc_p_1t/TGR5_dimer_1-8_-46/topo/TGR5_dimer_1-8_-46_gb0_pb3_com.top]
+	Reading '/home/gohlke/src/amber/AmberTools/src/FEW/examples/test/calc_p_1t/TGR5_dimer_1-8_-46/topo/TGR5_dimer_1-8_-46_gb0_pb3_com.top' as Amber Topology
+	Radius Set: modified Bondi radii (mbondi)
+  [trajin /home/gohlke/src/amber/AmberTools/src/FEW/examples/test/calc_p_1t/TGR5_dimer_1-8_-46/snapshots/TGR5_dimer_1-8_-46_com.crd.1]
+	Reading '/home/gohlke/src/amber/AmberTools/src/FEW/examples/test/calc_p_1t/TGR5_dimer_1-8_-46/snapshots/TGR5_dimer_1-8_-46_com.crd.1' as Amber Restart
+  [trajin /home/gohlke/src/amber/AmberTools/src/FEW/examples/test/calc_p_1t/TGR5_dimer_1-8_-46/snapshots/TGR5_dimer_1-8_-46_com.crd.2]
+	Reading '/home/gohlke/src/amber/AmberTools/src/FEW/examples/test/calc_p_1t/TGR5_dimer_1-8_-46/snapshots/TGR5_dimer_1-8_-46_com.crd.2' as Amber Restart
+  [center :1-594 origin]
+    CENTER: Centering coordinates using geometric center of atoms in mask (:1-594) to
+	coordinate origin.
+  [image origin center]
+    IMAGE: By molecule to origin based on center of mass using all atoms
+  [trajout tmp/snap.pqr pdb multi parse]
+	Writing 'tmp/snap.pqr' as PDB
+---------- RUN BEGIN -------------------------------------------------
+
+PARAMETER FILES (1 total):
+ 0: TGR5_dimer_1-8_-46_gb0_pb3_com.top, 9082 atoms, 594 res, box: None, 2 mol
+
+INPUT TRAJECTORIES (2 total):
+ 0: 'TGR5_dimer_1-8_-46_com.crd.1' is an AMBER restart file, no velocities, Parm TGR5_dimer_1-8_-46_gb0_pb3_com.top (reading 1 of 1)
+ 1: 'TGR5_dimer_1-8_-46_com.crd.2' is an AMBER restart file, no velocities, Parm TGR5_dimer_1-8_-46_gb0_pb3_com.top (reading 1 of 1)
+  Coordinate processing will occur on 2 frames.
+
+OUTPUT TRAJECTORIES (1 total):
+  'snap.pqr' (2 frames) is a PDB file (1 file per frame), writing charges to occupancy column and PARSE radii to B-factor column
+
+BEGIN TRAJECTORY PROCESSING:
+.....................................................
+ACTION SETUP FOR PARM 'TGR5_dimer_1-8_-46_gb0_pb3_com.top' (2 actions):
+  0: [center :1-594 origin]
+	Mask [:1-594] corresponds to 9082 atoms.
+  1: [image origin center]
+Warning: Topology TGR5_dimer_1-8_-46_gb0_pb3_com.top does not contain box information.
+Warning: Setup incomplete for [image]: Skipping
+.....................................................
+ACTIVE OUTPUT TRAJECTORIES (1):
+  tmp/snap.pqr (coordinates)
+----- TGR5_dimer_1-8_-46_com.crd.1 (1-1, 1) -----
+ 0% 
+----- TGR5_dimer_1-8_-46_com.crd.2 (1-1, 1) -----
+100% Complete.
+
+Read 2 frames and processed 2 frames.
+TIME: Avg. throughput= 11.6333 frames / second.
+
+ACTION OUTPUT:
+TIME: Analyses took 0.0000 seconds.
+
+RUN TIMING:
+TIME:		Init               : 0.0000 s (  0.01%)
+TIME:		Trajectory Process : 0.1719 s ( 99.98%)
+TIME:		Action Post        : 0.0000 s (  0.00%)
+TIME:		Analysis           : 0.0000 s (  0.00%)
+TIME:		Data File Write    : 0.0000 s (  0.00%)
+TIME:		Other              : 0.0000 s (  0.00%)
+TIME:	Run Total 0.1720 s
+---------- RUN END ---------------------------------------------------
+TIME: Total execution time: 0.2397 seconds.
+--------------------------------------------------------------------------------
+To cite CPPTRAJ use:
+Daniel R. Roe and Thomas E. Cheatham, III, "PTRAJ and CPPTRAJ: Software for
+  Processing and Analysis of Molecular Dynamics Trajectory Data". J. Chem.
+  Theory Comput., 2013, 9 (7), pp 3084-3095.
+

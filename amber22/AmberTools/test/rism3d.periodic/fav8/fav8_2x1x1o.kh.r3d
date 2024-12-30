@@ -1,0 +1,148 @@
+Reading parm file (fav8_2x1x1_nowat.parm7)
+title:
+default_name                                                                    
+	mm_options:  cut=2.000000e+01
+	mm_options:  rism=1
+	mm_options:  ntpr_rism=1
+	mm_options:  xvvfile=../xvv/spc-kh.xvv
+	mm_options:  guvfile=fav8_2x1x1.guv
+	mm_options:  volfmt=ccp4
+	mm_options:  rst=fav8_2x1x1_nowato.rst7
+	mm_options:  closure=kh
+	mm_options:  closureOrder=1
+	mm_options:  buffer=1
+	mm_options:  solvcut=7.2
+	mm_options:  grdspcx=0.35
+	mm_options:  grdspcy=0.35
+	mm_options:  grdspcz=0.35
+	mm_options:  solvboxx=0
+	mm_options:  solvboxy=0
+	mm_options:  solvboxz=0
+	mm_options:  ngx=0
+	mm_options:  ngy=0
+	mm_options:  ngz=0
+	mm_options:  tolerance=1e-06
+	mm_options:  mdiis_del=0.7
+	mm_options:  mdiis_restart=10
+	mm_options:  mdiis_nvec=5
+	mm_options:  mdiis_method=2
+	mm_options:  maxstep=10000
+	mm_options:  npropagate=5
+	mm_options:  centering=0
+	mm_options:  zerofrc=1
+	mm_options:  apply_rism_force=0
+	mm_options:  polarDecomp=0
+	mm_options:  entropicDecomp=0
+	mm_options:  periodic=pme
+	mm_options:  ntwrism=1
+	mm_options:  verbose=2
+	mm_options:  progress=0
+	mm_options:  asympCorr=1
+	mm_options:  saveprogress=0
+	mm_options:  uccoeff=-3.312,1.152
+	mm_options:  biasPotential=0
+WARNING> Xvv version:   1.000
+WARNING> Unable to calculate UC or PMV temperature derivatives
+|solutePotentialEnergy                [kcal/mol]                Total                   LJ              Coulomb                 Bond                Angle             Dihedral               H-Bond                LJ-14           Coulomb-14           Restraints              3D-RISM
+|rism_excessChemicalPotential         [kcal/mol]                Total         ExcChemPot_O        ExcChemPot_H1
+|rism_excessChemicalPotentialGF       [kcal/mol]                Total      ExcChemPot_GF_O     ExcChemPot_GF_H1
+|rism_excessChemicalPotentialUC       [kcal/mol]                Total
+|rism_solventPotentialEnergy          [kcal/mol]                Total       UV_potential_O      UV_potential_H1
+|rism_partialMolarVolume              [A^3]                       PMV
+|rism_totalParticles                  [#]                                       TotalNum_O          TotalNum_H1
+|rism_totalCharge                     [e]                       Total           TotalChg_O          TotalChg_H1
+|rism_excessParticles                 [#]                                          ExNum_O             ExNum_H1
+|rism_excessCharge                    [e]                       Total              ExChg_O             ExChg_H1
+|rism_KirkwoodBuff                    [A^3]                                           KB_O                KB_H1
+|rism_DCFintegral                     [A^3]                                         DCFI_O              DCFI_H1
+
+Processing restart file: fav8_2x1x1_nowato.rst7
+
+Running MME
+  nblist_box, number of atoms= 544
+  nblist_box, number of pairs= 138064
+|FULL RISM!!!
+||Setting solvation box to
+|grid size:         64 X         48 X         54
+|box size [A]:      21.604 X     16.361 X     17.853
+|grid spacing [A]:      0.338 X      0.341 X      0.331
+|inscribed sphere radius [A]:      7.282
+|Switching to KH closure
+|RXRISM converged in   424 steps
+solutePotentialEnergy                 -1.49203405E+004  -1.97140854E+002  -1.85945811E+003   2.26500359E+002   2.19019270E+002   2.46306294E+002   0.00000000E+000   2.21017667E+002   1.31835995E+003   0.00000000E+000  -1.50949450E+004
+rism_excessChemicalPotential          -1.50949450E+004   7.16677551E+003  -2.22617205E+004
+rism_excessChemicalPotentialGF        -1.52559317E+004   7.11303033E+003  -2.23689621E+004
+rism_excessChemicalPotentialUC        -1.56710648E+004
+rism_solventPotentialEnergy           -1.58311178E+004  -6.37605991E+002  -1.51935118E+004
+rism_partialMolarVolume                3.77115930E+003
+rism_bulkCharge                        0.00000000E+000  -2.82498772E-002   2.82498772E-002
+rism_totalParticles                                      6.07319541E+001   1.21463543E+002
+rism_totalCharge                      -1.54585750E-004  -5.14764043E+001   5.14762497E+001
+rism_excessParticles                                    -1.25625162E+002  -2.51250689E+002
+rism_excessCharge                     -1.54585750E-004   1.06479887E+002  -1.06480042E+002
+rism_KirkwoodBuff                                       -3.76921594E+003  -3.76922141E+003
+rism_DCFintegral                                        -7.84991767E+005   3.63350870E+005
+
+Finished MME
+
+3D-RISM processing complete.
+
+|3D-RISM memory allocation summary
+|Type          Maximum
+|Integer       0.00064 GB
+|Real          0.05955 GB
+|Logical       0.00000 GB
+|Character     0.00000 GB
+|------------------------
+|Total         0.05987 GB
+
+|Timing summary:
+|              Initialize       0.142
+|             Molec. Dyn.       0.000
+|             Normal Mode       0.000
+|             Conj. Grad.       0.000
+|                  Newton       0.000
+|-------------------------
+|                   Total       0.142
+
+|1st derivative timing summary:
+|             constraints       0.000
+|                   bonds       0.001
+|                  angles       0.000
+|                torsions       0.000
+|                pairlist       0.004
+|                 nonbond       0.005
+|               gen. Born       0.000
+|       Poisson Boltzmann       0.000
+|                 3D-RISM      15.432
+|                   Other       0.000
+|-------------------------
+|                   Total      15.441
+
+|CPU Timer summary for 3D-RISM Total        
+|  3D-RISM initialization                           0.131   (  0.79%)
+|  3D-RISM Output                                   0.011   (  0.07%)
+|      Excess Chemical Potential                        0.002   ( 44.67%)
+|      Other                                            0.002   ( 55.33%)
+|    Thermodynamics                                   0.004   (  0.02%)
+|      Solvation box resize                             0.310   (  1.89%)
+|          FFT                                              4.007   ( 46.22%)
+|            Overlap                                          0.364   ( 19.09%)
+|            Restart                                          0.000   (  0.01%)
+|            Lapack                                           0.003   (  0.15%)
+|            Project                                          1.536   ( 80.53%)
+|            Other                                            0.004   (  0.22%)
+|          MDIIS Advance                                    1.907   ( 22.00%)
+|          Other                                            2.754   ( 31.77%)
+|        R1RISM                                           8.668   ( 99.97%)
+|        Other                                            0.003   (  0.03%)
+|      RXRISM                                           8.671   ( 53.02%)
+|        Lennard-Jones                                    3.002   ( 40.72%)
+|        Coulomb                                          4.368   ( 59.25%)
+|        Asymptotics                                      0.001   (  0.01%)
+|        Other                                            0.002   (  0.02%)
+|      Potential                                        7.372   ( 45.08%)
+|    Solve 3D-RISM                                   16.354   ( 99.97%)
+|  3D-RISM                                         16.358   ( 99.14%)
+|3D-RISM Total                                   16.500   (100.00%)
+

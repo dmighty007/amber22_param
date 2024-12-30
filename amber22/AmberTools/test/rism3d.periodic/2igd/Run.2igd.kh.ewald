@@ -1,0 +1,12 @@
+#! /usr/bin/env sh
+
+solvent=../xvv/spc-kh.xvv
+
+rism3d.snglpnt --periodic ewald --pdb 2igd.pdb \
+               --prmtop 2igd.parm7 --rst 2igd.rst7 \
+               --xvv $solvent --closure kh --tolerance 0.000001 \
+               --grdspc 0.5,0.5,0.5 --buffer 1.0 --verbose 2 --volfmt dx \
+               --solvcut 8 --noprogress --centering 0 \
+               > 2igd.kh.ewald.r3d
+
+../../dacdif -r 1.e-6 2igd.kh.ewald.r3d.save 2igd.kh.ewald.r3d

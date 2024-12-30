@@ -1,0 +1,56 @@
+
+=>> Init data
+    Presuming executables of amber suite to be in /apps/prod/amber17_gnu/bin
+
+=>> Reading input parameters
+    Found VERBOSE => 0
+    Found PARALLEL => 0
+    Found PREFIX => TGR5_dimer_1-8_-46
+    Found PATH => ./
+    Found START => 1
+    Found STOP => 1
+    Found OFFSET => 1
+    Found COMPLEX => 1
+    Found RECEPTOR => 1
+    Found LIGAND => 1
+    Found COMPT => 
+    Found RECPT => 
+    Found LIGPT => 
+    Found GC => 1
+    Found AS => 0
+    Found DC => 0
+    Found MM => 0
+    Found GB => 0
+    Found PB => 0
+    Found MS => 0
+    Found NM => 0
+    Found BOX => YES
+    Found NTOTAL => 115790
+    Found NSTART => 1
+    Found NSTOP => 2
+    Found NFREQ => 1
+    Found NUMBER_REC_GROUPS => 1
+    Found RSTART => 1
+    Found RSTOP => 4541
+    Found NUMBER_LIG_GROUPS => 1
+    Found LSTART => 4542
+    Found LSTOP => 9082
+    Found TRAJECTORY => /store2/waeschenbach/work/FEW/amber17/AmberTools/src/FEW//examples/test/input_info/TGR5_1-8_-46_1-2.mdcrd
+
+=>> Checking sanity
+    Checking GENERAL
+    Checking GC
+    Checking TRAJ
+
+=>> Creating input
+    make_crd input
+
+=>> Creating coordinates
+    Executing makecrd
+  
+ AmberTools16 Module: make_crg_hg
+  
+ usage: make_crd_hg <  trajectory_file 
+  
+ Box info found:    113.31300000000000        105.12200000000000        94.096000000000004     
+ Box info found:    113.66000000000000        104.92200000000000        94.031000000000006     

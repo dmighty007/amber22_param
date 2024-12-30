@@ -1,0 +1,38 @@
+#!/bin/sh 
+#TEST-PROGRAM rism3d.snglpnt
+#TEST-DESCRIP Tests periodic pme on protein
+#TEST-PURPOSE regression, basic
+#TEST-STATE   undocumented
+
+PROG="$AMBERHOME/bin/rism3d.snglpnt"
+
+if [ -z "$DO_PARALLEL" ]; then
+   DO_PARALLEL=" "
+   numprocs=1
+else
+   numprocs=`echo $DO_PARALLEL | awk -f ../../numprocs.awk `
+   if [ "$numprocs" -gt 8 ]; then
+       echo " DO_PARALLEL set to $DO_PARALLEL; max is 4"
+       exit 0
+   fi
+   PROG=$PROG.MPI
+   echo "Running $DO_PARALLEL $PROG"
+   if [ ! -x $PROG ]; then
+       echo "$PROG not found... skipping test"
+       exit 0
+   fi
+fi
+
+solvent=../xvv/spc-na-cl-kh.xvv
+
+$DO_PARALLEL $PROG --periodic ewald --pdb 1ahoa.pdb \
+               --prmtop 1ahoa.parm7 --rst 1ahoa.rst7 \
+               --xvv $solvent --closure kh --tolerance 0.000001 \
+               --grdspc 0.5,0.5,0.5 --buffer 1.0 --verbose 2 \
+               --solvcut 8 --centering 0 --noprogress \
+               > 1ahoa.kh.pme.r3d
+
+grep -E "^rism_|^solute" 1ahoa.kh.ewald.r3d > erism.ewald.out
+/bin/rm -f 1ahoa.kh.ewald.r3d
+../../dacdif -r 1.e-4 erism.ewald.out.save erism.ewald.out
+

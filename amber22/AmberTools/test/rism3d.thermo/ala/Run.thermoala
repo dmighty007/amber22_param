@@ -1,0 +1,11 @@
+#!/bin/sh
+
+. ../../program_error.sh
+
+echo "Testing rism3d.thermo on alanine dipeptide"
+echo ""
+$AMBERHOME/bin/rism3d.thermo --number --pmv --exchem -x ../../rism1d/spc-kh/spc.xvv.save -g guv.O.0.dx guv.H1.0.dx -c cuv.O.0.dx cuv.H1.0.dx --parm ../../nab/ala.parm7 --crd ../../nab/ala.pdb --ahr ahr.0.dx --acr acr.0.dx > thermo.out
+
+../../dacdif -r 1e-6 thermo.out.check thermo.out
+
+exit 0

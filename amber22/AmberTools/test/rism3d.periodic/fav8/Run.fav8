@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# ============= Run rism3d.snglpnt
+# solvent=/home/case/projects/3drism/solvent/tienhung/cSPCE/KH/water/rism.xvv
+solvent=../xvv/spc-kh.xvv
+
+rism3d.snglpnt --periodic "ewald" --pdb fav8_nowatc.pdb \
+   --prmtop fav8_nowat.parm7 \
+   --rst fav8_nowatc.rst7 \
+    --xvv $solvent \
+    --closure kh --tolerance 0.000001 \
+    --grdspc 0.35,0.35,0.35 --buffer 1.0 --verbose 2 --volfmt ccp4 \
+    --guv fav8.guv --centering 0 --noprogress \
+     > fav8.kh.r3d
+
+../../dacdif -r 1.e-6 fav8.kh.r3d.save fav8.kh.r3d

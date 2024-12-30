@@ -1,0 +1,66 @@
+#!/bin/csh -f
+#TEST-PROGRAM sander
+#TEST-DESCRIP TO_BE_DEtermined
+#TEST-PURPOSE regression, basic
+#TEST-STATE   undocumented
+
+set sander = "${AMBERHOME}/bin/sander"
+if( $?TESTsander ) then
+    set sander = $TESTsander
+endif
+
+cat > mdin <<EOF
+Benzene in water ReaxFF/AMBER NVE Non-periodic dt=0.25fs 
+&cntrl
+  imin   = 0,           !no minimization
+  irest  = 1,           !restart
+  ntx    = 5,           !coordinates and velocities are read in
+  cut    = 9999.9,      !non-bonded interactions cutoff
+  dt     = 0.00025,     !0.25fs time step
+  ntb    = 0,           !non-periodic sim.
+  ntt    = 0,           !turn off thermostat - NVE
+  ntpr   = 1,           !print details to log every step
+  ntwx   = 1,           !write coordinates to mdcrd every steps (every 250fs)
+  ntwr   = 2,           !write restart file at last step
+  nstlim = 2,           !run for 2 steps
+  nscm   = 0,           !No removal of COM motion,
+  ioutfm = 1,           !NetCDF MDCRD.
+  ntxo   = 1,           !Formatted ASCII restart file
+  ifqnt  = 1,
+ /
+ &qmmm
+  qmmask    = ':1',
+  qm_theory = 'EXTERN',
+  qmcharge  = 0,
+  qmshake   = 0,
+  qm_ewald  = 0,
+  qm_pme    = 0
+ /
+ &reaxff
+ solvtol=1e-14
+ /
+EOF
+
+set output = benz_water_md.out
+set restrt = benz_water_md.restrt
+rm -f $output
+
+touch dummy
+$sander -O -p benz_water.prmtop -c init_benz_water.restrt -o $output -r $restrt < dummy || goto error
+
+../../../dacdif -a 1.0e-03 $output.save $output
+../../../dacdif -a 1.0e-03 $restrt.save $restrt
+
+
+/bin/rm -f dummy mdin mdinfo mdcrd dummy restrt
+exit(0)
+error:
+if ( `tail $output | grep "reaxff-puremd is not enabled" | wc -l` > 0 ) then
+  echo 'ReaxFF support not installed - Skipping Test...'
+  echo ''
+  exit(0)
+else
+  echo "  ${0}:  Program error"
+  exit(1)
+endif
+

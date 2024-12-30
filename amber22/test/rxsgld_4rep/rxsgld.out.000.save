@@ -1,0 +1,755 @@
+
+          -------------------------------------------------------
+          Amber 22 SANDER                              2022
+          -------------------------------------------------------
+
+| Run on 04/21/2022 at 15:47:12
+
+|   Executable path: /u/wxw/ambers/install_dev/bin/sander.MPI
+| Working directory: /u/wxw/ambers/install_dev/test/rxsgld_4rep
+|          Hostname: m2.lobos.nih.gov
+
+  [-O]verwriting output
+
+File Assignments:
+|  MDIN: ./rxsgld.in.000                                                       
+| MDOUT: rxsgld.out.000                                                        
+|INPCRD: ./mdrestrt                                                            
+|  PARM: ./ala3.top                                                            
+|RESTRT: ./rxsgld.r.000                                                        
+|  REFC: refc                                                                  
+| MDVEL: mdvel.000                                                             
+| MDFRC: mdfrc.000                                                             
+|  MDEN: mden.000                                                              
+| MDCRD: ./rxsgld.crd.000                                                      
+|MDINFO: rxsgldinfo.000                                                        
+|  MTMD: mtmd                                                                  
+|INPDIP: inpdip                                                                
+|RSTDIP: rstdip                                                                
+|INPTRA: inptraj                                                               
+
+|    REMLOG: rxsgld.log
+|   REMTYPE: rem.type
+|  REMSTRIP: 
+|   SAVEENE: saveene
+|CLUSTERINF: cluster.info
+| RESERVOIR: reserv/frame
+|   REMDDIM: 
+
+ 
+ Here is the input file:
+ 
+Title Line                                                                     
+ &cntrl                                                                        
+        imin = 0, nstlim = 10, dt = 0.001,                                     
+        ntx = 5, tempi = 300.0, temp0 = 300.0,                                 
+        ntt = 3, tol = 0.000001, gamma_ln = 1.0,                               
+        ntc = 2, ntf = 1, ntb = 0,                                             
+        ntwx = 10, ntwe = 0, ntwr =100, ntpr = 1,                              
+        cut = 99.0, ioutfm = 0,                                                
+        ntr = 0, tautp = 0.1, offset = 0.09,                                   
+        nscm = 100, igb = 1, irest=1,                                          
+        ntave = 0, numexchg=5,                                                 
+        isgld=1,tsgavg=0.2,sgft=0, ig=71277,                                   
+ &end                                                                          
+
+--------------------------------------------------------------------------------
+   1.  RESOURCE   USE: 
+--------------------------------------------------------------------------------
+
+| Flags: MPI                                                                    
+| New format PARM file being parsed.
+| Version =    1.000 Date = 11/17/05 Time = 17:46:16
+ NATOM  =      42 NTYPES =       7 NBONH =      22 MBONA  =      19
+ NTHETH =      47 MTHETA =      25 NPHIH =      81 MPHIA  =      66
+ NHPARM =       0 NPARM  =       0 NNB   =     205 NRES   =       5
+ NBONA  =      19 NTHETA =      25 NPHIA =      66 NUMBND =       8
+ NUMANG =      16 NPTRA  =      19 NATYP =       7 NPHB   =       0
+ IFBOX  =       0 NMXRS  =      10 IFCAP =       0 NEXTRA =       0
+ NCOPY  =       0
+
+
+|     Memory Use     Allocated
+|     Real              505735
+|     Hollerith            133
+|     Integer            22122
+|     Max Pairs              1
+|     nblistReal             0
+|     nblist Int             0
+|       Total             4038 kbytes
+
+| Note: 1-4 EEL scale factors were NOT found in the topology file.
+|       Using default value of 1.2.
+
+| Note: 1-4 VDW scale factors were NOT found in the topology file.
+|       Using default value of 2.0.
+| Duplicated    0 dihedrals
+| Duplicated    0 dihedrals
+
+--------------------------------------------------------------------------------
+   2.  CONTROL  DATA  FOR  THE  RUN
+--------------------------------------------------------------------------------
+
+ACE                                                                             
+
+General flags:
+     imin    =       0, nmropt  =       0
+
+Replica exchange
+     numexchg=       5, rem=       1
+
+Nature and format of input:
+     ntx     =       5, irest   =       1, ntrx    =       1
+
+Nature and format of output:
+     ntxo    =       2, ntpr    =       1, ntrx    =       1, ntwr    =     100
+     iwrap   =       0, ntwx    =      10, ntwv    =       0, ntwe    =       0
+     ioutfm  =       0, ntwprt  =       0, idecomp =       0, rbornstat=      0
+
+Potential function:
+     ntf     =       1, ntb     =       0, igb     =       1, nsnb    =      25
+     ipol    =       0, gbsa    =       0, iesp    =       0
+     dielc   =   1.00000, cut     =  99.00000, intdiel =   1.00000
+     saltcon =   0.00000, offset  =   0.09000, gbalpha=    1.00000
+     gbbeta  =   0.00000, gbgamma =   0.00000, surften =   0.00500
+     rdt     =   0.00000, rgbmax  =  25.00000  extdiel =  78.50000
+     alpb  =        0
+
+Frozen or restrained atoms:
+     ibelly  =       0, ntr     =       0
+
+Molecular dynamics:
+     nstlim  =        10, nscm    =       100, nrespa  =         1
+     t       =   0.00000, dt      =   0.00100, vlimit  =  20.00000
+
+Langevin dynamics temperature regulation:
+     ig      =   71277
+     temp0   = 300.00000, tempi   = 300.00000, gamma_ln=   1.00000
+
+SHAKE:
+     ntc     =       2, jfastw  =       0
+     tol     =   0.00000
+
+| MPI Timing options:
+|      profile_mpi =        0
+|  INFO: Old style inpcrd file read
+
+
+--------------------------------------------------------------------------------
+   3.  ATOMIC COORDINATES AND VELOCITIES
+--------------------------------------------------------------------------------
+
+ACE                                                                             
+ begin time read from input coords =   100.000 ps
+
+ Number of triangulated 3-point waters found:        0
+|  Atom division among processors:
+|         0      26      42
+|  Running AMBER/MPI version on    2 nodes
+
+|  MULTISANDER:    4 groups.    2 processors out of    8 total.
+  _________________ SGLD parameters _________________
+  Parameters for self-guided Langevin dynamics (SGLD) simulation
+
+  Guiding range from     1  to    42
+  Local averaging time:     0.2000 ps 
+  SGLDg  method is used to enhance conformational search. 
+  Collision frequency:    1.00 /ps
+  sgfti:   0.0000 psgldg:   0.0000
+  sgffi:   0.0000
+  SGMD/SGLD output properties:
+  SGLABEL:  SGGAMMA TEMPLF  TEMPHF  EPOTLF EPOTHF EPOTLLF SGWT
+         SGMD/SGLD weighting factor=exp(SGWT)
+ _______________________________________________________
+
+
+--------------------------------------------------------------------------------
+   4.  RESULTS
+--------------------------------------------------------------------------------
+
+|  # of SOLUTE  degrees of freedom (RNDFP):     104.
+|  # of SOLVENT degrees of freedom (RNDFS):       0.
+|  NDFMIN =     104.     NUM_NOSHAKE =      0     CORRECTED RNDFP =     104.
+|  TOTAL # of degrees of freedom (RNDF) =     104.
+| Exch         1 RREMD= 0
+| Replica        Temp= 300.00 Indx=  1 Rep#=  1 EPot=     -10.23
+| RepId     3 CrdIdx=     0
+| Partner        Temp= 300.00 Indx=  4 Rep#=  4 EPot=     -10.23
+| Not controlling exchange.
+| Rand=     0.597431E+00 MyScaling=       1.00 Success= T
+
+ NSTEP =        1   TIME(PS) =     100.001  TEMP(K) =   273.49  PRESS =     0.0
+ Etot   =        18.0305  EKtot   =        28.2607  EPtot      =       -10.2302
+ BOND   =         7.6051  ANGLE   =        16.1592  DIHED      =        27.8841
+ 1-4 NB =         7.8654  1-4 EEL =       181.0127  VDWAALS    =        -5.4924
+ EELEC  =      -216.5817  EGB     =       -28.6826  RESTRAINT  =         0.0000
+ SGLD:    0.0000    1.50   -1.50       -10.23        0.00      -10.23    0.0000
+ TEMP=  300.0 SGFT=  1.0000 SGFF= -0.3000 STAGE=    4 REPNUM=    1 EXCH=      1
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =        2   TIME(PS) =     100.002  TEMP(K) =   266.58  PRESS =     0.0
+ Etot   =        18.0695  EKtot   =        27.5469  EPtot      =        -9.4774
+ BOND   =         8.7044  ANGLE   =        15.7981  DIHED      =        27.6748
+ 1-4 NB =         8.0852  1-4 EEL =       181.0941  VDWAALS    =        -5.4967
+ EELEC  =      -216.6675  EGB     =       -28.6698  RESTRAINT  =         0.0000
+ SGLD:   -0.0000    1.50  270.92       -10.23        0.75      -10.23    0.0039
+ TEMP=  300.0 SGFT=  1.0000 SGFF= -0.3000 STAGE=    4 REPNUM=    1 EXCH=      1
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =        3   TIME(PS) =     100.003  TEMP(K) =   247.10  PRESS =     0.0
+ Etot   =        18.0725  EKtot   =        25.5340  EPtot      =        -7.4616
+ BOND   =         9.8280  ANGLE   =        16.6452  DIHED      =        27.4192
+ 1-4 NB =         8.3208  1-4 EEL =       181.3127  VDWAALS    =        -5.4899
+ EELEC  =      -216.8302  EGB     =       -28.6674  RESTRAINT  =         0.0000
+ SGLD:   -0.0056    1.50  257.29       -10.21        2.75      -10.23    0.0183
+ TEMP=  300.0 SGFT=  1.0000 SGFF= -0.3000 STAGE=    4 REPNUM=    1 EXCH=      1
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =        4   TIME(PS) =     100.004  TEMP(K) =   224.44  PRESS =     0.0
+ Etot   =        18.0748  EKtot   =        23.1926  EPtot      =        -5.1178
+ BOND   =        10.5697  ANGLE   =        18.2059  DIHED      =        27.1328
+ 1-4 NB =         8.5403  1-4 EEL =       181.6772  VDWAALS    =        -5.4827
+ EELEC  =      -217.0746  EGB     =       -28.6865  RESTRAINT  =         0.0000
+ SGLD:   -0.0161    1.50  233.64       -10.19        5.07      -10.23    0.0448
+ TEMP=  300.0 SGFT=  1.0000 SGFF= -0.3000 STAGE=    4 REPNUM=    1 EXCH=      1
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =        5   TIME(PS) =     100.005  TEMP(K) =   209.40  PRESS =     0.0
+ Etot   =        18.1751  EKtot   =        21.6383  EPtot      =        -3.4632
+ BOND   =        10.4570  ANGLE   =        19.9087  DIHED      =        26.8308
+ 1-4 NB =         8.7268  1-4 EEL =       182.1900  VDWAALS    =        -5.4740
+ EELEC  =      -217.3910  EGB     =       -28.7114  RESTRAINT  =         0.0000
+ SGLD:   -0.0303    1.50  213.76       -10.15        6.69      -10.23    0.0796
+ TEMP=  300.0 SGFT=  1.0000 SGFF= -0.3000 STAGE=    4 REPNUM=    1 EXCH=      1
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =        6   TIME(PS) =     100.006  TEMP(K) =   206.79  PRESS =     0.0
+ Etot   =        18.2485  EKtot   =        21.3685  EPtot      =        -3.1201
+ BOND   =         9.4041  ANGLE   =        21.2661  DIHED      =        26.5226
+ 1-4 NB =         8.8589  1-4 EEL =       182.7902  VDWAALS    =        -5.4745
+ EELEC  =      -217.7296  EGB     =       -28.7578  RESTRAINT  =         0.0000
+ SGLD:   -0.0471    1.50  204.36       -10.12        7.00      -10.23    0.1159
+ TEMP=  300.0 SGFT=  1.0000 SGFF= -0.3000 STAGE=    4 REPNUM=    1 EXCH=      1
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =        7   TIME(PS) =     100.007  TEMP(K) =   217.45  PRESS =     0.0
+ Etot   =        18.2500  EKtot   =        22.4696  EPtot      =        -4.2196
+ BOND   =         7.6480  ANGLE   =        21.9231  DIHED      =        26.2086
+ 1-4 NB =         8.9228  1-4 EEL =       183.4830  VDWAALS    =        -5.4891
+ EELEC  =      -218.1028  EGB     =       -28.8132  RESTRAINT  =         0.0000
+ SGLD:   -0.0655    1.50  208.60       -10.09        5.87      -10.23    0.1461
+ TEMP=  300.0 SGFT=  1.0000 SGFF= -0.3000 STAGE=    4 REPNUM=    1 EXCH=      1
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =        8   TIME(PS) =     100.008  TEMP(K) =   239.17  PRESS =     0.0
+ Etot   =        18.1409  EKtot   =        24.7149  EPtot      =        -6.5740
+ BOND   =         5.5250  ANGLE   =        21.7494  DIHED      =        25.9012
+ 1-4 NB =         8.9113  1-4 EEL =       184.2101  VDWAALS    =        -5.5222
+ EELEC  =      -218.4699  EGB     =       -28.8789  RESTRAINT  =         0.0000
+ SGLD:   -0.0850    1.49  226.11       -10.07        3.50      -10.23    0.1637
+ TEMP=  300.0 SGFT=  1.0000 SGFF= -0.3000 STAGE=    4 REPNUM=    1 EXCH=      1
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =        9   TIME(PS) =     100.009  TEMP(K) =   262.62  PRESS =     0.0
+ Etot   =        17.9928  EKtot   =        27.1380  EPtot      =        -9.1452
+ BOND   =         3.7324  ANGLE   =        21.0658  DIHED      =        25.6149
+ 1-4 NB =         8.8326  1-4 EEL =       184.9562  VDWAALS    =        -5.5697
+ EELEC  =      -218.8222  EGB     =       -28.9551  RESTRAINT  =         0.0000
+ SGLD:   -0.1055    1.49  249.59       -10.07        0.92      -10.23    0.1677
+ TEMP=  300.0 SGFT=  1.0000 SGFF= -0.3000 STAGE=    4 REPNUM=    1 EXCH=      1
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       10   TIME(PS) =     100.010  TEMP(K) =   278.48  PRESS =     0.0
+ Etot   =        17.6979  EKtot   =        28.7768  EPtot      =       -11.0789
+ BOND   =         2.7979  ANGLE   =        20.1858  DIHED      =        25.3711
+ 1-4 NB =         8.7020  1-4 EEL =       185.6459  VDWAALS    =        -5.6237
+ EELEC  =      -219.1115  EGB     =       -29.0464  RESTRAINT  =         0.0000
+ SGLD:   -0.1275    1.49  271.37       -10.07       -1.01      -10.23    0.1616
+ TEMP=  300.0 SGFT=  1.0000 SGFF= -0.3000 STAGE=    4 REPNUM=    1 EXCH=      1
+ ------------------------------------------------------------------------------
+
+| Exch         2 RREMD= 0
+| Replica        Temp= 300.00 Indx=  4 Rep#=  1 EPot=     -11.89
+| RepId     2 CrdIdx=     0
+| Partner        Temp= 300.00 Indx=  3 Rep#=  2 EPot=     -11.99
+| Metrop    0.998248E+00 delta=     0.175322E-02 o_scaling=       1.00
+| Rand=     0.933980E+00 MyScaling=       1.00 Success= T
+
+ NSTEP =       11   TIME(PS) =     100.011  TEMP(K) =   284.33  PRESS =     0.0
+ Etot   =        17.4881  EKtot   =        29.3809  EPtot      =       -11.8928
+ BOND   =         2.9127  ANGLE   =        19.3907  DIHED      =        25.1768
+ 1-4 NB =         8.5267  1-4 EEL =       186.2341  VDWAALS    =        -5.6710
+ EELEC  =      -219.3171  EGB     =       -29.1459  RESTRAINT  =         0.0000
+ SGLD:   -0.1514    1.49  280.64       -10.08       -1.81      -10.23    0.1118
+ TEMP=  300.0 SGFT=  0.8000 SGFF= -0.2000 STAGE=    3 REPNUM=    1 EXCH=      2
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       12   TIME(PS) =     100.012  TEMP(K) =   280.74  PRESS =     0.0
+ Etot   =        17.4672  EKtot   =        29.0098  EPtot      =       -11.5426
+ BOND   =         3.9040  ANGLE   =        18.8406  DIHED      =        25.0411
+ 1-4 NB =         8.3428  1-4 EEL =       186.7261  VDWAALS    =        -5.7146
+ EELEC  =      -219.4443  EGB     =       -29.2382  RESTRAINT  =         0.0000
+ SGLD:   -0.1770    1.49  283.02       -10.09       -1.45      -10.22    0.1056
+ TEMP=  300.0 SGFT=  0.8000 SGFF= -0.2000 STAGE=    3 REPNUM=    1 EXCH=      2
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       13   TIME(PS) =     100.013  TEMP(K) =   268.03  PRESS =     0.0
+ Etot   =        17.3595  EKtot   =        27.6966  EPtot      =       -10.3371
+ BOND   =         5.3645  ANGLE   =        18.6409  DIHED      =        24.9652
+ 1-4 NB =         8.1492  1-4 EEL =       187.0956  VDWAALS    =        -5.7513
+ EELEC  =      -219.4765  EGB     =       -29.3248  RESTRAINT  =         0.0000
+ SGLD:   -0.2041    1.49  273.86       -10.09       -0.25      -10.22    0.1042
+ TEMP=  300.0 SGFT=  0.8000 SGFF= -0.2000 STAGE=    3 REPNUM=    1 EXCH=      2
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       14   TIME(PS) =     100.014  TEMP(K) =   252.68  PRESS =     0.0
+ Etot   =        17.1746  EKtot   =        26.1104  EPtot      =        -8.9358
+ BOND   =         6.6725  ANGLE   =        18.7464  DIHED      =        24.9332
+ 1-4 NB =         7.9666  1-4 EEL =       187.3350  VDWAALS    =        -5.7741
+ EELEC  =      -219.4205  EGB     =       -29.3948  RESTRAINT  =         0.0000
+ SGLD:   -0.2318    1.49  258.64       -10.08        1.15      -10.22    0.1081
+ TEMP=  300.0 SGFT=  0.8000 SGFF= -0.2000 STAGE=    3 REPNUM=    1 EXCH=      2
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       15   TIME(PS) =     100.015  TEMP(K) =   243.97  PRESS =     0.0
+ Etot   =        17.1961  EKtot   =        25.2103  EPtot      =        -8.0142
+ BOND   =         7.3724  ANGLE   =        18.9590  DIHED      =        24.9360
+ 1-4 NB =         7.7991  1-4 EEL =       187.4312  VDWAALS    =        -5.7824
+ EELEC  =      -219.2818  EGB     =       -29.4476  RESTRAINT  =         0.0000
+ SGLD:   -0.2595    1.49  244.40       -10.07        2.06      -10.22    0.1155
+ TEMP=  300.0 SGFT=  0.8000 SGFF= -0.2000 STAGE=    3 REPNUM=    1 EXCH=      2
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       16   TIME(PS) =     100.016  TEMP(K) =   243.32  PRESS =     0.0
+ Etot   =        17.2462  EKtot   =        25.1437  EPtot      =        -7.8975
+ BOND   =         7.3267  ANGLE   =        19.1264  DIHED      =        24.9469
+ 1-4 NB =         7.6436  1-4 EEL =       187.3793  VDWAALS    =        -5.7839
+ EELEC  =      -219.0564  EGB     =       -29.4802  RESTRAINT  =         0.0000
+ SGLD:   -0.2862    1.49  241.67       -10.06        2.16      -10.22    0.1233
+ TEMP=  300.0 SGFT=  0.8000 SGFF= -0.2000 STAGE=    3 REPNUM=    1 EXCH=      2
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       17   TIME(PS) =     100.017  TEMP(K) =   250.55  PRESS =     0.0
+ Etot   =        17.3676  EKtot   =        25.8905  EPtot      =        -8.5229
+ BOND   =         6.6208  ANGLE   =        19.2126  DIHED      =        24.9598
+ 1-4 NB =         7.5136  1-4 EEL =       187.2330  VDWAALS    =        -5.7739
+ EELEC  =      -218.7970  EGB     =       -29.4917  RESTRAINT  =         0.0000
+ SGLD:   -0.3115    1.49  242.99       -10.05        1.53      -10.22    0.1286
+ TEMP=  300.0 SGFT=  0.8000 SGFF= -0.2000 STAGE=    3 REPNUM=    1 EXCH=      2
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       18   TIME(PS) =     100.018  TEMP(K) =   262.47  PRESS =     0.0
+ Etot   =        17.5721  EKtot   =        27.1217  EPtot      =        -9.5495
+ BOND   =         5.6304  ANGLE   =        19.2187  DIHED      =        24.9673
+ 1-4 NB =         7.4087  1-4 EEL =       187.0006  VDWAALS    =        -5.7614
+ EELEC  =      -218.5230  EGB     =       -29.4909  RESTRAINT  =         0.0000
+ SGLD:   -0.3355    1.49  255.48       -10.05        0.50      -10.22    0.1299
+ TEMP=  300.0 SGFT=  0.8000 SGFF= -0.2000 STAGE=    3 REPNUM=    1 EXCH=      2
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       19   TIME(PS) =     100.019  TEMP(K) =   272.80  PRESS =     0.0
+ Etot   =        17.5423  EKtot   =        28.1897  EPtot      =       -10.6474
+ BOND   =         4.8063  ANGLE   =        19.0129  DIHED      =        24.9701
+ 1-4 NB =         7.3273  1-4 EEL =       186.7070  VDWAALS    =        -5.7477
+ EELEC  =      -218.2547  EGB     =       -29.4685  RESTRAINT  =         0.0000
+ SGLD:   -0.3590    1.49  266.60       -10.06       -0.59      -10.22    0.1270
+ TEMP=  300.0 SGFT=  0.8000 SGFF= -0.2000 STAGE=    3 REPNUM=    1 EXCH=      2
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       20   TIME(PS) =     100.020  TEMP(K) =   281.39  PRESS =     0.0
+ Etot   =        17.6695  EKtot   =        29.0775  EPtot      =       -11.4080
+ BOND   =         4.6248  ANGLE   =        18.5303  DIHED      =        24.9616
+ 1-4 NB =         7.2646  1-4 EEL =       186.3755  VDWAALS    =        -5.7330
+ EELEC  =      -218.0055  EGB     =       -29.4262  RESTRAINT  =         0.0000
+ SGLD:   -0.3818    1.49  275.13       -10.06       -1.35      -10.22    0.1212
+ TEMP=  300.0 SGFT=  0.8000 SGFF= -0.2000 STAGE=    3 REPNUM=    1 EXCH=      2
+ ------------------------------------------------------------------------------
+
+| Exch         3 RREMD= 0
+| Replica        Temp= 300.00 Indx=  3 Rep#=  1 EPot=     -11.71
+| RepId     1 CrdIdx=     0
+| Partner        Temp= 300.00 Indx=  2 Rep#=  4 EPot=     -12.86
+| Not controlling exchange.
+| Rand=     0.173856E-01 MyScaling=       1.00 Success= T
+
+ NSTEP =       21   TIME(PS) =     100.021  TEMP(K) =   283.88  PRESS =     0.0
+ Etot   =        17.6284  EKtot   =        29.3341  EPtot      =       -11.7056
+ BOND   =         5.2061  ANGLE   =        17.7864  DIHED      =        24.9437
+ 1-4 NB =         7.2211  1-4 EEL =       186.0123  VDWAALS    =        -5.7143
+ EELEC  =      -217.7883  EGB     =       -29.3727  RESTRAINT  =         0.0000
+ SGLD:   -0.4049    1.49  283.36       -10.07       -1.64      -10.22    0.0656
+ TEMP=  300.0 SGFT=  0.5000 SGFF= -0.1000 STAGE=    2 REPNUM=    1 EXCH=      3
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       22   TIME(PS) =     100.022  TEMP(K) =   282.25  PRESS =     0.0
+ Etot   =        17.3956  EKtot   =        29.1662  EPtot      =       -11.7706
+ BOND   =         6.3938  ANGLE   =        16.7113  DIHED      =        24.9129
+ 1-4 NB =         7.1910  1-4 EEL =       185.6377  VDWAALS    =        -5.6960
+ EELEC  =      -217.5998  EGB     =       -29.3215  RESTRAINT  =         0.0000
+ SGLD:   -0.4290    1.49  280.29       -10.08       -1.69      -10.22    0.0615
+ TEMP=  300.0 SGFT=  0.5000 SGFF= -0.1000 STAGE=    2 REPNUM=    1 EXCH=      3
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       23   TIME(PS) =     100.023  TEMP(K) =   283.71  PRESS =     0.0
+ Etot   =        17.2989  EKtot   =        29.3165  EPtot      =       -12.0176
+ BOND   =         7.7563  ANGLE   =        15.2672  DIHED      =        24.8757
+ 1-4 NB =         7.1830  1-4 EEL =       185.3093  VDWAALS    =        -5.6741
+ EELEC  =      -217.4763  EGB     =       -29.2586  RESTRAINT  =         0.0000
+ SGLD:   -0.4541    1.49  280.88       -10.09       -1.93      -10.22    0.0569
+ TEMP=  300.0 SGFT=  0.5000 SGFF= -0.1000 STAGE=    2 REPNUM=    1 EXCH=      3
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       24   TIME(PS) =     100.024  TEMP(K) =   289.73  PRESS =     0.0
+ Etot   =        17.2685  EKtot   =        29.9394  EPtot      =       -12.6709
+ BOND   =         8.8540  ANGLE   =        13.6913  DIHED      =        24.8360
+ 1-4 NB =         7.1958  1-4 EEL =       185.0017  VDWAALS    =        -5.6446
+ EELEC  =      -217.4028  EGB     =       -29.2024  RESTRAINT  =         0.0000
+ SGLD:   -0.4803    1.49  283.21       -10.10       -2.57      -10.22    0.0509
+ TEMP=  300.0 SGFT=  0.5000 SGFF= -0.1000 STAGE=    2 REPNUM=    1 EXCH=      3
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       25   TIME(PS) =     100.025  TEMP(K) =   300.57  PRESS =     0.0
+ Etot   =        17.3156  EKtot   =        31.0593  EPtot      =       -13.7437
+ BOND   =         9.3121  ANGLE   =        12.2792  DIHED      =        24.8135
+ 1-4 NB =         7.2330  1-4 EEL =       184.7323  VDWAALS    =        -5.6015
+ EELEC  =      -217.3646  EGB     =       -29.1476  RESTRAINT  =         0.0000
+ SGLD:   -0.5073    1.49  292.71       -10.12       -3.62      -10.22    0.0426
+ TEMP=  300.0 SGFT=  0.5000 SGFF= -0.1000 STAGE=    2 REPNUM=    1 EXCH=      3
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       26   TIME(PS) =     100.026  TEMP(K) =   312.55  PRESS =     0.0
+ Etot   =        17.2731  EKtot   =        32.2967  EPtot      =       -15.0236
+ BOND   =         9.0239  ANGLE   =        11.3528  DIHED      =        24.8032
+ 1-4 NB =         7.2777  1-4 EEL =       184.5376  VDWAALS    =        -5.5447
+ EELEC  =      -217.3835  EGB     =       -29.0906  RESTRAINT  =         0.0000
+ SGLD:   -0.5358    1.49  304.74       -10.14       -4.88      -10.21    0.0315
+ TEMP=  300.0 SGFT=  0.5000 SGFF= -0.1000 STAGE=    2 REPNUM=    1 EXCH=      3
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       27   TIME(PS) =     100.027  TEMP(K) =   322.34  PRESS =     0.0
+ Etot   =        17.1841  EKtot   =        33.3084  EPtot      =       -16.1243
+ BOND   =         8.0718  ANGLE   =        11.1841  DIHED      =        24.8117
+ 1-4 NB =         7.3399  1-4 EEL =       184.4182  VDWAALS    =        -5.4668
+ EELEC  =      -217.4452  EGB     =       -29.0379  RESTRAINT  =         0.0000
+ SGLD:   -0.5659    1.49  316.33       -10.17       -5.95      -10.21    0.0181
+ TEMP=  300.0 SGFT=  0.5000 SGFF= -0.1000 STAGE=    2 REPNUM=    1 EXCH=      3
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       28   TIME(PS) =     100.028  TEMP(K) =   320.95  PRESS =     0.0
+ Etot   =        16.6794  EKtot   =        33.1648  EPtot      =       -16.4854
+ BOND   =         6.9268  ANGLE   =        11.9118  DIHED      =        24.8147
+ 1-4 NB =         7.4087  1-4 EEL =       184.3551  VDWAALS    =        -5.3828
+ EELEC  =      -217.5164  EGB     =       -29.0033  RESTRAINT  =         0.0000
+ SGLD:   -0.5976    1.49  323.09       -10.21       -6.28      -10.21    0.0041
+ TEMP=  300.0 SGFT=  0.5000 SGFF= -0.1000 STAGE=    2 REPNUM=    1 EXCH=      3
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       29   TIME(PS) =     100.029  TEMP(K) =   312.03  PRESS =     0.0
+ Etot   =        16.3025  EKtot   =        32.2434  EPtot      =       -15.9409
+ BOND   =         5.9753  ANGLE   =        13.3114  DIHED      =        24.8112
+ 1-4 NB =         7.4763  1-4 EEL =       184.3731  VDWAALS    =        -5.2995
+ EELEC  =      -217.5990  EGB     =       -28.9897  RESTRAINT  =         0.0000
+ SGLD:   -0.6314    1.49  313.41       -10.23       -5.71      -10.21   -0.0087
+ TEMP=  300.0 SGFT=  0.5000 SGFF= -0.1000 STAGE=    2 REPNUM=    1 EXCH=      3
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       30   TIME(PS) =     100.030  TEMP(K) =   303.19  PRESS =     0.0
+ Etot   =        16.6104  EKtot   =        31.3301  EPtot      =       -14.7197
+ BOND   =         5.4614  ANGLE   =        14.9511  DIHED      =        24.7867
+ 1-4 NB =         7.5425  1-4 EEL =       184.4162  VDWAALS    =        -5.2186
+ EELEC  =      -217.6631  EGB     =       -28.9959  RESTRAINT  =         0.0000
+ SGLD:   -0.6668    1.49  305.90       -10.26       -4.46      -10.21   -0.0186
+ TEMP=  300.0 SGFT=  0.5000 SGFF= -0.1000 STAGE=    2 REPNUM=    1 EXCH=      3
+ ------------------------------------------------------------------------------
+
+| Exch         4 RREMD= 0
+| Replica        Temp= 300.00 Indx=  2 Rep#=  1 EPot=     -13.08
+| RepId     0 CrdIdx=     0
+| Partner        Temp= 300.00 Indx=  1 Rep#=  2 EPot=     -14.11
+| Metrop    0.982777E+00 delta=     0.173728E-01 o_scaling=       1.00
+| Rand=     0.386803E+00 MyScaling=       1.00 Success= T
+
+ NSTEP =       31   TIME(PS) =     100.031  TEMP(K) =   292.41  PRESS =     0.0
+ Etot   =        17.1347  EKtot   =        30.2159  EPtot      =       -13.0812
+ BOND   =         5.4836  ANGLE   =        16.4440  DIHED      =        24.7476
+ 1-4 NB =         7.6115  1-4 EEL =       184.5030  VDWAALS    =        -5.1463
+ EELEC  =      -217.7012  EGB     =       -29.0235  RESTRAINT  =         0.0000
+ SGLD:   -0.7036    1.49  295.83       -10.27       -2.81      -10.22    0.0000
+ TEMP=  300.0 SGFT=  0.0000 SGFF=  0.0000 STAGE=    1 REPNUM=    1 EXCH=      4
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       32   TIME(PS) =     100.032  TEMP(K) =   281.47  PRESS =     0.0
+ Etot   =        17.4939  EKtot   =        29.0855  EPtot      =       -11.5916
+ BOND   =         5.9729  ANGLE   =        17.3477  DIHED      =        24.6809
+ 1-4 NB =         7.6766  1-4 EEL =       184.6030  VDWAALS    =        -5.0941
+ EELEC  =      -217.7139  EGB     =       -29.0648  RESTRAINT  =         0.0000
+ SGLD:   -0.7421    1.49  285.31       -10.28       -1.31      -10.22    0.0000
+ TEMP=  300.0 SGFT=  0.0000 SGFF=  0.0000 STAGE=    1 REPNUM=    1 EXCH=      4
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       33   TIME(PS) =     100.033  TEMP(K) =   273.68  PRESS =     0.0
+ Etot   =        17.5735  EKtot   =        28.2802  EPtot      =       -10.7067
+ BOND   =         6.7109  ANGLE   =        17.4301  DIHED      =        24.6001
+ 1-4 NB =         7.7286  1-4 EEL =       184.7194  VDWAALS    =        -5.0640
+ EELEC  =      -217.7031  EGB     =       -29.1286  RESTRAINT  =         0.0000
+ SGLD:   -0.7806    1.49  274.70       -10.28       -0.43      -10.22    0.0000
+ TEMP=  300.0 SGFT=  0.0000 SGFF=  0.0000 STAGE=    1 REPNUM=    1 EXCH=      4
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       34   TIME(PS) =     100.034  TEMP(K) =   273.57  PRESS =     0.0
+ Etot   =        17.5283  EKtot   =        28.2692  EPtot      =       -10.7410
+ BOND   =         7.2948  ANGLE   =        16.7353  DIHED      =        24.5146
+ 1-4 NB =         7.7812  1-4 EEL =       184.8790  VDWAALS    =        -5.0462
+ EELEC  =      -217.6927  EGB     =       -29.2070  RESTRAINT  =         0.0000
+ SGLD:   -0.8183    1.49  270.42       -10.28       -0.46      -10.22    0.0000
+ TEMP=  300.0 SGFT=  0.0000 SGFF=  0.0000 STAGE=    1 REPNUM=    1 EXCH=      4
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       35   TIME(PS) =     100.035  TEMP(K) =   280.01  PRESS =     0.0
+ Etot   =        17.2564  EKtot   =        28.9345  EPtot      =       -11.6781
+ BOND   =         7.5164  ANGLE   =        15.5094  DIHED      =        24.4289
+ 1-4 NB =         7.8259  1-4 EEL =       185.0343  VDWAALS    =        -5.0389
+ EELEC  =      -217.6697  EGB     =       -29.2844  RESTRAINT  =         0.0000
+ SGLD:   -0.8554    1.49  274.62       -10.29       -1.39      -10.22    0.0000
+ TEMP=  300.0 SGFT=  0.0000 SGFF=  0.0000 STAGE=    1 REPNUM=    1 EXCH=      4
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       36   TIME(PS) =     100.036  TEMP(K) =   291.33  PRESS =     0.0
+ Etot   =        17.0344  EKtot   =        30.1041  EPtot      =       -13.0697
+ BOND   =         7.2939  ANGLE   =        14.2685  DIHED      =        24.3484
+ 1-4 NB =         7.8662  1-4 EEL =       185.1825  VDWAALS    =        -5.0324
+ EELEC  =      -217.6328  EGB     =       -29.3640  RESTRAINT  =         0.0000
+ SGLD:   -0.8915    1.49  282.59       -10.30       -2.77      -10.22    0.0000
+ TEMP=  300.0 SGFT=  0.0000 SGFF=  0.0000 STAGE=    1 REPNUM=    1 EXCH=      4
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       37   TIME(PS) =     100.037  TEMP(K) =   301.59  PRESS =     0.0
+ Etot   =        16.7855  EKtot   =        31.1646  EPtot      =       -14.3791
+ BOND   =         6.7014  ANGLE   =        13.4720  DIHED      =        24.2741
+ 1-4 NB =         7.9106  1-4 EEL =       185.3187  VDWAALS    =        -5.0240
+ EELEC  =      -217.5893  EGB     =       -29.4425  RESTRAINT  =         0.0000
+ SGLD:   -0.9263    1.49  296.43       -10.32       -4.06      -10.22    0.0000
+ TEMP=  300.0 SGFT=  0.0000 SGFF=  0.0000 STAGE=    1 REPNUM=    1 EXCH=      4
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       38   TIME(PS) =     100.038  TEMP(K) =   307.00  PRESS =     0.0
+ Etot   =        16.7080  EKtot   =        31.7238  EPtot      =       -15.0158
+ BOND   =         6.1086  ANGLE   =        13.3464  DIHED      =        24.2196
+ 1-4 NB =         7.9569  1-4 EEL =       185.4282  VDWAALS    =        -5.0204
+ EELEC  =      -217.5360  EGB     =       -29.5191  RESTRAINT  =         0.0000
+ SGLD:   -0.9607    1.49  301.94       -10.35       -4.67      -10.22    0.0000
+ TEMP=  300.0 SGFT=  0.0000 SGFF=  0.0000 STAGE=    1 REPNUM=    1 EXCH=      4
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       39   TIME(PS) =     100.039  TEMP(K) =   305.26  PRESS =     0.0
+ Etot   =        16.8314  EKtot   =        31.5436  EPtot      =       -14.7122
+ BOND   =         5.7949  ANGLE   =        13.8571  DIHED      =        24.1893
+ 1-4 NB =         8.0169  1-4 EEL =       185.5056  VDWAALS    =        -5.0172
+ EELEC  =      -217.4818  EGB     =       -29.5770  RESTRAINT  =         0.0000
+ SGLD:   -0.9950    1.49  306.99       -10.37       -4.34      -10.22    0.0000
+ TEMP=  300.0 SGFT=  0.0000 SGFF=  0.0000 STAGE=    1 REPNUM=    1 EXCH=      4
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       40   TIME(PS) =     100.040  TEMP(K) =   293.71  PRESS =     0.0
+ Etot   =        16.8516  EKtot   =        30.3502  EPtot      =       -13.4985
+ BOND   =         5.9541  ANGLE   =        14.8016  DIHED      =        24.1857
+ 1-4 NB =         8.0895  1-4 EEL =       185.5527  VDWAALS    =        -5.0183
+ EELEC  =      -217.4348  EGB     =       -29.6291  RESTRAINT  =         0.0000
+ SGLD:   -1.0295    1.49  298.56       -10.38       -3.11      -10.22    0.0000
+ TEMP=  300.0 SGFT=  0.0000 SGFF=  0.0000 STAGE=    1 REPNUM=    1 EXCH=      4
+ ------------------------------------------------------------------------------
+
+| Exch         5 RREMD= 0
+| Replica        Temp= 300.00 Indx=  1 Rep#=  1 EPot=     -11.70
+| RepId     3 CrdIdx=     0
+| Partner        Temp= 300.00 Indx=  4 Rep#=  4 EPot=     -12.40
+| Not controlling exchange.
+| Rand=     0.470507E-02 MyScaling=       1.00 Success= T
+
+ NSTEP =       41   TIME(PS) =     100.041  TEMP(K) =   276.20  PRESS =     0.0
+ Etot   =        16.8364  EKtot   =        28.5408  EPtot      =       -11.7044
+ BOND   =         6.6152  ANGLE   =        15.8397  DIHED      =        24.2022
+ 1-4 NB =         8.1746  1-4 EEL =       185.5364  VDWAALS    =        -5.0359
+ EELEC  =      -217.3684  EGB     =       -29.6682  RESTRAINT  =         0.0000
+ SGLD:   -1.0638    1.49  284.60       -10.39       -1.31      -10.22   -0.1782
+ TEMP=  300.0 SGFT=  1.0000 SGFF= -0.3000 STAGE=    4 REPNUM=    1 EXCH=      5
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       42   TIME(PS) =     100.042  TEMP(K) =   257.93  PRESS =     0.0
+ Etot   =        16.7458  EKtot   =        26.6531  EPtot      =        -9.9073
+ BOND   =         7.6218  ANGLE   =        16.6022  DIHED      =        24.2170
+ 1-4 NB =         8.2572  1-4 EEL =       185.4631  VDWAALS    =        -5.0730
+ EELEC  =      -217.2835  EGB     =       -29.7122  RESTRAINT  =         0.0000
+ SGLD:   -1.0985    1.50  264.59       -10.39        0.48      -10.22   -0.1748
+ TEMP=  300.0 SGFT=  1.0000 SGFF= -0.3000 STAGE=    4 REPNUM=    1 EXCH=      5
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       43   TIME(PS) =     100.043  TEMP(K) =   248.45  PRESS =     0.0
+ Etot   =        17.0125  EKtot   =        25.6729  EPtot      =        -8.6604
+ BOND   =         8.7550  ANGLE   =        16.7533  DIHED      =        24.2468
+ 1-4 NB =         8.3311  1-4 EEL =       185.3469  VDWAALS    =        -5.1299
+ EELEC  =      -217.1916  EGB     =       -29.7720  RESTRAINT  =         0.0000
+ SGLD:   -1.1323    1.50  249.20       -10.38        1.72      -10.22   -0.1649
+ TEMP=  300.0 SGFT=  1.0000 SGFF= -0.3000 STAGE=    4 REPNUM=    1 EXCH=      5
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       44   TIME(PS) =     100.044  TEMP(K) =   245.52  PRESS =     0.0
+ Etot   =        17.3451  EKtot   =        25.3704  EPtot      =        -8.0253
+ BOND   =         9.7416  ANGLE   =        16.4814  DIHED      =        24.2776
+ 1-4 NB =         8.3871  1-4 EEL =       185.1889  VDWAALS    =        -5.2014
+ EELEC  =      -217.0616  EGB     =       -29.8390  RESTRAINT  =         0.0000
+ SGLD:   -1.1640    1.50  245.07       -10.37        2.34      -10.22   -0.1518
+ TEMP=  300.0 SGFT=  1.0000 SGFF= -0.3000 STAGE=    4 REPNUM=    1 EXCH=      5
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       45   TIME(PS) =     100.045  TEMP(K) =   245.63  PRESS =     0.0
+ Etot   =        17.0796  EKtot   =        25.3815  EPtot      =        -8.3019
+ BOND   =        10.2652  ANGLE   =        15.8194  DIHED      =        24.2950
+ 1-4 NB =         8.4177  1-4 EEL =       185.0033  VDWAALS    =        -5.2837
+ EELEC  =      -216.9125  EGB     =       -29.9064  RESTRAINT  =         0.0000
+ SGLD:   -1.1943    1.50  244.62       -10.36        2.06      -10.22   -0.1403
+ TEMP=  300.0 SGFT=  1.0000 SGFF= -0.3000 STAGE=    4 REPNUM=    1 EXCH=      5
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       46   TIME(PS) =     100.046  TEMP(K) =   250.95  PRESS =     0.0
+ Etot   =        16.7310  EKtot   =        25.9314  EPtot      =        -9.2004
+ BOND   =        10.2573  ANGLE   =        15.0655  DIHED      =        24.3250
+ 1-4 NB =         8.4279  1-4 EEL =       184.8338  VDWAALS    =        -5.3672
+ EELEC  =      -216.7677  EGB     =       -29.9750  RESTRAINT  =         0.0000
+ SGLD:   -1.2222    1.50  244.45       -10.35        1.15      -10.22   -0.1335
+ TEMP=  300.0 SGFT=  1.0000 SGFF= -0.3000 STAGE=    4 REPNUM=    1 EXCH=      5
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       47   TIME(PS) =     100.047  TEMP(K) =   261.65  PRESS =     0.0
+ Etot   =        16.6826  EKtot   =        27.0377  EPtot      =       -10.3551
+ BOND   =         9.8128  ANGLE   =        14.4716  DIHED      =        24.3746
+ 1-4 NB =         8.4219  1-4 EEL =       184.6782  VDWAALS    =        -5.4465
+ EELEC  =      -216.6277  EGB     =       -30.0401  RESTRAINT  =         0.0000
+ SGLD:   -1.2470    1.50  254.51       -10.35       -0.00      -10.22   -0.1329
+ TEMP=  300.0 SGFT=  1.0000 SGFF= -0.3000 STAGE=    4 REPNUM=    1 EXCH=      5
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       48   TIME(PS) =     100.048  TEMP(K) =   272.13  PRESS =     0.0
+ Etot   =        16.6914  EKtot   =        28.1201  EPtot      =       -11.4287
+ BOND   =         9.0627  ANGLE   =        14.2339  DIHED      =        24.4294
+ 1-4 NB =         8.4107  1-4 EEL =       184.5580  VDWAALS    =        -5.5186
+ EELEC  =      -216.4996  EGB     =       -30.1053  RESTRAINT  =         0.0000
+ SGLD:   -1.2696    1.50  265.38       -10.36       -1.07      -10.23   -0.1379
+ TEMP=  300.0 SGFT=  1.0000 SGFF= -0.3000 STAGE=    4 REPNUM=    1 EXCH=      5
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       49   TIME(PS) =     100.049  TEMP(K) =   277.09  PRESS =     0.0
+ Etot   =        16.5118  EKtot   =        28.6332  EPtot      =       -12.1214
+ BOND   =         8.2038  ANGLE   =        14.4264  DIHED      =        24.5007
+ 1-4 NB =         8.3982  1-4 EEL =       184.4825  VDWAALS    =        -5.5779
+ EELEC  =      -216.3886  EGB     =       -30.1666  RESTRAINT  =         0.0000
+ SGLD:   -1.2906    1.50  274.85       -10.37       -1.76      -10.23   -0.1464
+ TEMP=  300.0 SGFT=  1.0000 SGFF= -0.3000 STAGE=    4 REPNUM=    1 EXCH=      5
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       50   TIME(PS) =     100.050  TEMP(K) =   279.00  PRESS =     0.0
+ Etot   =        16.4690  EKtot   =        28.8305  EPtot      =       -12.3615
+ BOND   =         7.3615  ANGLE   =        14.9890  DIHED      =        24.5895
+ 1-4 NB =         8.3786  1-4 EEL =       184.4786  VDWAALS    =        -5.6124
+ EELEC  =      -216.3116  EGB     =       -30.2347  RESTRAINT  =         0.0000
+ SGLD:   -1.3099    1.50  275.16       -10.38       -1.99      -10.23   -0.1560
+ TEMP=  300.0 SGFT=  1.0000 SGFF= -0.3000 STAGE=    4 REPNUM=    1 EXCH=      5
+ ------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+   5.  TIMINGS
+--------------------------------------------------------------------------------
+
+|>>>>>>>>PROFILE of Average TIMES>>>>>>>>> 
+|    Read coords time           0.00 ( 0.72% of Total)
+|                Calc gb radii              0.00 ( 4.90% of Gen B)
+|                Communicate gb radii       0.02 (81.58% of Gen B)
+|                Calc gb diag               0.00 ( 6.57% of Gen B)
+|                Calc gb off-diag           0.00 ( 6.84% of Gen B)
+|                Other                      0.00 ( 0.11% of Gen B)
+|             Gen Born time              0.03 (100.0% of Nonbo)
+|             IPS excludes               0.00 ( 0.03% of Nonbo)
+|          Nonbond force              0.03 (94.10% of Force)
+|          Bond/Angle/Dihedral        0.00 ( 3.26% of Force)
+|          FRC Collect time           0.00 ( 1.07% of Force)
+|          Other                      0.00 ( 1.57% of Force)
+|       Force time                 0.03 (51.21% of Runmd)
+|       Shake time                 0.00 ( 0.18% of Runmd)
+|       Verlet update time         0.02 (38.66% of Runmd)
+|       CRD distribute time        0.00 ( 0.12% of Runmd)
+|       Other                      0.01 ( 9.83% of Runmd)
+|    Runmd Time                 0.06 (77.73% of Total)
+|    Other                      0.02 (21.54% of Total)
+| Total time                 0.07 (99.32% of ALL  )
+
+| Number of list builds   :          0
+
+| Highest rstack allocated:          0
+| Highest istack allocated:          0
+
+| Final Performance Info:
+| -----------------------------------------------------
+| Average timings for all steps:
+|     Elapsed(s) =       0.06 Per Step(ms) =       1.16
+|         ns/day =      74.59   seconds/ns =    1158.34
+| -----------------------------------------------------
+
+|           Job began  at 15:47:12.317  on 04/21/2022
+|           Setup done at 15:47:12.334  on 04/21/2022
+|           Run   done at 15:47:12.391  on 04/21/2022
+|     wallclock() was called    1981 times
+
+|3D-RISM memory allocation summary
+|Type          Maximum        Current   
+|Integer       0.00000 GB     0.00000 GB
+|Real          0.00000 GB     0.00000 GB
+|Logical       0.00000 GB     0.00000 GB
+|Character     0.00000 GB     0.00000 GB
+|---------------------------------------
+|Total         0.00000 GB     0.00000 GB

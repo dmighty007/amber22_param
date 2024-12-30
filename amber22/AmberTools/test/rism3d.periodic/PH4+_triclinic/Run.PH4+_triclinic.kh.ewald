@@ -1,0 +1,12 @@
+#! /usr/bin/env sh
+
+solvent=../xvv/spc-na-cl-kh.xvv
+
+rism3d.snglpnt --periodic ewald --pdb PH4+_triclinic.pdb \
+               --prmtop PH4+_triclinic.parm7 --rst PH4+_triclinic.rst7 \
+               --xvv $solvent --closure kh --tolerance 0.000001 \
+               --grdspc 0.5,0.5,0.5 --buffer 1.0 --verbose 2 --volfmt dx \
+               --solvcut 8 --noprogress --centering 0 \
+               > PH4+_triclinic.kh.ewald.r3d
+
+../../dacdif -r 1.e-6 PH4+_triclinic.kh.ewald.r3d.save PH4+_triclinic.kh.ewald.r3d

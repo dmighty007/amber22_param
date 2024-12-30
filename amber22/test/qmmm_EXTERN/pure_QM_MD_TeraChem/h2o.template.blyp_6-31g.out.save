@@ -1,0 +1,338 @@
+
+          -------------------------------------------------------
+          Amber 21 SANDER                              2021
+          -------------------------------------------------------
+
+| Run on 10/20/2021 at 20:37:48
+
+|   Executable path: /u/cruzeiro/amber_dev/bin/sander
+| Working directory: /u/cruzeiro/amber_dev/test/qmmm_EXTERN/pure_QM_MD_TeraChem
+|          Hostname: fire-09-01
+
+  [-O]verwriting output
+
+File Assignments:
+|  MDIN: mdin                                                                  
+| MDOUT: h2o.template.blyp_6-31g.out                                           
+|INPCRD: h2o.inpcrd                                                            
+|  PARM: h2o.prmtop                                                            
+|RESTRT: restrt                                                                
+|  REFC: refc                                                                  
+| MDVEL: mdvel                                                                 
+| MDFRC: mdfrc                                                                 
+|  MDEN: mden                                                                  
+| MDCRD: mdcrd                                                                 
+|MDINFO: mdinfo                                                                
+|  MTMD: mtmd                                                                  
+|INPDIP: inpdip                                                                
+|RSTDIP: rstdip                                                                
+|INPTRA: inptraj                                                               
+
+
+ Here is the input file:
+
+Geometry optimization with TeraChem, 2 steps steepest descent                  
+ &cntrl                                                                        
+  imin=1,     ! do a minimization                                              
+  maxcyc=2,   ! max 2 minimization steps                                       
+  ncyc=2 ,    ! switch to conjugate gradient after 2 steps of steepest descent 
+  drms=0.5,   ! RMS gradient convergence criterium 0.5 (kcal/mol)/A = 2.d-3 au 
+  cut=9999.0, ! non-bonded cutoff (irrelevant for now with pure QM)            
+  ntb=0,      ! no periodic boundary conditions                                
+  ntpr=1,     ! print every minimization step                                  
+  ntwx=1,     ! write coordinates each step                                    
+  ntwr=2,     ! write restart file each 10 steps                               
+  ioutfm = 1, ! NetCDF MDCRD.                                                  
+  ifqnt=1     ! do QM/MM                                                       
+ /                                                                             
+ &qmmm                                                                         
+  qmmask    ='@*',                                                             
+  qmcharge  = 0,                                                               
+  qm_theory ='EXTERN',                                                         
+  verbosity = 0,                                                               
+ /                                                                             
+ &tc                                                                           
+  basis  = '6-31g',                                                            
+  method = 'blyp',                                                             
+  use_template = 1,                                                            
+  debug = 2,                                                                   
+ /                                                                             
+
+--------------------------------------------------------------------------------
+   1.  RESOURCE   USE: 
+--------------------------------------------------------------------------------
+
+| Flags:                                                                        
+|    NONPERIODIC   ntb=0 and igb=0: Setting up nonperiodic simulation
+|  *** cutoff > system size, list only builds once
+|Largest sphere to fit in unit cell has radius =    30.000
+| New format PARM file being parsed.
+| Version =    1.000 Date = 07/15/10 Time = 08:33:16
+ NATOM  =       3 NTYPES =       2 NBONH =       3 MBONA  =       0
+ NTHETH =       0 MTHETA =       0 NPHIH =       0 MPHIA  =       0
+ NHPARM =       0 NPARM  =       0 NNB   =       4 NRES   =       1
+ NBONA  =       0 NTHETA =       0 NPHIA =       0 NUMBND =       2
+ NUMANG =       0 NPTRA  =       0 NATYP =       2 NPHB   =       1
+ IFBOX  =       0 NMXRS  =       3 IFCAP =       0 NEXTRA =       0
+ NCOPY  =       0
+
+
+|     Memory Use     Allocated
+|     Real              701523
+|     Hollerith             12
+|     Integer            20077
+|     Max Pairs              3
+|     nblistReal            36
+|     nblist Int        761616
+|       Total             8534 kbytes
+
+| Note: 1-4 EEL scale factors were NOT found in the topology file.
+|       Using default value of 1.2.
+
+| Note: 1-4 VDW scale factors were NOT found in the topology file.
+|       Using default value of 2.0.
+| Duplicated    0 dihedrals
+| Duplicated    0 dihedrals
+LOADING THE QUANTUM ATOMS AS GROUPS
+     Mask @*; matches     3 atoms
+
+--------------------------------------------------------------------------------
+   2.  CONTROL  DATA  FOR  THE  RUN
+--------------------------------------------------------------------------------
+
+                                                                                
+
+General flags:
+     imin    =       1, nmropt  =       0
+
+Nature and format of input:
+     ntx     =       1, irest   =       0, ntrx    =       1
+
+Nature and format of output:
+     ntxo    =       2, ntpr    =       1, ntrx    =       1, ntwr    =       2
+     iwrap   =       0, ntwx    =       1, ntwv    =       0, ntwe    =       0
+     ioutfm  =       1, ntwprt  =       0, idecomp =       0, rbornstat=      0
+
+Potential function:
+     ntf     =       1, ntb     =       0, igb     =       0, nsnb    =      25
+     ipol    =       0, gbsa    =       0, iesp    =       0
+     dielc   =   1.00000, cut     =9999.00000, intdiel =   1.00000
+
+Frozen or restrained atoms:
+     ibelly  =       0, ntr     =       0
+
+Energy minimization:
+     maxcyc  =       2, ncyc    =       2, ntmin   =       1
+     dx0     =   0.01000, drms    =   0.50000
+
+QMMM options:
+             ifqnt = True       nquant =        3
+              qmgb =        0  qmcharge =        0   adjust_q =        2
+              spin =        1     qmcut = ********    qmshake =        1
+          qmmm_int =        1
+     lnk_atomic_no =        1   lnk_dis =   1.0900 lnk_method =        1
+          qm_theory =     EXTERN verbosity =        0
+            qmqmdx = Analytical
+          qm_ewald =        0 qm_pme = False 
+|  INFO: Old style inpcrd file read
+
+
+--------------------------------------------------------------------------------
+   3.  ATOMIC COORDINATES AND VELOCITIES
+--------------------------------------------------------------------------------
+
+                                                                                
+ begin time read from input coords =     0.000 ps
+
+ Number of triangulated 3-point waters found:        0
+
+     Sum of charges from parm topology file =   0.00000000
+     Forcing neutrality...
+ ---------------------------------------------------
+
+     eedmeth=4: Setting switch to one everywhere
+
+ ---------------------------------------------------
+| Local SIZE OF NONBOND LIST =          0
+| TOTAL SIZE OF NONBOND LIST =          0
+
+QMMM: Link Atom Information
+QMMM: ------------------------------------------------------------------------
+QMMM: nlink =     0
+QMMM: ------------------------------------------------------------------------
+
+  QMMM: QM Region Cartesian Coordinates (*=link atom) 
+  QMMM: QM_NO.   MM_NO.  ATOM         X         Y         Z
+  QMMM:     1        1      O        0.0000    0.0000    0.0000
+  QMMM:     2        2      H        1.5000    0.0000    0.0000
+  QMMM:     3        3      H        0.0000    1.5000    0.0000
+
+--------------------------------------------------------------------------------
+  3.1 QM CALCULATION INFO
+--------------------------------------------------------------------------------
+
+| Please also cite the following work for the use of the QM/MM interface:
+
+| A. W. G"otz, M. A. Clark, R. C. Walker
+| "An extensible interface for ab initio QM/MM molecular dynamics simulations
+|  with AMBER"
+| J. Comput. Chem. 35 (2014) 95-108.
+| DOI: 10.1002/jcc.23444
+
+| C. M. Isborn , A. W. G"otz , M. A. Clark , R. C. Walker, T. J. Martinez
+| "Electronic Absorption Spectra from MM and ab initio QM/MM Molecular Dynamics:
+|  Environmental Effects on the Absorption Spectrum of Photoactive Yellow Protein"
+| J. Chem. Theory Comput. 8 (2012) 5092-5106
+| DOI: 10.1021/ct3006826
+
+ Constants for unit conversion taken from
+ Mohr, Taylor, Newell, Rev. Mod. Phys. 80 (2008) 633-730
+ and using the thermochemical calorie (1 cal = 4.184 J):
+
+ A_TO_BOHRS  =  1.889726132873E+00
+ AU_TO_KCAL  =  6.2750946943E+02
+ AU_TO_DEBYE =  2.54174623E+00
+
+   >>> Running QM calculation with TeraChem <<<
+
+>>>>> Entered check_installation (qm2_extern_util_module)
+| Program terachem found!
+| Executable location: /u/cruzeiro/terachem/build/bin/terachem
+
+<<<<< Left check_installation (qm2_extern_util_module)
+
+| &tc
+|   basis           = 6-31G               
+|   method          = blyp                
+|   dftd            = no                  
+|   precision       = mixed               
+|   executable      = terachem            
+|   guess           = scr/c0              
+|   scrdir          = scr                 
+|   keep_scr        = yes                 
+|   cis             = no                  
+|   charge_analysis = NONE                
+|   threall         =   1.00E-11
+|   convthre        =   3.00E-05
+|   maxit           =  100
+|   dftgrid         =    1
+|   ngpus           =    0
+|   cisnumstates    =    1
+|   cistarget       =    1
+|   ntpr            = 1
+|   debug           =  2
+|   dipole          = F
+|   use_template    = T
+| /
+--------------------------------------------------------------------------------
+   4.  RESULTS
+--------------------------------------------------------------------------------
+>>>>> Entered write_inpfile (qm2_extern_tc_module)
+>>>>> Entered copy_template (qm2_extern_tc_module)
+<<<<< Left copy_template (qm2_extern_tc_module)
+<<<<< Left write_inpfile (qm2_extern_tc_module)
+>>>>> Entered read_results (qm2_extern_tc_module)
+<<<<< Left read_results (qm2_extern_tc_module)
+>>>>> Entered print_results (qm2_extern_util_module)
+print_results - final energy in kcal and gradient(s) in kcal/(mol*Å):
+
+qm2_extern_tc_module - final energy:
+     -47830.06136410
+qm2_extern_tc_module - final gradient(s):
+QM region:
+  -109.2149909444  -109.2149551326    -0.0000157714
+   107.6772864006     1.5377149791     0.0000079450
+     1.5377045439   107.6772402721     0.0000077078
+<<<<< Left print_results (qm2_extern_util_module)
+
+
+   NSTEP       ENERGY          RMS            GMAX         NAME    NUMBER
+      1      -4.7830E+04     7.2303E+01     1.0921E+02     O           1
+
+ BOND    =        0.0000  ANGLE   =        0.0000  DIHED      =        0.0000
+ VDWAALS =        0.0000  EEL     =        0.0000  HBOND      =        0.0000
+ 1-4 VDW =        0.0000  1-4 EEL =        0.0000  RESTRAINT  =        0.0000
+ EXTERNESCF =   -47830.0614
+>>>>> Entered write_inpfile (qm2_extern_tc_module)
+<<<<< Left write_inpfile (qm2_extern_tc_module)
+>>>>> Entered read_results (qm2_extern_tc_module)
+<<<<< Left read_results (qm2_extern_tc_module)
+>>>>> Entered print_results (qm2_extern_util_module)
+print_results - final energy in kcal and gradient(s) in kcal/(mol*Å):
+
+qm2_extern_tc_module - final energy:
+     -47832.66711518
+qm2_extern_tc_module - final gradient(s):
+QM region:
+  -109.1181671147  -109.1181750597     0.0000005929
+   108.2479904071     0.8701767076    -0.0000003557
+     0.8701767076   108.2479983522    -0.0000003557
+<<<<< Left print_results (qm2_extern_util_module)
+
+
+   NSTEP       ENERGY          RMS            GMAX         NAME    NUMBER
+      2      -4.7833E+04     7.2457E+01     1.0912E+02     O           1
+
+ BOND    =        0.0000  ANGLE   =        0.0000  DIHED      =        0.0000
+ VDWAALS =        0.0000  EEL     =        0.0000  HBOND      =        0.0000
+ 1-4 VDW =        0.0000  1-4 EEL =        0.0000  RESTRAINT  =        0.0000
+ EXTERNESCF =   -47832.6671
+
+
+  Maximum number of minimization cycles reached.
+>>>>> Entered write_inpfile (qm2_extern_tc_module)
+<<<<< Left write_inpfile (qm2_extern_tc_module)
+>>>>> Entered read_results (qm2_extern_tc_module)
+<<<<< Left read_results (qm2_extern_tc_module)
+>>>>> Entered print_results (qm2_extern_util_module)
+print_results - final energy in kcal and gradient(s) in kcal/(mol*Å):
+
+qm2_extern_tc_module - final energy:
+     -47832.66711794
+qm2_extern_tc_module - final gradient(s):
+QM region:
+  -109.1183987056  -109.1184090222     0.0000005929
+   108.2482704981     0.8701282075    -0.0000003557
+     0.8701282075   108.2482808147    -0.0000003557
+<<<<< Left print_results (qm2_extern_util_module)
+
+
+                    FINAL RESULTS
+
+
+
+   NSTEP       ENERGY          RMS            GMAX         NAME    NUMBER
+      2      -4.7833E+04     7.2457E+01     1.0912E+02     O           1
+
+ BOND    =        0.0000  ANGLE   =        0.0000  DIHED      =        0.0000
+ VDWAALS =        0.0000  EEL     =        0.0000  HBOND      =        0.0000
+ 1-4 VDW =        0.0000  1-4 EEL =        0.0000  RESTRAINT  =        0.0000
+ EXTERNESCF =   -47832.6671
+
+--------------------------------------------------------------------------------
+   5.  TIMINGS
+--------------------------------------------------------------------------------
+
+|          QMMM                      10.52 (100.0% of Force)
+|       Force time                10.52 (100.0% of Runmd)
+|    Runmd Time                10.52 (100.0% of Total)
+|    Other                      0.00 ( 0.03% of Total)
+| Total time                10.53 (100.0% of ALL  )
+
+| Number of list builds   :          1
+
+| Highest rstack allocated:          0
+| Highest istack allocated:          0
+|           Job began  at 20:37:48.603  on 10/20/2021
+|           Setup done at 20:37:48.606  on 10/20/2021
+|           Run   done at 20:37:59.129  on 10/20/2021
+|     wallclock() was called     114 times
+
+|3D-RISM memory allocation summary
+|Type          Maximum        Current   
+|Integer       0.00000 GB     0.00000 GB
+|Real          0.00000 GB     0.00000 GB
+|Logical       0.00000 GB     0.00000 GB
+|Character     0.00000 GB     0.00000 GB
+|---------------------------------------
+|Total         0.00000 GB     0.00000 GB

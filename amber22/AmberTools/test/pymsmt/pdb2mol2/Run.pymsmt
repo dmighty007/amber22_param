@@ -1,0 +1,19 @@
+#!/bin/sh
+
+. ../../program_error.sh
+
+if [ -z "$metalpdb2mol2" ]; then
+   metalpdb2mol2="$AMBERHOME/bin/metalpdb2mol2.py"
+fi
+
+output='pdb2mol2.out'
+
+$metalpdb2mol2 -i ZN.pdb -o ZN.mol2 -c 2 > $output 2>&1 || error
+
+#For modeling files generation
+$AMBERHOME/AmberTools/test/dacdif ZN.mol2.save ZN.mol2
+
+/bin/rm -f $output
+
+exit 0
+

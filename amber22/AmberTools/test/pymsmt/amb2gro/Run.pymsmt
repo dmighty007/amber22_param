@@ -1,0 +1,22 @@
+#!/bin/sh
+
+. ../../program_error.sh
+
+if [ -z "$amb2gro" ]; then
+   amb2gro="$AMBERHOME/bin/amb2gro_top_gro.py"
+fi
+
+input=1OKL_solv
+output=amb2gro.out
+
+$amb2gro -p $input.prmtop -c $input.inpcrd -t $input.top -g $input.gro -b $input.gromacs.pdb > $output 2>&1 || error
+
+cat $input.top | awk 'NR>15' > $input.top.truc 2>&1 || error
+
+$AMBERHOME/AmberTools/test/dacdif 1OKL_solv.top.truc.save 1OKL_solv.top.truc
+$AMBERHOME/AmberTools/test/dacdif 1OKL_solv.gro.save 1OKL_solv.gro
+$AMBERHOME/AmberTools/test/dacdif 1OKL_solv.gromacs.pdb.save 1OKL_solv.gromacs.pdb
+
+/bin/rm -f $output 1OKL_solv.top
+
+exit 0

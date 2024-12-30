@@ -1,0 +1,7 @@
+parm /home/gohlke/src/amber/AmberTools/src/FEW/examples/test/calc_p_1t/TGR5_dimer_1-8_-46/topo/TGR5_dimer_1-8_-46_gb0_pb3_com.top
+trajin /home/gohlke/src/amber/AmberTools/src/FEW/examples/test/calc_p_1t/TGR5_dimer_1-8_-46/snapshots/TGR5_dimer_1-8_-46_com.crd.1
+trajin /home/gohlke/src/amber/AmberTools/src/FEW/examples/test/calc_p_1t/TGR5_dimer_1-8_-46/snapshots/TGR5_dimer_1-8_-46_com.crd.2
+center :1-594 origin
+image origin center
+
+trajout tmp/snap.pqr pdb multi parse

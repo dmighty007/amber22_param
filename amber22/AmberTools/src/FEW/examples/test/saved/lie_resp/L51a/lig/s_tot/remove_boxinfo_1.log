@@ -1,0 +1,56 @@
+
+CPPTRAJ: Trajectory Analysis. V16.00b
+    ___  ___  ___  ___
+     | \/ | \/ | \/ | 
+    _|_/\_|_/\_|_/\_|_
+
+| Date/time: 02/14/16 16:59:43
+| Available memory: 435.581 MB
+
+	Reading '/home/homeyer/work/FEW/examples/test/lie_resp/L51a/lig/topo/tot.top' as Amber Topology
+INPUT: Reading input from '/home/homeyer/work/FEW/examples/test/lie_resp/L51a/lig/s_tot/remove_boxinfo_1.cpptraj'
+  [trajin /home/homeyer/work/FEW/examples/test/MD_resp/L51a/lig/prod/md_prod_001_img.mdcrd.gz 1 3 1]
+	Reading '/home/homeyer/work/FEW/examples/test/MD_resp/L51a/lig/prod/md_prod_001_img.mdcrd.gz' as Amber Trajectory
+Warning: Trajectory only contains box lengths and topology has no box info.
+Warning: To set box angles for topology use the 'parmbox' command.
+Warning: Box angle(s) <= 0.0; setting box to NONE.
+  [trajout /home/homeyer/work/FEW/examples/test/lie_resp/L51a/lig/s_tot/md_prod_001_nobox.mdcrd nobox]
+Warning: Format not specified and extension '.mdcrd' not recognized. Defaulting to Amber Trajectory.
+	Writing '/home/homeyer/work/FEW/examples/test/lie_resp/L51a/lig/s_tot/md_prod_001_nobox.mdcrd' as Amber Trajectory
+---------- RUN BEGIN -------------------------------------------------
+
+PARAMETER FILES (1 total):
+ 0: tot.top, 4678 atoms, 1540 res, box: None, 1540 mol, 1539 solvent
+
+INPUT TRAJECTORIES (1 total):
+ 0: 'md_prod_001_img.mdcrd.gz' is an AMBER trajectory, Parm tot.top (reading 3 of 5)
+  Coordinate processing will occur on 3 frames.
+
+OUTPUT TRAJECTORIES (1 total):
+  'md_prod_001_nobox.mdcrd' (3 frames) is an AMBER trajectory (no box info)
+
+BEGIN TRAJECTORY PROCESSING:
+----- md_prod_001_img.mdcrd.gz (1-3, 1) -----
+ 0% 50% 100% Complete.
+
+Read 3 frames and processed 3 frames.
+TIME: Avg. throughput= 149.1424 frames / second.
+
+ACTION OUTPUT:
+
+RUN TIMING:
+TIME:		Init               : 0.0000 s (  0.01%)
+TIME:		Trajectory Process : 0.0201 s ( 36.54%)
+TIME:		Action Post        : 0.0000 s (  0.00%)
+TIME:		Analysis           : 0.0000 s (  0.00%)
+TIME:		Data File Write    : 0.0000 s (  0.00%)
+TIME:		Other              : 0.0349 s (  0.63%)
+TIME:	Run Total 0.0551 s
+---------- RUN END ---------------------------------------------------
+TIME: Total execution time: 0.0735 seconds.
+--------------------------------------------------------------------------------
+To cite CPPTRAJ use:
+Daniel R. Roe and Thomas E. Cheatham, III, "PTRAJ and CPPTRAJ: Software for
+  Processing and Analysis of Molecular Dynamics Trajectory Data". J. Chem.
+  Theory Comput., 2013, 9 (7), pp 3084-3095.
+

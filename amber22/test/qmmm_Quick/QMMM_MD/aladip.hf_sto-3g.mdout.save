@@ -1,0 +1,415 @@
+
+          -------------------------------------------------------
+          Amber 20 SANDER                              2020
+          -------------------------------------------------------
+
+| Run on 01/20/2021 at 11:48:02
+
+|   Executable path: /server-home1/cruzeiro/amber_dev/bin/sander
+| Working directory: /server-home1/cruzeiro/amber_dev/test/qmmm_Quick/QMMM_MD
+|          Hostname: chinotto
+
+  [-O]verwriting output
+
+File Assignments:
+|  MDIN: mdin                                                                  
+| MDOUT: aladip.hf_sto-3g.mdout                                                
+|INPCRD: aladip.restrt                                                         
+|  PARM: aladip.prmtop                                                         
+|RESTRT: aladip.hf_sto-3g.restrt                                               
+|  REFC: refc                                                                  
+| MDVEL: mdvel                                                                 
+| MDFRC: mdfrc                                                                 
+|  MDEN: mden                                                                  
+| MDCRD: mdcrd                                                                 
+|MDINFO: mdinfo                                                                
+|  MTMD: mtmd                                                                  
+|INPDIP: inpdip                                                                
+|RSTDIP: rstdip                                                                
+|INPTRA: inptraj                                                               
+
+
+ Here is the input file:
+
+Alanine dipeptide QM/MM HF/STO-3G/ff99SB NVE 2 steps (dt=0.5fs, no shake)      
+ &cntrl                                                                        
+  imin   = 0,           !no minimization                                       
+  irest  = 1,           !restart                                               
+  ntx    = 5,           !coordinates and velocities are read in                
+  cut    = 9999.9       !non-bonded interactions cutoff                        
+  dt     = 0.0005,      !0.5fs time step                                       
+  ntb    = 0,           !no periodicity and PME off!                           
+  ntt    = 0,           !turn off thermostat                                   
+  ntpr   = 1,           !print details to log every step                       
+  ntwx   = 1,           !write coordinates to mdcrd every 500 steps (every 250fs)
+  ntwr   = 2,           !write restart file at last step                       
+  nstlim = 2,           !run for 2 steps                                       
+  nscm   = 0,           !No removal of COM motion,                             
+  ioutfm = 1,           !NetCDF MDCRD.                                         
+  ntxo   = 1,           !Formatted ASCII restart file                          
+  ifqnt  = 1,                                                                  
+ /                                                                             
+ &qmmm                                                                         
+  qmmask    = ':2',                                                            
+  qm_theory = 'quick',                                                         
+ /                                                                             
+ &quick                                                                        
+  method   = 'hf',                                                             
+  basis    = 'sto-3g',                                                         
+  debug    = 1,                                                                
+ /                                                                             
+
+--------------------------------------------------------------------------------
+   1.  RESOURCE   USE: 
+--------------------------------------------------------------------------------
+
+| Flags:                                                                        
+|    NONPERIODIC   ntb=0 and igb=0: Setting up nonperiodic simulation
+|  *** cutoff > system size, list only builds once
+|Largest sphere to fit in unit cell has radius =    31.785
+| New format PARM file being parsed.
+| Version =    1.000 Date = 05/11/10 Time = 16:17:15
+ NATOM  =      22 NTYPES =       7 NBONH =      12 MBONA  =       9
+ NTHETH =      25 MTHETA =      11 NPHIH =      42 MPHIA  =      24
+ NHPARM =       0 NPARM  =       0 NNB   =      99 NRES   =       3
+ NBONA  =       9 NTHETA =      11 NPHIA =      24 NUMBND =       8
+ NUMANG =      16 NPTRA  =      19 NATYP =       7 NPHB   =       0
+ IFBOX  =       0 NMXRS  =      10 IFCAP =       0 NEXTRA =       0
+ NCOPY  =       0
+
+
+|     Memory Use     Allocated
+|     Real              505072
+|     Hollerith             71
+|     Integer            23807
+|     Max Pairs            231
+|     nblistReal           264
+|     nblist Int        924300
+|       Total             7652 kbytes
+
+| Note: 1-4 EEL scale factors were NOT found in the topology file.
+|       Using default value of 1.2.
+
+| Note: 1-4 VDW scale factors were NOT found in the topology file.
+|       Using default value of 2.0.
+| Duplicated    0 dihedrals
+| Duplicated    0 dihedrals
+LOADING THE QUANTUM ATOMS AS GROUPS
+     Mask :2; matches    10 atoms
+
+--------------------------------------------------------------------------------
+   2.  CONTROL  DATA  FOR  THE  RUN
+--------------------------------------------------------------------------------
+
+ACE                                                                             
+
+General flags:
+     imin    =       0, nmropt  =       0
+
+Nature and format of input:
+     ntx     =       5, irest   =       1, ntrx    =       1
+
+Nature and format of output:
+     ntxo    =       1, ntpr    =       1, ntrx    =       1, ntwr    =       2
+     iwrap   =       0, ntwx    =       1, ntwv    =       0, ntwe    =       0
+     ioutfm  =       1, ntwprt  =       0, idecomp =       0, rbornstat=      0
+
+Potential function:
+     ntf     =       1, ntb     =       0, igb     =       0, nsnb    =      25
+     ipol    =       0, gbsa    =       0, iesp    =       0
+     dielc   =   1.00000, cut     =9999.90000, intdiel =   1.00000
+
+Frozen or restrained atoms:
+     ibelly  =       0, ntr     =       0
+
+Molecular dynamics:
+     nstlim  =         2, nscm    =         0, nrespa  =         1
+     t       =   0.00000, dt      =   0.00050, vlimit  =  20.00000
+
+QMMM options:
+             ifqnt = True       nquant =       10
+              qmgb =        0  qmcharge =        0   adjust_q =        2
+              spin =        1     qmcut = ********    qmshake =        1
+          qmmm_int =        1
+     lnk_atomic_no =        1   lnk_dis =   1.0900 lnk_method =        1
+          qm_theory = QUICK    verbosity =        0
+            qmqmdx = Analytical
+          qm_ewald =        0 qm_pme = False 
+|  INFO: Old style inpcrd file read
+
+
+--------------------------------------------------------------------------------
+   3.  ATOMIC COORDINATES AND VELOCITIES
+--------------------------------------------------------------------------------
+
+ACE                                                                             
+ begin time read from input coords =     0.500 ps
+
+ Number of triangulated 3-point waters found:        0
+
+     Sum of charges from parm topology file =  -0.00000000
+     Forcing neutrality...
+QMMM: ADJUSTING CHARGES
+QMMM: ----------------------------------------------------------------------
+QMMM: adjust_q = 2
+QMMM: Uniformly adjusting the charge of MM atoms to conserve total charge.
+QMMM:                             qm_charge =    0
+QMMM: QM atom RESP charge sum (inc MM link) =    0.182
+QMMM: Adjusting each MM atom resp charge by =    0.018
+QMMM:          Sum of MM + QM region is now =    0.000
+QMMM: ----------------------------------------------------------------------
+|  # of SOLUTE  degrees of freedom (RNDFP):      66.
+|  # of SOLVENT degrees of freedom (RNDFS):       0.
+|  QMSHAKE_NOSHAKEMASK_OVERLAP =      0
+|  NDFMIN =      66.     NUM_NOSHAKE =      0     CORRECTED RNDFP =      66.
+|  TOTAL # of degrees of freedom (RNDF) =      66.
+ ---------------------------------------------------
+
+     eedmeth=4: Setting switch to one everywhere
+
+ ---------------------------------------------------
+| Local SIZE OF NONBOND LIST =        126
+| TOTAL SIZE OF NONBOND LIST =        126
+
+QMMM: Link Atom Information
+QMMM: ------------------------------------------------------------------------
+QMMM:  nlink =     2                   Link Coords              Resp Charges
+QMMM:    MM(typ)  -  QM(typ)      X         Y         Z         MM        QM
+QMMM:     5 C         7 N        3.621     2.833    -0.138     0.597    -0.416
+QMMM:    17 N        15 C        5.695     6.674     0.103    -0.416     0.597
+QMMM: ------------------------------------------------------------------------
+
+  QMMM: QM Region Cartesian Coordinates (*=link atom) 
+  QMMM: QM_NO.   MM_NO.  ATOM         X         Y         Z
+  QMMM:     1        7      N        3.7581    3.9141   -0.1785
+  QMMM:     2        8      H        2.9717    4.4937   -0.2431
+  QMMM:     3        9      C        5.0808    4.5688   -0.2662
+  QMMM:     4       10      H        5.6444    4.4208    0.6655
+  QMMM:     5       11      C        5.9910    4.2295   -1.5020
+  QMMM:     6       12      H        5.3814    4.1909   -2.3996
+  QMMM:     7       13      H        6.6925    5.0048   -1.7332
+  QMMM:     8       14      H        6.4509    3.2512   -1.3767
+  QMMM:     9       15      C        4.8278    6.0732   -0.1703
+  QMMM:    10       16      O        3.7665    6.6076   -0.3355
+  QMMM:    11              *H        3.6213    2.8335   -0.1378
+  QMMM:    12              *H        5.6953    6.6740    0.1029
+
+--------------------------------------------------------------------------------
+  3.1 QM CALCULATION INFO
+--------------------------------------------------------------------------------
+ <<< leaving subroutine read_quick_nml
+
+     ======== QUICK settings ======== 
+ outfprefix                 : quick
+ method                     : hf
+ basis                      : sto-3g
+ charge (from qmmm namelist): 0
+ mult   (from qmmm namelist): 1
+ scf_cyc                    : 200
+ denserms                   :    0.0000010000
+ keywords                   : 
+ debug                      : T
+ 
+ <<< leaving subroutine quick_input_setting
+
+  QUICK input coordinates (Atomic number, and X, Y, and Z in A):
+  7      3.75805450        3.91408240       -0.17852940
+  1      2.97171520        4.49374280       -0.24310610
+  6      5.08076170        4.56878330       -0.26620200
+  1      5.64438380        4.42079610        0.66554800
+  6      5.99098190        4.22949250       -1.50201240
+  1      5.38144210        4.19085410       -2.39958880
+  1      6.69253900        5.00482010       -1.73315180
+  1      6.45086320        3.25124200       -1.37673340
+  6      4.82782300        6.07324170       -0.17027780
+  8      3.76645420        6.60756080       -0.33551010
+  1      3.62132904        2.83345955       -0.13778140
+  1      5.69528489        6.67404646        0.10293183
+
+  QUICK external point coordinates and charges (X, Y, and Z in A, and charge in a.u.):
+      2.07738210        1.03814740        0.14064790        0.13045000
+      2.11294730        2.14100150        0.11741820       -0.34805000
+      1.81714060        2.50699010        1.12779590        0.13045000
+      1.39511170        2.58234960       -0.58971690        0.13045000
+      4.40919630        1.77772550       -0.30237780       -0.54975000
+      6.76634350        6.27938810        0.37239560        0.29005000
+      5.75886580        8.26643380        0.23425290       -0.13085000
+      5.27973880        8.59450680        1.17050040        0.11575000
+      6.72766290        8.74939900        0.27036440        0.11575000
+      5.17266180        8.64456220       -0.60674340        0.11575000
+
+  QUICK energy (in kcal/mol):  -153003.83143590533     
+  QUICK gradients in the QM region (in (kcal/mol)/A):
+  -54.084160170588888        99.053463442658767       -9.0436565724592821     
+   37.856220878140810       -33.069944217145171        9.6372589338884804     
+   24.639152964872501        18.265211635742556       -13.948955550889874     
+  -9.0528552802632660        19.224298099834964        4.4031988220986342     
+   36.790775170575657        11.268914785548258        5.9855136618513693     
+   8.0661381099937834        7.4750351942203874       -3.5865487030901497     
+  -24.323685064681072       -8.3043034242242086       -12.908495987743331     
+  -4.2723116749349757       -7.6396421511603547       -1.4113110641951301     
+  -8.3977265409336272        11.709049777753135        10.621443216501300     
+   36.680832725490603       -26.549348804247995        4.7254901287680262     
+  -37.928415743114464       -60.131086764529954        11.854523680374173     
+  -15.552823553106247       -14.862016646555414       -2.4458442019552291     
+  QUICK gradients in the MM region (in (kcal/mol)/A):
+  0.97025229271034685       0.75296466925781969      -0.21801404652860970     
+  -7.5189745538822921      -0.85591426659273451        1.6647457260924359     
+  0.62147349331304402      -0.55403347179007456      -0.81277308688802319     
+  0.95949806697666418      -0.33029694132280213       0.27712633689069827     
+   18.038200272832150       -17.201389670185016       -3.8689868436776145     
+  -4.1190234468462430        1.1205353925140498      -0.95884891385720927     
+ -0.64095093336560338       -4.0006502828021415E-002 -0.11611389689803903     
+  0.34446295459722265       0.19209161354064899       0.33885374195190732     
+  0.27503579752698398        7.1074951777425663E-002   2.9704606963023437E-002
+  0.64888423342211321       0.40534329586562756      -0.21830998738245092     
+
+ <<< leaving subroutine get_quick_qmmm_forces
+
+ NSTEP =        1   TIME(PS) =       0.501  TEMP(K) =   311.68  PRESS =     0.0
+ Etot   =   -152989.6323  EKtot   =        20.4393  EPtot      =   -153010.0716
+ BOND   =         3.6127  ANGLE   =         3.1972  DIHED      =        10.4306
+ 1-4 NB =         3.2185  1-4 EEL =       -10.7437  VDWAALS    =        -0.8900
+ EELEC  =       -15.0655  EHBOND  =         0.0000  RESTRAINT  =         0.0000
+ QUICKESCF=   -153003.8314
+ ------------------------------------------------------------------------------
+
+ >>> entered subroutine get_quick_qmmm_forces
+
+  QUICK input coordinates (Atomic number, and X, Y, and Z in A):
+  7      3.75464348        3.91277990       -0.17879723
+  1      2.97920821        4.50361138       -0.23924682
+  6      5.08482480        4.56728334       -0.26627138
+  1      5.64539803        4.42802677        0.65328476
+  6      5.99232298        4.22899278       -1.49858415
+  1      5.38611149        4.20658973       -2.39302290
+  1      6.69920254        5.01161071       -1.73772911
+  1      6.45231091        3.26549132       -1.37676081
+  6      4.82852238        6.07254279       -0.17288175
+  8      3.76390264        6.61001881       -0.33444722
+  1      3.62010445        2.83192866       -0.13684664
+  1      5.69449056        6.67379998        0.10404585
+
+  QUICK external point coordinates and charges (X, Y, and Z in A, and charge in a.u.):
+      2.07548305        1.04672732        0.13659210        0.13045000
+      2.11210563        2.14017805        0.11735795       -0.34805000
+      1.81073994        2.51983258        1.13488635        0.13045000
+      1.37952447        2.56498006       -0.58704893        0.13045000
+      4.41096763        1.77654596       -0.30396816       -0.54975000
+      6.76007991        6.28047346        0.36612897        0.29005000
+      5.75916805        8.26256852        0.23118885       -0.13085000
+      5.29475885        8.59457790        1.17513185        0.11575000
+      6.72954095        8.76230031        0.26375593        0.11575000
+      5.17633465        8.66176603       -0.59922635        0.11575000
+
+  QUICK energy (in kcal/mol):  -153003.27557801388     
+  QUICK gradients in the QM region (in (kcal/mol)/A):
+  -64.593136198592390        98.322923656257942       -8.8041767425296840     
+   41.859442861561917       -33.969477064921300        9.3547525829565803     
+   36.722441714337634        14.975781407362748       -4.9847599603967616     
+  -14.799631885557526        22.293909301603417       -7.4542168207207053     
+   30.668203266797043       -12.740317878465255        9.8627684549114107     
+   11.430264505290783        10.666656660814244       0.77050399541667614     
+  -17.110729364835631      -0.36972118665950482       -17.246245156411991     
+  -9.4700944028384484        6.3812345055046347       -2.1992832294636004     
+   9.5118967776529895E-002   7.2890957572802693        11.017457590653978     
+   27.435227855634107       -21.012845679207263        3.7366870344868812     
+  -36.207857255973678       -60.502215986746045        12.024197577712805     
+  -15.354741173471517       -14.955763707818502       -2.0967048053159827     
+  QUICK gradients in the MM region (in (kcal/mol)/A):
+  0.98646653927226813       0.75504178445079284      -0.21339995249095878     
+  -7.5552720291184841      -0.82474082957531913        1.6362166465551486     
+  0.61072098340402559      -0.56571393185800800      -0.79693799666509357     
+  0.94285424861290756      -0.33283109724015991       0.27316778766569250     
+   18.036875706070820       -17.195267673091891       -3.9700097052790251     
+  -4.3111645229904338        1.1494018873826595      -0.94640439958585310     
+ -0.64666727967773829       -3.9001066173519110E-002 -0.11727489269929760     
+  0.34517724212366208       0.19100943899124509       0.33793212993856042     
+  0.27558662332599126        7.2756139936947406E-002   2.9418058933035836E-002
+  0.64091359601141629       0.41008556169070087      -0.21368819771307790     
+
+ <<< leaving subroutine get_quick_qmmm_forces
+
+ NSTEP =        2   TIME(PS) =       0.501  TEMP(K) =   298.73  PRESS =     0.0
+ Etot   =   -152989.6213  EKtot   =        19.5897  EPtot      =   -153009.2110
+ BOND   =         3.4449  ANGLE   =         3.6336  DIHED      =        10.4272
+ 1-4 NB =         3.2441  1-4 EEL =       -10.6990  VDWAALS    =        -0.9276
+ EELEC  =       -15.0587  EHBOND  =         0.0000  RESTRAINT  =         0.0000
+ QUICKESCF=   -153003.2756
+ ------------------------------------------------------------------------------
+
+
+      A V E R A G E S   O V E R       2 S T E P S
+
+
+ NSTEP =        2   TIME(PS) =       0.501  TEMP(K) =   305.20  PRESS =     0.0
+ Etot   =   -152989.6268  EKtot   =        20.0145  EPtot      =   -153009.6413
+ BOND   =         3.5288  ANGLE   =         3.4154  DIHED      =        10.4289
+ 1-4 NB =         3.2313  1-4 EEL =       -10.7213  VDWAALS    =        -0.9088
+ EELEC  =       -15.0621  EHBOND  =         0.0000  RESTRAINT  =         0.0000
+ QUICKESCF=   -153003.5535
+ ------------------------------------------------------------------------------
+
+
+      R M S  F L U C T U A T I O N S
+
+
+ NSTEP =        2   TIME(PS) =       0.501  TEMP(K) =     6.48  PRESS =     0.0
+ Etot   =         0.0059  EKtot   =         0.4248  EPtot      =         0.4303
+ BOND   =         0.0839  ANGLE   =         0.2182  DIHED      =         0.0017
+ 1-4 NB =         0.0128  1-4 EEL =         0.0224  VDWAALS    =         0.0188
+ EELEC  =         0.0034  EHBOND  =         0.0000  RESTRAINT  =         0.0000
+ QUICKESCF=         0.2779
+|E(PBS) =         0.0000
+ ------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+   5.  TIMINGS
+--------------------------------------------------------------------------------
+
+|    Read coords time           0.00 ( 0.09% of Total)
+|                Build the list             0.00 (95.30% of List )
+|                Other                      0.00 ( 4.70% of List )
+|             List time                  0.00 (83.78% of Nonbo)
+|                Direct Ewald time          0.00 (85.70% of Ewald)
+|                Virial junk                0.00 ( 1.82% of Ewald)
+|                Other                      0.00 (12.49% of Ewald)
+|             Ewald time                 0.00 (15.91% of Nonbo)
+|             IPS excludes               0.00 ( 0.16% of Nonbo)
+|             Other                      0.00 ( 0.14% of Nonbo)
+|          Nonbond force              0.00 ( 0.02% of Force)
+|             Other                      3.28 (100.0% of QMMM )
+|          QMMM                       3.28 (100.0% of Force)
+|       Force time                 3.28 (97.40% of Runmd)
+|       Verlet update time         0.06 ( 1.88% of Runmd)
+|       Other                      0.02 ( 0.72% of Runmd)
+|    Runmd Time                 3.37 (98.56% of Total)
+|    Other                      0.05 ( 1.35% of Total)
+| Total time                 3.42 (100.0% of ALL  )
+
+| Number of list builds   :          1
+
+| Highest rstack allocated:         70
+| Highest istack allocated:         14
+
+| Final Performance Info:
+| -----------------------------------------------------
+| Average timings for all steps:
+|     Elapsed(s) =       3.40 Per Step(ms) =    1702.02
+|         ns/day =       0.03   seconds/ns = 3404031.99
+| -----------------------------------------------------
+
+|           Job began  at 11:48:02.586  on 01/20/2021
+|           Setup done at 11:48:02.636  on 01/20/2021
+|           Run   done at 11:48:06.008  on 01/20/2021
+|     wallclock() was called      93 times
+
+|3D-RISM memory allocation summary
+|Type          Maximum        Current   
+|Integer       0.00000 GB     0.00000 GB
+|Real          0.00000 GB     0.00000 GB
+|Logical       0.00000 GB     0.00000 GB
+|Character     0.00000 GB     0.00000 GB
+|---------------------------------------
+|Total         0.00000 GB     0.00000 GB

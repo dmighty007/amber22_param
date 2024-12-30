@@ -1,0 +1,22 @@
+=head2 Mon Dec 30 14:01:01 2024: C<Module> L<PerlMol|PerlMol>
+
+=over 4
+
+=item *
+
+C<installed into: /home/suman/Dibyendu/Soft/amber22_src/amber22_src/build/AmberTools/src/PerlMol-0.3500/install/lib/perl>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 0.3500>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+

@@ -1,0 +1,71 @@
+#!/bin/csh -f
+#TEST-PROGRAM nmode
+#TEST-DESCRIP find normal and Langevin modes
+#TEST-PURPOSE regression, basic
+#TEST-STATE   ok
+
+cat<<EOF >lmode.in
+  langevin modes for N-methyl acetamide
+ &data
+     ntrun = 5, ndiag=2, cut=95.0, ibelly=0, 
+     nprint=1, ioseen=0, eta=0.9,
+     drms = 0.0001, maxcyc=1, bdwnhl=1.1, dfpred = 0.1,
+     scnb=8.0, scee=2.0, idiel=0, nvect=72, 
+ /
+EOF
+
+echo " "
+echo NMODE: find Langevin modes
+
+cat<<EOF >lmode.in
+  langevin modes for N-methyl acetamide
+ &data
+     ntrun = 5, ndiag=2, cut=95.0, ibelly=0, 
+     nprint=1, ioseen=2, eta=0.9,
+     drms = 0.0001, maxcyc=1, bdwnhl=1.1, dfpred = 0.1,
+     scnb=8.0, scee=2.0, idiel=0, nvect=72, 
+ /
+EOF
+
+nmode -O \
+		-i lmode.in \
+		-c nmode_0.rst \
+		-p parm.top \
+		-l lmode \
+		-o lvibs.out        || goto error
+
+../dacdif lvibs.out.save lvibs.out
+
+cat <<EOF >lmanal.in
+ &data
+   ntrun=2, nvect=72, natom=12, np=40, tf=2.0, bose=.false., kup=4, lup=5,
+ /
+EOF
+
+echo " "
+echo NMODE: get librational tcf:
+
+${AMBERHOME}/bin/lmanal -O -i lmanal.in -c nmode_0.rst -l lmode -o lmanal.out \
+    -p NH.dat || goto error
+
+../dacdif NH.dat.save NH.dat
+/bin/rm lmanal.in lmode.in
+
+echo " "
+exit(0)
+
+
+error:
+echo "  ${0}:  Program error"
+echo " "
+exit(1)
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,11 @@
+Li/Merz ion parameters of monovalent ions for TIP3P water model (12-6 normal usage set)
+MASS
+Na+  22.99
+K+   39.10
+Cl-  35.45
+
+NONBON
+Na+   1.475  0.03171494    HFE set for TIP3P water from Li et al., JCTC, 2015, 11, 1645
+K+    1.719  0.15131351    HFE set for TIP3P water from Li et al., JCTC, 2015, 11, 1645
+Cl-   2.252  0.60293097    HFE set for TIP3P water from Li et al., JCTC, 2015, 11, 1645
+

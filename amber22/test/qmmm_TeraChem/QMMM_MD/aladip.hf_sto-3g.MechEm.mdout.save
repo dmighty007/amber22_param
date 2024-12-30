@@ -1,0 +1,385 @@
+
+          -------------------------------------------------------
+          Amber 21 SANDER                              2021
+          -------------------------------------------------------
+
+| Run on 11/01/2021 at 16:27:27
+
+|   Executable path: /u/cruzeiro/amber_dev/bin/sander
+| Working directory: /u/cruzeiro/amber_dev/test/qmmm_TeraChem/QMMM_MD_TeraChem
+|          Hostname: fire-09-01
+
+  [-O]verwriting output
+
+File Assignments:
+|  MDIN: mdin                                                                  
+| MDOUT: aladip.hf_sto-3g.MechEm.mdout                                         
+|INPCRD: aladip.restrt                                                         
+|  PARM: aladip.prmtop                                                         
+|RESTRT: aladip.hf_sto-3g.MechEm.restrt                                        
+|  REFC: refc                                                                  
+| MDVEL: mdvel                                                                 
+| MDFRC: mdfrc                                                                 
+|  MDEN: mden                                                                  
+| MDCRD: mdcrd                                                                 
+|MDINFO: mdinfo                                                                
+|  MTMD: mtmd                                                                  
+|INPDIP: inpdip                                                                
+|RSTDIP: rstdip                                                                
+|INPTRA: inptraj                                                               
+
+
+ Here is the input file:
+
+Alanine dipeptide QM/MM HF/STO-3G/ff99SB NVE 2 steps (dt=0.5fs, no shake)      
+ &cntrl                                                                        
+  imin   = 0,           !no minimization                                       
+  irest  = 1,           !restart                                               
+  ntx    = 5,           !coordinates and velocities are read in                
+  cut    = 9999.9       !non-bonded interactions cutoff                        
+  dt     = 0.0005,      !0.5fs time step                                       
+  ntb    = 0,           !no periodicity and PME off!                           
+  ntt    = 0,           !turn off thermostat                                   
+  ntpr   = 1,           !print details to log every step                       
+  ntwx   = 1,           !write coordinates to mdcrd every 500 steps (every 250fs)
+  ntwr   = 2,           !write restart file at last step                       
+  nstlim = 2,           !run for 2 steps                                       
+  nscm   = 0,           !No removal of COM motion,                             
+  ioutfm = 1,           !NetCDF MDCRD.                                         
+  ntxo   = 1,           !Formatted ASCII restart file                          
+  ifqnt  = 1,                                                                  
+ /                                                                             
+ &qmmm                                                                         
+  qmmask    = ':2',                                                            
+  qm_theory = 'TERACHEM',                                                      
+  qmmm_int  = 5,                                                               
+ /                                                                             
+ &tc                                                                           
+  host     = 'localhost',                                                      
+  port     = 12345,                                                            
+  method   = 'rhf',                                                            
+  basis    = 'sto-3g',                                                         
+  debug    = 2,                                                                
+ /                                                                             
+
+--------------------------------------------------------------------------------
+   1.  RESOURCE   USE: 
+--------------------------------------------------------------------------------
+
+| Flags:                                                                        
+|    NONPERIODIC   ntb=0 and igb=0: Setting up nonperiodic simulation
+|  *** cutoff > system size, list only builds once
+|Largest sphere to fit in unit cell has radius =    31.785
+| New format PARM file being parsed.
+| Version =    1.000 Date = 05/11/10 Time = 16:17:15
+ NATOM  =      22 NTYPES =       7 NBONH =      12 MBONA  =       9
+ NTHETH =      25 MTHETA =      11 NPHIH =      42 MPHIA  =      24
+ NHPARM =       0 NPARM  =       0 NNB   =      99 NRES   =       3
+ NBONA  =       9 NTHETA =      11 NPHIA =      24 NUMBND =       8
+ NUMANG =      16 NPTRA  =      19 NATYP =       7 NPHB   =       0
+ IFBOX  =       0 NMXRS  =      10 IFCAP =       0 NEXTRA =       0
+ NCOPY  =       0
+
+
+|     Memory Use     Allocated
+|     Real              505072
+|     Hollerith             71
+|     Integer            23807
+|     Max Pairs            231
+|     nblistReal           264
+|     nblist Int        924322
+|       Total             7652 kbytes
+
+| Note: 1-4 EEL scale factors were NOT found in the topology file.
+|       Using default value of 1.2.
+
+| Note: 1-4 VDW scale factors were NOT found in the topology file.
+|       Using default value of 2.0.
+| Duplicated    0 dihedrals
+| Duplicated    0 dihedrals
+LOADING THE QUANTUM ATOMS AS GROUPS
+     Mask :2; matches    10 atoms
+QMMM: Mechanical embedding in use
+
+--------------------------------------------------------------------------------
+   2.  CONTROL  DATA  FOR  THE  RUN
+--------------------------------------------------------------------------------
+
+ACE                                                                             
+
+General flags:
+     imin    =       0, nmropt  =       0
+
+Nature and format of input:
+     ntx     =       5, irest   =       1, ntrx    =       1
+
+Nature and format of output:
+     ntxo    =       1, ntpr    =       1, ntrx    =       1, ntwr    =       2
+     iwrap   =       0, ntwx    =       1, ntwv    =       0, ntwe    =       0
+     ioutfm  =       1, ntwprt  =       0, idecomp =       0, rbornstat=      0
+
+Potential function:
+     ntf     =       1, ntb     =       0, igb     =       0, nsnb    =      25
+     ipol    =       0, gbsa    =       0, iesp    =       0
+     dielc   =   1.00000, cut     =9999.90000, intdiel =   1.00000
+
+Frozen or restrained atoms:
+     ibelly  =       0, ntr     =       0
+
+Molecular dynamics:
+     nstlim  =         2, nscm    =         0, nrespa  =         1
+     t       =   0.00000, dt      =   0.00050, vlimit  =  20.00000
+
+QMMM options:
+             ifqnt = True       nquant =       10
+              qmgb =        0  qmcharge =        0   adjust_q =        0
+              spin =        1     qmcut =   0.1000    qmshake =        1
+          qmmm_int =        5
+     lnk_atomic_no =        1   lnk_dis =   1.0900 lnk_method =        1
+          qm_theory = TCPB    verbosity =        0
+            qmqmdx = Analytical
+          qm_ewald =        0 qm_pme = False 
+|  INFO: Old style inpcrd file read
+
+
+--------------------------------------------------------------------------------
+   3.  ATOMIC COORDINATES AND VELOCITIES
+--------------------------------------------------------------------------------
+
+ACE                                                                             
+ begin time read from input coords =     0.500 ps
+
+ Number of triangulated 3-point waters found:        0
+
+     Sum of charges from parm topology file =  -0.00000000
+     Forcing neutrality...
+|  # of SOLUTE  degrees of freedom (RNDFP):      66.
+|  # of SOLVENT degrees of freedom (RNDFS):       0.
+|  QMSHAKE_NOSHAKEMASK_OVERLAP =      0
+|  NDFMIN =      66.     NUM_NOSHAKE =      0     CORRECTED RNDFP =      66.
+|  TOTAL # of degrees of freedom (RNDF) =      66.
+ ---------------------------------------------------
+
+     eedmeth=4: Setting switch to one everywhere
+
+ ---------------------------------------------------
+| Local SIZE OF NONBOND LIST =        126
+| TOTAL SIZE OF NONBOND LIST =        126
+
+QMMM: Link Atom Information
+QMMM: ------------------------------------------------------------------------
+QMMM:  nlink =     2                   Link Coords              Resp Charges
+QMMM:    MM(typ)  -  QM(typ)      X         Y         Z         MM        QM
+QMMM:     5 C         7 N        3.621     2.833    -0.138     0.000     0.000
+QMMM:    17 N        15 C        5.695     6.674     0.103     0.000     0.000
+QMMM: ------------------------------------------------------------------------
+
+  QMMM: QM Region Cartesian Coordinates (*=link atom) 
+  QMMM: QM_NO.   MM_NO.  ATOM         X         Y         Z
+  QMMM:     1        7      N        3.7581    3.9141   -0.1785
+  QMMM:     2        8      H        2.9717    4.4937   -0.2431
+  QMMM:     3        9      C        5.0808    4.5688   -0.2662
+  QMMM:     4       10      H        5.6444    4.4208    0.6655
+  QMMM:     5       11      C        5.9910    4.2295   -1.5020
+  QMMM:     6       12      H        5.3814    4.1909   -2.3996
+  QMMM:     7       13      H        6.6925    5.0048   -1.7332
+  QMMM:     8       14      H        6.4509    3.2512   -1.3767
+  QMMM:     9       15      C        4.8278    6.0732   -0.1703
+  QMMM:    10       16      O        3.7665    6.6076   -0.3355
+  QMMM:    11              *H        3.6213    2.8335   -0.1378
+  QMMM:    12              *H        5.6953    6.6740    0.1029
+
+--------------------------------------------------------------------------------
+  3.1 QM CALCULATION INFO
+--------------------------------------------------------------------------------
+ <<< leaving subroutine read_tcpb_nml
+ >>> Successfully connected to TeraChem server using host localhost and port        12345 .
+
+ >>> TeraChem setup completed with success.
+
+
+     ======== TCPB settings ======== 
+ tcfile                     : 
+ host                       : localhost
+ port                       : 12345
+ method                     : rhf
+ basis                      : sto-3g
+ charge (from qmmm namelist): 0
+ mult   (from qmmm namelist): 1
+ precision                  : mixed
+ dftd                       : no
+ threall                    :   1.00E-11
+ convthre                   :   3.00E-05
+ maxit                      : 100
+ dftgrid                    : 1
+ cis                        : no
+ cisnumstates               : 1
+ cistarget                  : 1
+ debug                      : T
+ 
+ <<< leaving subroutine tcpb_input_setting
+ >>> entered subroutine get_tcpb_qmmm_forces
+
+  TCPB input coordinates (Atomic number, and X, Y, and Z in A):
+  7      3.75805450        3.91408240       -0.17852940
+  1      2.97171520        4.49374280       -0.24310610
+  6      5.08076170        4.56878330       -0.26620200
+  1      5.64438380        4.42079610        0.66554800
+  6      5.99098190        4.22949250       -1.50201240
+  1      5.38144210        4.19085410       -2.39958880
+  1      6.69253900        5.00482010       -1.73315180
+  1      6.45086320        3.25124200       -1.37673340
+  6      4.82782300        6.07324170       -0.17027780
+  8      3.76645420        6.60756080       -0.33551010
+  1      3.62132904        2.83345955       -0.13778140
+  1      5.69528489        6.67404646        0.10293183
+ >>> Computed energy and gradients with success with tc_compute_energy_gradient.
+
+
+  TCPB energy (in kcal/mol):  -152989.01307084112     
+  TCPB gradients in the QM region (in (kcal/mol)/A):
+  -58.502932447031469        105.23375630198822       -4.1242475047406630     
+   42.855094418745288       -26.401274111160710        7.9111264922157529     
+   10.314537866135428        11.651045207235422       -15.306933088342200     
+  -6.6432690331195614        18.750525836270494        5.9626296153949623     
+   40.422641050029092        13.519443550986335        4.9139917234677961     
+   8.1024239275750904        7.1504995350881275       -2.2151215883366180     
+  -22.673568514640415       -7.1441991946607200       -14.842125333119144     
+  -7.0832484923647190       -8.0174807057233615       -5.4963206458503291E-002
+  -19.895656413990299       -5.7123872411829248        5.0283712540321144     
+   46.721940279370507       -16.319527101632815        7.5812824675186237     
+  -15.574076357874331       -90.729675998263346        6.8024723670522445     
+  -18.043888466839277       -1.9807257272514627       -1.6564828827320459     
+  TCPB gradients in the MM region (in (kcal/mol)/A):
+
+ <<< leaving subroutine get_tcpb_qmmm_forces
+
+ NSTEP =        1   TIME(PS) =       0.501  TEMP(K) =   311.68  PRESS =     0.0
+ Etot   =   -153002.4990  EKtot   =        20.4388  EPtot      =   -153022.9378
+ BOND   =         3.6127  ANGLE   =         3.1972  DIHED      =        10.4306
+ 1-4 NB =         3.2185  1-4 EEL =        -0.6568  VDWAALS    =        -0.8900
+ EELEC  =       -52.8370  EHBOND  =         0.0000  RESTRAINT  =         0.0000
+ TERACHEMESCF=   -152989.0131
+ ------------------------------------------------------------------------------
+
+ >>> entered subroutine get_tcpb_qmmm_forces
+
+  TCPB input coordinates (Atomic number, and X, Y, and Z in A):
+  7      3.75464408        3.91291382       -0.17882832
+  1      2.97901860        4.50247923       -0.23906815
+  6      5.08494562        4.56733213       -0.26626063
+  1      5.64512752        4.42803984        0.65310150
+  6      5.99229416        4.22898297       -1.49857482
+  1      5.38612724        4.20661189       -2.39316163
+  1      6.69900718        5.01149265       -1.73753370
+  1      6.45257558        3.26547351       -1.37688710
+  6      4.82859765        6.07261049       -0.17285244
+  8      3.76386821        6.60995320       -0.33445514
+  1      3.61994085        2.83208512       -0.13682408
+  1      5.69460504        6.67380987        0.10407806
+ >>> Computed energy and gradients with success with tc_compute_energy_gradient.
+
+
+  TCPB energy (in kcal/mol):  -152988.43305454965     
+  TCPB gradients in the QM region (in (kcal/mol)/A):
+  -70.435969981431285        105.35920890561869       -3.9239245690103992     
+   47.755751613908956       -28.155749069111547        7.7038707280739693     
+   23.333633748982550        8.3309645646014037       -5.9099755864589696     
+  -12.644543983731191        21.853697569030306       -6.2975067643547398     
+   34.153723032361540       -10.208825579420173        8.8466656700729889     
+   11.386140819899644        10.324668241842437        1.9991440807683234     
+  -15.499064820626243       0.68780284551277449       -19.096341910313022     
+  -12.096947905133176        5.7889426310929935      -0.83397626556511806     
+  -11.409658865224193       -9.9611068798537357        5.3678131545546890     
+   37.405029646595601       -10.778831304300899        6.5830847712420315     
+  -13.932456954601069       -91.206656990035000        6.7903181484468051     
+  -18.015634736261944       -2.0341149724721772       -1.2291710902153803     
+  TCPB gradients in the MM region (in (kcal/mol)/A):
+
+ <<< leaving subroutine get_tcpb_qmmm_forces
+
+ NSTEP =        2   TIME(PS) =       0.501  TEMP(K) =   299.28  PRESS =     0.0
+ Etot   =   -153002.4881  EKtot   =        19.6257  EPtot      =   -153022.1138
+ BOND   =         3.3909  ANGLE   =         3.6256  DIHED      =        10.4255
+ 1-4 NB =         3.2432  1-4 EEL =        -0.6317  VDWAALS    =        -0.9277
+ EELEC  =       -52.8064  EHBOND  =         0.0000  RESTRAINT  =         0.0000
+ TERACHEMESCF=   -152988.4331
+ ------------------------------------------------------------------------------
+
+
+      A V E R A G E S   O V E R       2 S T E P S
+
+
+ NSTEP =        2   TIME(PS) =       0.501  TEMP(K) =   305.48  PRESS =     0.0
+ Etot   =   -153002.4935  EKtot   =        20.0322  EPtot      =   -153022.5258
+ BOND   =         3.5018  ANGLE   =         3.4114  DIHED      =        10.4281
+ 1-4 NB =         3.2309  1-4 EEL =        -0.6442  VDWAALS    =        -0.9089
+ EELEC  =       -52.8217  EHBOND  =         0.0000  RESTRAINT  =         0.0000
+ TERACHEMESCF=   -152988.7231
+ ------------------------------------------------------------------------------
+
+
+      R M S  F L U C T U A T I O N S
+
+
+ NSTEP =        2   TIME(PS) =       0.501  TEMP(K) =     6.20  PRESS =     0.0
+ Etot   =         0.0055  EKtot   =         0.4066  EPtot      =         0.4120
+ BOND   =         0.1109  ANGLE   =         0.2142  DIHED      =         0.0026
+ 1-4 NB =         0.0123  1-4 EEL =         0.0126  VDWAALS    =         0.0189
+ EELEC  =         0.0153  EHBOND  =         0.0000  RESTRAINT  =         0.0000
+ TERACHEMESCF=         0.2900
+|E(PBS) =         0.0000
+ ------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+   5.  TIMINGS
+--------------------------------------------------------------------------------
+
+|    Read coords time           0.00 ( 0.01% of Total)
+|                Build the list             0.00 (92.79% of List )
+|                Other                      0.00 ( 7.21% of List )
+|             List time                  0.00 (69.81% of Nonbo)
+|                   Short_ene time             0.00 (91.05% of Direc)
+|                   Other                      0.00 ( 8.95% of Direc)
+|                Direct Ewald time          0.00 (84.22% of Ewald)
+|                Virial junk                0.00 ( 1.52% of Ewald)
+|                Start synchronizatio       0.00 ( 1.52% of Ewald)
+|                Other                      0.00 (12.74% of Ewald)
+|             Ewald time                 0.00 (29.09% of Nonbo)
+|             IPS excludes               0.00 ( 0.23% of Nonbo)
+|             Other                      0.00 ( 0.86% of Nonbo)
+|          Nonbond force              0.00 ( 0.02% of Force)
+|          QMMM                       2.32 (100.0% of Force)
+|       Force time                 2.32 (100.0% of Runmd)
+|       Verlet update time         0.00 ( 0.03% of Runmd)
+|       Other                      0.00 ( 0.01% of Runmd)
+|    Runmd Time                 2.32 (99.28% of Total)
+|    Other                      0.02 ( 0.71% of Total)
+| Total time                 2.34 (100.0% of ALL  )
+
+| Number of list builds   :          1
+
+| Highest rstack allocated:         70
+| Highest istack allocated:         14
+
+| Final Performance Info:
+| -----------------------------------------------------
+| Average timings for all steps:
+|     Elapsed(s) =       2.32 Per Step(ms) =    1161.00
+|         ns/day =       0.04   seconds/ns = 2321995.02
+| -----------------------------------------------------
+
+|           Job began  at 16:27:27.307  on 11/01/2021
+|           Setup done at 16:27:27.324  on 11/01/2021
+|           Run   done at 16:27:29.645  on 11/01/2021
+|     wallclock() was called      93 times
+
+|3D-RISM memory allocation summary
+|Type          Maximum        Current   
+|Integer       0.00000 GB     0.00000 GB
+|Real          0.00000 GB     0.00000 GB
+|Logical       0.00000 GB     0.00000 GB
+|Character     0.00000 GB     0.00000 GB
+|---------------------------------------
+|Total         0.00000 GB     0.00000 GB

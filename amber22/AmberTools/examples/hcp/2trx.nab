@@ -1,0 +1,91 @@
+//
+//   Example 1: thioredoxin
+//   Inputs:     2trx.pdb, 2trx.top
+//   Process:    Minimization, Heating, Equilibration and Production
+//   Output:     2trx.log, 2trx.traj
+// 
+
+molecule m, mi;
+int   ier;
+float m_xyz[dynamic], f_xyz[dynamic], v[dynamic], x0[dynamic];
+float dgrad, fret, dummy[2];
+file  traj;
+
+/* load parameter-topology file */
+m = getpdb("2trx.pdb");
+ier = readparm(m,"2trx.top");
+if (ier != 0)
+{
+   printf("Error %d loading parm-top file\n", ier);
+   exit(1);
+}
+
+/* allocate storage for coord (m_xyz), force (f_xyz), vel (v), constraint (x0) */
+allocate m_xyz[3*m.natoms];
+allocate f_xyz[3*m.natoms];
+allocate v[3*m.natoms];
+allocate x0[3*m.natoms];
+
+/* initialize values of coordinates */
+ier = setxyz_from_mol(m, "::", m_xyz);
+if (ier > 0)
+{
+   printf("Loaded %d atom coordinates\n", ier);
+}
+else
+{
+   printf("Error %d loading coordinate file\n", ier);
+   exit(1);
+}
+
+
+/* Step1: Minimization */
+mm_options("cut=15, hcp=1, hcp_h1=15, hcp_h2=999, hcp_h3=999, \
+   diel=C, gb=5, gbsa=1, rgbmax=15, wcons=5.0, kappa=0.125, nsnb=1, ntpr=10");
+ier = setxyz_from_mol(m, "::", x0);
+ier = mme_init( m, NULL, NULL, x0, NULL );
+
+
+dgrad=0.1;
+ier=conjgrad(m_xyz, 3*m.natoms, fret, mme, dgrad, 10.0, 200); 
+printf("conjgrad return code is  %d\n", ier);
+
+
+
+/* Step2: Heating  */
+ier = mm_options("cut=15, hcp=1, hcp_h1=15, hcp_h2=999, hcp_h3=999, \
+   diel=C, gb=5, gbsa=1, rgbmax=15, wcons=1.0, kappa=0.125, tempi=0.0, temp0=300.0, \
+   gamma_ln=50, dt=0.001, nsnb=1, ntpr=100, ntpr_md=100");
+ier = setmol_from_xyz(m, NULL, m_xyz);
+ier = setxyz_from_mol(m, "::", x0);
+ier = mme_init(m, NULL, NULL, x0, NULL);
+ier = md(3*m.natoms, 1000, m_xyz, f_xyz, v, mme);
+
+/* Step3: Equilibration part 1 */
+ier = mm_options("cut=15, hcp=1, hcp_h1=15, hcp_h2=999, hcp_h3=999, \
+   diel=C, gb=5, gbsa=1, rgbmax=15, wcons=0.1, kappa=0.125, tempi=300.0, temp0=300.0, \
+   gamma_ln=50, dt=0.001, nsnb=1, ntpr=100, ntpr_md=100");
+ier = setmol_from_xyz(m, NULL, m_xyz);
+ier = setxyz_from_mol(m, "::", x0);
+ier = mme_init(m, NULL, NULL, x0, NULL);
+ier = md(3*m.natoms, 1000, m_xyz, f_xyz, v, mme);
+
+/* Step4: Equilibration part 2 */
+ier = mm_options("cut=15, hcp=1, hcp_h1=15, hcp_h2=999, hcp_h3=999, \
+   diel=C, gb=5, gbsa=1, rgbmax=15, wcons=0.01, kappa=0.125, tempi=300.0, temp0=300.0, \
+   gamma_ln=50, dt=0.001, nsnb=1, ntpr=100, ntpr_md=100");
+ier = setmol_from_xyz(m, NULL, m_xyz);
+ier = setxyz_from_mol(m, "::", x0);
+ier = mme_init(m, NULL, NULL, x0, NULL);
+ier = md(3*m.natoms, 1000, m_xyz, f_xyz, v, mme);
+
+/* Step5: Production */
+ier = mm_options("cut=15, hcp=1, hcp_h1=15, hcp_h2=999, hcp_h3=999, \
+   diel=C, gb=5, gbsa=1, rgbmax=15, wcons=0.0, kappa=0.125, tempi=300.0, temp0=300.0, \
+   gamma_ln=50, dt=0.001, nsnb=1, nscm=100, ntpr=1000, ntpr_md=1000, ntwx=1000");
+/* open trajectory file */
+traj = fopen("2trx.traj", "w");
+ier = mme_init(m,NULL,"::ZZZ",dummy,traj);
+ier = md(3*m.natoms, 100000, m_xyz, f_xyz, v, mme);
+
+

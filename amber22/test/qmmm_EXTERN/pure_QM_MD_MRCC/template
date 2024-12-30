@@ -1,0 +1,3 @@
+! MRCC template file for BLYP/STO-3G
+calc=blyp
+basis=STO-3G

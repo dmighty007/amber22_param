@@ -1,0 +1,305 @@
+
+          -------------------------------------------------------
+          Amber 21 SANDER                              2021
+          -------------------------------------------------------
+
+| Run on 01/05/2022 at 20:42:16
+
+|   Executable path: /amber/bin/sander
+| Working directory: /amber/test/sander_music/gal17-electrostatics
+|          Hostname: pitzer04
+
+  [-O]verwriting output
+
+File Assignments:
+|  MDIN: mdin.shiftC                                                           
+| MDOUT: mdout.shiftC                                                          
+|INPCRD: inpcrd                                                                
+|  PARM: prmtop                                                                
+|RESTRT: restrt                                                                
+|  REFC: refc                                                                  
+| MDVEL: mdvel                                                                 
+| MDFRC: mdfrc                                                                 
+|  MDEN: mden                                                                  
+| MDCRD: mdcrd                                                                 
+|MDINFO: mdinfo                                                                
+|  MTMD: mtmd                                                                  
+|INPDIP: inpdip                                                                
+|RSTDIP: rstdip                                                                
+|INPTRA: inptraj                                                               
+
+
+ Here is the input file:
+
+pressurising                                                                   
+ &cntrl                                                                        
+   imin = 0, nstlim = 1, irest = 0, ntx = 1, dt = 0.002,                       
+   ntt = 1, temp0 = 0.0, tautp = 1.0,                                          
+   ntc = 2, ntf = 1,                                                           
+   ioutfm = 1, iwrap = 1,                                                      
+   ntwe = 1000, ntwx = 1000, ntpr = 1000, ntwr = 5000,                         
+                                                                               
+   ibelly=1,                                                                   
+   bellymask =':WAT',                                                          
+/                                                                              
+ &ewald                                                                        
+   eedmeth=7,                                                                  
+ /                                                                             
+                                                                               
+&music                                                                         
+  debug = false,                                                               
+  do_coulomb_correction = false,                                               
+  pt_plane="yz", ! Surface plane - depends on how you orient your system.      
+  do_angle = true,                                                             
+  s_ang = 11.135,                                                              
+  r_ang = 2.441,                                                               
+  slope = 25.0,                                                                
+  radius = 3.3,                                                                
+  a1 = 15.768,                                                                 
+  a2 = 1.594,                                                                  
+  a3 = 1.922 !-0.5470,                                                         
+  a4 = 2.838 !0.2400,                                                          
+  b_h_surf = 304.081  !308.342                                                 
+ n_h_surf = 5, ! exponent for propeller contribution                           
+ do_gauss = true, ! calculate repulsion between OW and VS                      
+ vs_atom_type = "Pt",                                                          
+ eps_gauss = -8.901, !  in kcal/mol; actually an attraction.                   
+ bxy_gauss = 9.331, ! in 1/A^2                                                 
+ bz_gauss = .102, ! in 1/A^2                                                   
+/                                                                              
+
+--------------------------------------------------------------------------------
+   1.  RESOURCE   USE: 
+--------------------------------------------------------------------------------
+
+| Flags:                                                                        
+ getting new box info from bottom of inpcrd
+|  INFO: Old style inpcrd file read
+
+| peek_ewald_inpcrd: Box info found
+|Largest sphere to fit in unit cell has radius =    21.919
+| New format PARM file being parsed.
+| Version =    1.000 Date = 02/05/20 Time = 15:00:59
+ NATOM  =   13599 NTYPES =       5 NBONH =   12276 MBONA  =       0
+ NTHETH =       0 MTHETA =       0 NPHIH =       0 MPHIA  =       0
+ NHPARM =       0 NPARM  =       0 NNB   =   17691 NRES   =    5415
+ NBONA  =       0 NTHETA =       0 NPHIA =       0 NUMBND =       2
+ NUMANG =       0 NPTRA  =       0 NATYP =       5 NPHB   =       0
+ IFBOX  =       1 NMXRS  =       3 IFCAP =       0 NEXTRA =       0
+ NCOPY  =       0
+
+
+|     Memory Use     Allocated
+|     Real             1394586
+|     Hollerith          46214
+|     Integer           320777
+|     Max Pairs        4533000
+|     nblistReal        163188
+|     nblist Int        658610
+|       Total            33883 kbytes
+
+| Note: 1-4 EEL scale factors are being read from the topology file.
+
+| Note: 1-4 VDW scale factors are being read from the topology file.
+| Duplicated    0 dihedrals
+| Duplicated    0 dihedrals
+
+     BOX TYPE: RECTILINEAR
+
+--------------------------------------------------------------------------------
+   2.  CONTROL  DATA  FOR  THE  RUN
+--------------------------------------------------------------------------------
+
+default_name                                                                    
+
+General flags:
+     imin    =       0, nmropt  =       0
+
+Nature and format of input:
+     ntx     =       1, irest   =       0, ntrx    =       1
+
+Nature and format of output:
+     ntxo    =       2, ntpr    =    1000, ntrx    =       1, ntwr    =    5000
+     iwrap   =       1, ntwx    =    1000, ntwv    =       0, ntwe    =    1000
+     ioutfm  =       1, ntwprt  =       0, idecomp =       0, rbornstat=      0
+
+Potential function:
+     ntf     =       1, ntb     =       1, igb     =       0, nsnb    =      25
+     ipol    =       0, gbsa    =       0, iesp    =       0
+     dielc   =   1.00000, cut     =   8.00000, intdiel =   1.00000
+
+Frozen or restrained atoms:
+     ibelly  =       1, ntr     =       0
+
+Molecular dynamics:
+     nstlim  =         1, nscm    =         0, nrespa  =         1
+     t       =   0.00000, dt      =   0.00200, vlimit  =  20.00000
+
+Berendsen (weak-coupling) temperature regulation:
+     temp0   =   0.00000, tempi   =   0.00000, tautp   =   1.00000
+
+SHAKE:
+     ntc     =       2, jfastw  =       0
+     tol     =   0.00001
+
+Ewald parameters:
+     verbose =       0, ew_type =       0, nbflag  =       1, use_pme =       1
+     vdwmeth =       1, eedmeth =       7, netfrc  =       1
+     Box X =   75.927   Box Y =   50.619   Box Z =   50.619
+     Alpha =   60.000   Beta  =   90.000   Gamma =   90.000
+     NFFT1 =   80       NFFT2 =   50       NFFT3 =   50
+     Cutoff=    8.000   Tol   =0.100E-04
+     Ewald Coefficient =  0.34864
+     Interpolation order =    4
+     Setting ifbox to 3 for non-orthogonal unit cell
+
+WARNING: Although EWALD will work with belly
+(for equilibration), it is not strictly correct!
+
+
+    LOADING THE BELLY ATOMS AS GROUPS
+
+     Mask :WAT; matches 12276 atoms
+
+MuSiC:
+  (note: assumes water above platinum slab)
+     music namelist present in input file
+     debug         = F
+     do_spohr89       = F
+     pt_atom_type  = Pt
+     vs_atom_type  = Pt
+     o_atom_type   = OW
+     h_atom_type   = HW
+     do_coulomb_correction = F
+     do_angle      = T
+     do_theta      = T
+     do_propeller  = T
+     pt_plane      = yz
+     slope         =  2.50000000000E+01
+     radius        =  3.30000000000E+00
+     s_ang         =  1.11350000000E+01
+     r_ang         =  2.44100000000E+00
+     a1            =  1.57680000000E+01
+     a2            =  1.59400000000E+00
+     a3            =  1.92200000000E+00
+     a4            =  2.83800000000E+00
+     b_h_surf      =  3.04081000000E+02
+     n_h_surf      = 5
+     do_gauss      = T
+     eps_gauss     = -8.90100000000E+00
+     bxy_gauss     =  9.33100000000E+00
+     bz_gauss      =  1.02000000000E-01
+
+--------------------------------------------------------------------------------
+   3.  ATOMIC COORDINATES AND VELOCITIES
+--------------------------------------------------------------------------------
+
+default_name                                                                    
+ begin time read from input coords =     0.000 ps
+
+ Number of triangulated 3-point waters found:     4092
+
+     Sum of charges from parm topology file =   0.00000003
+     Forcing neutrality...
+
+--------------------------------------------------------------------------------
+   4.  RESULTS
+--------------------------------------------------------------------------------
+
+|  # of SOLUTE  degrees of freedom (RNDFP):   24552.
+|  # of SOLVENT degrees of freedom (RNDFS):       0.
+|  NDFMIN =   24552.     NUM_NOSHAKE =      0     CORRECTED RNDFP =   24552.
+|  TOTAL # of degrees of freedom (RNDF) =   24552.
+ ---------------------------------------------------
+
+     eedmeth=7: Using shifted direct space electrostatics
+
+ ---------------------------------------------------
+| Local SIZE OF NONBOND LIST =    2254770
+| TOTAL SIZE OF NONBOND LIST =    2254770
+
+ NSTEP =        0   TIME(PS) =       0.000  TEMP(K) =     0.00  PRESS =     0.0
+ Etot   =    -32997.2819  EKtot   =         0.0000  EPtot      =    -32997.2819
+ BOND   =         1.1163  ANGLE   =         0.0000  DIHED      =         0.0000
+ 1-4 NB =         0.0000  1-4 EEL =         0.0000  VDWAALS    =      8663.1543
+ EELEC  =    -41774.5568  EHBOND  =         0.0000  RESTRAINT  =         0.0000
+ Ewald error estimate:   0.2020E-01
+ ------------------------------------------------------------------------------
+
+
+      A V E R A G E S   O V E R       1 S T E P S
+
+
+ NSTEP =        1   TIME(PS) =       0.002  TEMP(K) =     8.25  PRESS =     0.0
+ Etot   =    -32796.0854  EKtot   =       201.1965  EPtot      =    -32997.2819
+ BOND   =         1.1163  ANGLE   =         0.0000  DIHED      =         0.0000
+ 1-4 NB =         0.0000  1-4 EEL =         0.0000  VDWAALS    =      8663.1543
+ EELEC  =    -41774.5568  EHBOND  =         0.0000  RESTRAINT  =         0.0000
+ Ewald error estimate:   0.2020E-01
+ ------------------------------------------------------------------------------
+
+
+      R M S  F L U C T U A T I O N S
+
+
+ NSTEP =        1   TIME(PS) =       0.002  TEMP(K) =     0.00  PRESS =     0.0
+ Etot   =         0.0000  EKtot   =         0.0000  EPtot      =         0.0000
+ BOND   =         0.0000  ANGLE   =         0.0000  DIHED      =         0.0000
+ 1-4 NB =         0.0000  1-4 EEL =         0.0000  VDWAALS    =         0.0000
+ EELEC  =         0.0000  EHBOND  =         0.0000  RESTRAINT  =         0.0000
+ Ewald error estimate:   0.0000E+00
+ ------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+   5.  TIMINGS
+--------------------------------------------------------------------------------
+
+|    Read coords time           0.01 ( 2.20% of Total)
+|    Fast Water setup           0.00 ( 0.04% of Total)
+|                Build the list             0.08 (96.92% of List )
+|                Other                      0.00 ( 3.08% of List )
+|             List time                  0.08 (53.69% of Nonbo)
+|                   Short_ene time             0.07 (98.57% of Direc)
+|                   Other                      0.00 ( 1.43% of Direc)
+|                Direct Ewald time          0.07 (99.82% of Ewald)
+|                Force Adjust               0.00 ( 0.03% of Ewald)
+|                Virial junk                0.00 ( 0.14% of Ewald)
+|                Other                      0.00 ( 0.01% of Ewald)
+|             Ewald time                 0.07 (46.31% of Nonbo)
+|          Nonbond force              0.15 (37.46% of Force)
+|          Bond/Angle/Dihedral        0.00 ( 0.07% of Force)
+|          Other                      0.26 (62.47% of Force)
+|       Force time                 0.41 (99.32% of Runmd)
+|       Shake time                 0.00 ( 0.10% of Runmd)
+|       Verlet update time         0.00 ( 0.44% of Runmd)
+|       Other                      0.00 ( 0.14% of Runmd)
+|    Runmd Time                 0.42 (72.37% of Total)
+|    Other                      0.15 (25.39% of Total)
+| Total time                 0.58 (99.84% of ALL  )
+
+| Number of list builds   :          1
+
+| Highest rstack allocated:      40797
+| Highest istack allocated:        279
+
+| Final Performance Info:
+| -----------------------------------------------------
+| Average timings for all steps:
+|     Elapsed(s) =       0.42 Per Step(ms) =     416.53
+|         ns/day =       0.41   seconds/ns =  208263.04
+| -----------------------------------------------------
+
+|           Job began  at 20:42:16.022  on 01/05/2022
+|           Setup done at 20:42:16.183  on 01/05/2022
+|           Run   done at 20:42:16.599  on 01/05/2022
+|     wallclock() was called      71 times
+
+|3D-RISM memory allocation summary
+|Type          Maximum        Current   
+|Integer       0.00000 GB     0.00000 GB
+|Real          0.00000 GB     0.00000 GB
+|Logical       0.00000 GB     0.00000 GB
+|Character     0.00000 GB     0.00000 GB
+|---------------------------------------
+|Total         0.00000 GB     0.00000 GB

@@ -1,0 +1,495 @@
+
+          -------------------------------------------------------
+          Amber 16 SANDER                              2016
+          -------------------------------------------------------
+
+| Run on 02/01/2017 at 18:53:08
+
+|   Executable path: ../../../../bin/sander
+| Working directory: /Users/andi/sources/amber/test/qmmm_DFTB/dftb3/nma-h2o-box
+|          Hostname: Unknown
+  [-O]verwriting output
+
+File Assignments:
+|  MDIN: mdin                                                                  
+| MDOUT: nma-spcfw-15.md.out                                                   
+|INPCRD: nma-spcfw-15.inpcrd                                                   
+|  PARM: nma-spcfw-15.prmtop                                                   
+|RESTRT: restrt                                                                
+|  REFC: refc                                                                  
+| MDVEL: mdvel                                                                 
+| MDFRC: mdfrc                                                                 
+|  MDEN: mden                                                                  
+| MDCRD: mdcrd                                                                 
+|MDINFO: mdinfo                                                                
+|  MTMD: mtmd                                                                  
+|INPDIP: inpdip                                                                
+|RSTDIP: rstdip                                                                
+|INPTRA: inptraj                                                               
+
+
+ Here is the input file:
+
+10 steps NVE pure QM MD (dt=0.5fs, no shake)                                   
+ &cntrl                                                                        
+  imin   = 0,           !no minimization                                       
+  irest  = 1,           !restart                                               
+  ntx    = 5,           !read coordinates and velocities                       
+  cut    = 8.0,         !non-bonded interactions cutoff                        
+  dt     = 0.0005,      !0.5fs time step                                       
+  ntb    = 1,           !PBC                                                   
+  ntc=1,      ! no SHAKE                                                       
+  ntpr   = 1,           !print details to log every step                       
+  ntwx   = 1,           !write coordinates to mdcrd every step                 
+  ntwr   = 10,          !write restart file at last step                       
+  nstlim = 10,          !run for 10 steps (5 fs at dt=0.5fs)                   
+  jfastw   = 4,         ! do not use routines for fast triangulated water      
+  ioutfm = 1,           !NetCDF MDCRD.                                         
+  ntxo   = 1,           !Formatted restart file                                
+  ifqnt  = 1,                                                                  
+ /                                                                             
+ &qmmm                                                                         
+  qmmask    = ':1-2',                                                          
+  qmcharge  = 0,                                                               
+  qm_theory = 'dftb3',                                                         
+  verbosity = 0,                                                               
+ /                                                                             
+
+--------------------------------------------------------------------------------
+   1.  RESOURCE   USE: 
+--------------------------------------------------------------------------------
+
+| Flags:                                                                        
+ getting new box info from bottom of inpcrd
+|  INFO: Old style inpcrd file read
+
+| peek_ewald_inpcrd: Box info found
+|Largest sphere to fit in unit cell has radius =    18.827
+| New format PARM file being parsed.
+| Version =    1.000 Date = 08/22/10 Time = 06:29:52
+ NATOM  =    4458 NTYPES =       9 NBONH =    2971 MBONA  =       4
+ NTHETH =    1496 MTHETA =       4 NPHIH =      22 MPHIA  =       3
+ NHPARM =       0 NPARM  =       0 NNB   =    5974 NRES   =    1484
+ NBONA  =       4 NTHETA =       4 NPHIA =       3 NUMBND =       8
+ NUMANG =      11 NPTRA  =       7 NATYP =       9 NPHB   =       1
+ IFBOX  =       1 NMXRS  =       6 IFCAP =       0 NEXTRA =       0
+ NCOPY  =       0
+
+
+|     Memory Use     Allocated
+|     Real              374172
+|     Hollerith          14860
+|     Integer           120920
+|     Max Pairs        1486000
+|     nblistReal         53496
+|     nblist Int        246025
+|       Total            10637 kbytes
+
+| Note: 1-4 EEL scale factors were NOT found in the topology file.
+|       Using default value of 1.2.
+
+| Note: 1-4 VDW scale factors were NOT found in the topology file.
+|       Using default value of 2.0.
+| Duplicated    0 dihedrals
+| Duplicated    0 dihedrals
+LOADING THE QUANTUM ATOMS AS GROUPS
+     Mask :1-2; matches    12 atoms
+
+     BOX TYPE: RECTILINEAR
+
+--------------------------------------------------------------------------------
+   2.  CONTROL  DATA  FOR  THE  RUN
+--------------------------------------------------------------------------------
+
+ACE                                                                             
+
+General flags:
+     imin    =       0, nmropt  =       0
+
+Nature and format of input:
+     ntx     =       5, irest   =       1, ntrx    =       1
+
+Nature and format of output:
+     ntxo    =       1, ntpr    =       1, ntrx    =       1, ntwr    =      10
+     iwrap   =       0, ntwx    =       1, ntwv    =       0, ntwe    =       0
+     ioutfm  =       1, ntwprt  =       0, idecomp =       0, rbornstat=      0
+
+Potential function:
+     ntf     =       1, ntb     =       1, igb     =       0, nsnb    =      25
+     ipol    =       0, gbsa    =       0, iesp    =       0
+     dielc   =   1.00000, cut     =   8.00000, intdiel =   1.00000
+
+Frozen or restrained atoms:
+     ibelly  =       0, ntr     =       0
+
+Molecular dynamics:
+     nstlim  =        10, nscm    =      1000, nrespa  =         1
+     t       =   0.00000, dt      =   0.00050, vlimit  =  20.00000
+
+Ewald parameters:
+     verbose =       0, ew_type =       0, nbflag  =       1, use_pme =       1
+     vdwmeth =       1, eedmeth =       1, netfrc  =       1
+     Box X =   40.193   Box Y =   40.359   Box Z =   37.654
+     Alpha =   90.000   Beta  =   90.000   Gamma =   90.000
+     NFFT1 =   40       NFFT2 =   40       NFFT3 =   40
+     Cutoff=    8.000   Tol   =0.100E-04
+     Ewald Coefficient =  0.34864
+     Interpolation order =    4
+
+QMMM options:
+             ifqnt = True       nquant =       12
+              qmgb =        0  qmcharge =        0   adjust_q =        2
+              spin =        1     qmcut =   8.0000    qmshake =        1
+          qmmm_int =        1
+     lnk_atomic_no =        1   lnk_dis =   1.0900 lnk_method =        1
+          qm_theory =    DFTB verbosity =        0
+            qmqmdx = Analytical
+      tight_p_conv = False (converge density to 0.05xSqrt[SCFCRT])
+           scfconv = 0.100E-07  itrmax =     1000
+      printcharges = False      printdipole = False      peptide_corr = False
+    qmmmrij_incore = False
+  qmqm_erep_incore = False
+       pseudo_diag = False
+      diag_routine =        0
+          qm_ewald =        1 qm_pme = True 
+            kmaxqx =    8 kmaxqy =    8 kmaxqz =    8 ksqmaxq =  100
+
+--------------------------------------------------------------------------------
+   3.  ATOMIC COORDINATES AND VELOCITIES
+--------------------------------------------------------------------------------
+
+ACE                                                                             
+ begin time read from input coords =    20.000 ps
+
+ Number of triangulated 3-point waters found:        0
+
+     Sum of charges from parm topology file =   0.00000000
+     Forcing neutrality...
+QMMM: ADJUSTING CHARGES
+QMMM: ----------------------------------------------------------------------
+QMMM: adjust_q = 2
+QMMM: Uniformly adjusting the charge of MM atoms to conserve total charge.
+QMMM:                             qm_charge =    0
+QMMM: QM atom RESP charge sum (inc MM link) =    0.000
+QMMM: Adjusting each MM atom resp charge by =    0.000
+QMMM:          Sum of MM + QM region is now =    0.000
+QMMM: ----------------------------------------------------------------------
+|  # of SOLUTE  degrees of freedom (RNDFP):   13374.
+|  # of SOLVENT degrees of freedom (RNDFS):       0.
+|  QMSHAKE_NOSHAKEMASK_OVERLAP =      0
+|  NDFMIN =   13371.     NUM_NOSHAKE =      0     CORRECTED RNDFP =   13371.
+|  TOTAL # of degrees of freedom (RNDF) =   13371.
+ ---------------------------------------------------
+ APPROXIMATING switch and d/dx switch using CUBIC SPLINE INTERPOLATION
+ using   5000.0 points per unit in tabled values
+ TESTING RELATIVE ERROR over r ranging from 0.0 to cutoff
+| CHECK switch(x): max rel err =   0.2738E-14   at   2.422500
+| CHECK d/dx switch(x): max rel err =   0.8332E-11   at   2.782960
+ ---------------------------------------------------
+| Local SIZE OF NONBOND LIST =     770064
+| TOTAL SIZE OF NONBOND LIST =     770064
+
+QMMM: Link Atom Information
+QMMM: ------------------------------------------------------------------------
+QMMM: nlink =     0
+QMMM: ------------------------------------------------------------------------
+
+  QMMM: QM Region Cartesian Coordinates (*=link atom) 
+  QMMM: QM_NO.   MM_NO.  ATOM         X         Y         Z
+  QMMM:     1        1      H        0.4461    0.0884    2.5303
+  QMMM:     2        2      C       -0.0236   -0.4836    1.6977
+  QMMM:     3        3      H       -1.1178   -0.5843    1.8395
+  QMMM:     4        4      H        0.4707   -1.4592    1.5606
+  QMMM:     5        5      C        0.2794    0.3331    0.5008
+  QMMM:     6        6      O        1.1178    1.2366    0.5370
+  QMMM:     7        7      N       -0.3073    0.0039   -0.6155
+  QMMM:     8        8      H       -1.0439   -0.6732   -0.6274
+  QMMM:     9        9      C        0.0273    0.6426   -1.8760
+  QMMM:    10       10      H       -0.8023    0.9315   -2.4242
+  QMMM:    11       11      H        0.6952    1.4592   -1.7956
+  QMMM:    12       12      H        0.4361   -0.0797   -2.5303
+
+--------------------------------------------------------------------------------
+  3.1 QM CALCULATION INFO
+--------------------------------------------------------------------------------
+
+| QMMM: Citation for AMBER QMMM Run:
+| QMMM: R.C. Walker, M.F. Crowley and D.A. Case, J. COMP. CHEM. 29:1019, 2008
+
+| QMMM: DFTB Calculation - Additional citation for AMBER DFTB QMMM Run:
+| QMMM:   Seabra, G.M., Walker, R.C. et al., J. PHYS. CHEM. A., 111, 5655, (2007)
+
+| QMMM: DFTB3 - Additional citation to follow. Implementation by:
+| QMMM:   A.W. Goetz
+| QMMM:
+| QMMM: DFTB3 method citation: 
+| QMMM:   M. Gaus, Q. Cui, M. Elstner, J. CHEM. THEORY COMPUT. 7, 931 (2011)
+| QMMM:
+| QMMM: DFTB3 dispersion correction [D3(BJ)] and halogen correction not available.
+
+
+QMMM: SINGLET STATE CALCULATION
+QMMM: RHF CALCULATION, NO. OF DOUBLY OCCUPIED LEVELS = 15
+ DFTB: Number of atom types =    4
+
+ Parameter files:
+     TYP (AT)  TYP (AT)     SK integral FILE
+|  1  1  (H )   1  (H )     /Users/andi/sources/amber/dat/slko/3ob-3-1/H-H.skf
+|  2  1  (H )   2  (C )     /Users/andi/sources/amber/dat/slko/3ob-3-1/H-C.skf
+|  3  1  (H )   3  (O )     /Users/andi/sources/amber/dat/slko/3ob-3-1/H-O.skf
+|  4  1  (H )   4  (N )     /Users/andi/sources/amber/dat/slko/3ob-3-1/H-N.skf
+|  5  2  (C )   1  (H )     /Users/andi/sources/amber/dat/slko/3ob-3-1/C-H.skf
+|  6  2  (C )   2  (C )     /Users/andi/sources/amber/dat/slko/3ob-3-1/C-C.skf
+|  7  2  (C )   3  (O )     /Users/andi/sources/amber/dat/slko/3ob-3-1/C-O.skf
+|  8  2  (C )   4  (N )     /Users/andi/sources/amber/dat/slko/3ob-3-1/C-N.skf
+|  9  3  (O )   1  (H )     /Users/andi/sources/amber/dat/slko/3ob-3-1/O-H.skf
+| 10  3  (O )   2  (C )     /Users/andi/sources/amber/dat/slko/3ob-3-1/O-C.skf
+| 11  3  (O )   3  (O )     /Users/andi/sources/amber/dat/slko/3ob-3-1/O-O.skf
+| 12  3  (O )   4  (N )     /Users/andi/sources/amber/dat/slko/3ob-3-1/O-N.skf
+| 13  4  (N )   1  (H )     /Users/andi/sources/amber/dat/slko/3ob-3-1/N-H.skf
+| 14  4  (N )   2  (C )     /Users/andi/sources/amber/dat/slko/3ob-3-1/N-C.skf
+| 15  4  (N )   3  (O )     /Users/andi/sources/amber/dat/slko/3ob-3-1/N-O.skf
+| 16  4  (N )   4  (N )     /Users/andi/sources/amber/dat/slko/3ob-3-1/N-N.skf
+
+QMMM: Hubbard Derivatives dU/dq:
+QMMM:   H    -0.185700
+QMMM:   C    -0.149200
+QMMM:   O    -0.157500
+QMMM:   N    -0.153500
+
+QMMM: zeta =   4.000000
+
+| QMMM: Estimated QM Dynamic Memory Usage (per thread)
+| QMMM: ---------------------------------------------------
+| QMMM:              QM Atom Type Info :          784 bytes
+| QMMM:         QM RESP Charge Storage :           96 bytes
+| QMMM:            QM Atom Number List :           48 bytes
+| QMMM:                Link Atom Pairs :            0 bytes
+| QMMM:          QM Atomic Number List :           48 bytes
+| QMMM:                QM-MM Pair List :        17788 bytes
+| QMMM:                   QM Atom Mask :         8916 bytes
+| QMMM:           QM Coordinate Arrays :       142944 bytes
+| QMMM:         Scaled MM Charge Array :        35664 bytes
+| QMMM:    SCF Mulliken Charge Storage :           96 bytes
+| QMMM:                QM Ewald Arrays :      1199728 bytes
+| QMMM:                QM Force Arrays :       107280 bytes
+| QMMM:                 Density Matrix :         3024 bytes
+| QMMM:          Density Matrix Copies :         3240 bytes
+| QMMM: Fock2 Density Matrix Workspace :         1536 bytes
+| QMMM:                    Fock Matrix :         3024 bytes
+| QMMM:           Eigen Vector Storage :            0 bytes
+| QMMM: QM-QM Elec Repulsion Integrals :            0 bytes
+| QMMM:  QM 2-Elec Repulsion Integrals :        10968 bytes
+| QMMM:              1-Electron Matrix :         3024 bytes
+| QMMM:       _REAL_ parameter storage :         1920 bytes
+| QMMM:      integer parameter storage :          360 bytes
+| QMMM:         QM-MM RIJ Eqns storage :            0 bytes
+| QMMM:          _REAL_ Scratch arrays :       142656 bytes
+| QMMM:         Integer Scratch arrays :        53496 bytes
+| QMMM: ---------------------------------------------------
+| QMMM:        Total Dynamic Memory Usage:      1.656 Mb
+
+--------------------------------------------------------------------------------
+   4.  RESULTS
+--------------------------------------------------------------------------------
+
+
+ NSTEP =        1   TIME(PS) =      20.000  TEMP(K) =   293.20  PRESS =     0.0
+ Etot   =    -11778.7825  EKtot   =      3895.2467  EPtot      =    -15674.0292
+ BOND   =      1591.9977  ANGLE   =       968.4708  DIHED      =         0.0000
+ 1-4 NB =         0.0000  1-4 EEL =         0.0000  VDWAALS    =      3406.3410
+ EELEC  =    -20464.3359  EHBOND  =         0.0000  RESTRAINT  =         0.0000
+ DFTBESCF=    -1176.5028
+ Ewald error estimate:   0.2211E-01
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =        2   TIME(PS) =      20.001  TEMP(K) =   294.09  PRESS =     0.0
+ Etot   =    -11779.0149  EKtot   =      3907.0940  EPtot      =    -15686.1089
+ BOND   =      1573.4050  ANGLE   =       965.5071  DIHED      =         0.0000
+ 1-4 NB =         0.0000  1-4 EEL =         0.0000  VDWAALS    =      3407.9599
+ EELEC  =    -20455.0254  EHBOND  =         0.0000  RESTRAINT  =         0.0000
+ DFTBESCF=    -1177.9555
+ Ewald error estimate:   0.2209E-01
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =        3   TIME(PS) =      20.001  TEMP(K) =   295.66  PRESS =     0.0
+ Etot   =    -11779.5554  EKtot   =      3927.9472  EPtot      =    -15707.5026
+ BOND   =      1544.5709  ANGLE   =       962.1791  DIHED      =         0.0000
+ 1-4 NB =         0.0000  1-4 EEL =         0.0000  VDWAALS    =      3409.5435
+ EELEC  =    -20444.3326  EHBOND  =         0.0000  RESTRAINT  =         0.0000
+ DFTBESCF=    -1179.4635
+ Ewald error estimate:   0.2202E-01
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =        4   TIME(PS) =      20.002  TEMP(K) =   297.35  PRESS =     0.0
+ Etot   =    -11780.0603  EKtot   =      3950.3558  EPtot      =    -15730.4161
+ BOND   =      1514.1422  ANGLE   =       958.7710  DIHED      =         0.0000
+ 1-4 NB =         0.0000  1-4 EEL =         0.0000  VDWAALS    =      3411.1087
+ EELEC  =    -20433.5774  EHBOND  =         0.0000  RESTRAINT  =         0.0000
+ DFTBESCF=    -1180.8605
+ Ewald error estimate:   0.2197E-01
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =        5   TIME(PS) =      20.002  TEMP(K) =   298.57  PRESS =     0.0
+ Etot   =    -11780.3752  EKtot   =      3966.6397  EPtot      =    -15747.0149
+ BOND   =      1491.1038  ANGLE   =       955.5802  DIHED      =         0.0000
+ 1-4 NB =         0.0000  1-4 EEL =         0.0000  VDWAALS    =      3412.5650
+ EELEC  =    -20424.2554  EHBOND  =         0.0000  RESTRAINT  =         0.0000
+ DFTBESCF=    -1182.0084
+ Ewald error estimate:   0.2195E-01
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =        6   TIME(PS) =      20.003  TEMP(K) =   298.99  PRESS =     0.0
+ Etot   =    -11780.3442  EKtot   =      3972.1775  EPtot      =    -15752.5217
+ BOND   =      1481.2426  ANGLE   =       952.8925  DIHED      =         0.0000
+ 1-4 NB =         0.0000  1-4 EEL =         0.0000  VDWAALS    =      3413.9433
+ EELEC  =    -20417.7939  EHBOND  =         0.0000  RESTRAINT  =         0.0000
+ DFTBESCF=    -1182.8061
+ Ewald error estimate:   0.2194E-01
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =        7   TIME(PS) =      20.003  TEMP(K) =   298.62  PRESS =     0.0
+ Etot   =    -11780.0180  EKtot   =      3967.2436  EPtot      =    -15747.2617
+ BOND   =      1485.1035  ANGLE   =       950.9657  DIHED      =         0.0000
+ 1-4 NB =         0.0000  1-4 EEL =         0.0000  VDWAALS    =      3415.2050
+ EELEC  =    -20415.3192  EHBOND  =         0.0000  RESTRAINT  =         0.0000
+ DFTBESCF=    -1183.2167
+ Ewald error estimate:   0.2195E-01
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =        8   TIME(PS) =      20.004  TEMP(K) =   297.82  PRESS =     0.0
+ Etot   =    -11779.5726  EKtot   =      3956.5912  EPtot      =    -15736.1638
+ BOND   =      1498.2795  ANGLE   =       950.0195  DIHED      =         0.0000
+ 1-4 NB =         0.0000  1-4 EEL =         0.0000  VDWAALS    =      3416.3864
+ EELEC  =    -20417.5762  EHBOND  =         0.0000  RESTRAINT  =         0.0000
+ DFTBESCF=    -1183.2731
+ Ewald error estimate:   0.2194E-01
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =        9   TIME(PS) =      20.004  TEMP(K) =   297.10  PRESS =     0.0
+ Etot   =    -11779.1901  EKtot   =      3947.0293  EPtot      =    -15726.2194
+ BOND   =      1513.7989  ANGLE   =       950.2286  DIHED      =         0.0000
+ 1-4 NB =         0.0000  1-4 EEL =         0.0000  VDWAALS    =      3417.5207
+ EELEC  =    -20424.7138  EHBOND  =         0.0000  RESTRAINT  =         0.0000
+ DFTBESCF=    -1183.0538
+ Ewald error estimate:   0.2192E-01
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =       10   TIME(PS) =      20.005  TEMP(K) =   296.88  PRESS =     0.0
+ Etot   =    -11779.0777  EKtot   =      3944.1839  EPtot      =    -15723.2616
+ BOND   =      1525.4435  ANGLE   =       951.7152  DIHED      =         0.0000
+ 1-4 NB =         0.0000  1-4 EEL =         0.0000  VDWAALS    =      3418.5741
+ EELEC  =    -20436.3376  EHBOND  =         0.0000  RESTRAINT  =         0.0000
+ DFTBESCF=    -1182.6569
+ Ewald error estimate:   0.2189E-01
+ ------------------------------------------------------------------------------
+
+
+      A V E R A G E S   O V E R      10 S T E P S
+
+
+ NSTEP =       10   TIME(PS) =      20.005  TEMP(K) =   296.83  PRESS =     0.0
+ Etot   =    -11779.5991  EKtot   =      3943.4509  EPtot      =    -15723.0500
+ BOND   =      1521.9088  ANGLE   =       956.6330  DIHED      =         0.0000
+ 1-4 NB =         0.0000  1-4 EEL =         0.0000  VDWAALS    =      3412.9148
+ EELEC  =    -20433.3268  EHBOND  =         0.0000  RESTRAINT  =         0.0000
+ DFTBESCF=    -1181.1797
+ Ewald error estimate:   0.2198E-01
+ ------------------------------------------------------------------------------
+
+
+      R M S  F L U C T U A T I O N S
+
+
+ NSTEP =       10   TIME(PS) =      20.005  TEMP(K) =     1.85  PRESS =     0.0
+ Etot   =         0.5473  EKtot   =        24.5938  EPtot      =        25.0496
+ BOND   =        35.6821  ANGLE   =         6.4060  DIHED      =         0.0000
+ 1-4 NB =         0.0000  1-4 EEL =         0.0000  VDWAALS    =         3.9257
+ EELEC  =        15.9146  EHBOND  =         0.0000  RESTRAINT  =         0.0000
+ DFTBESCF=        2.2994
+|E(PBS) =         0.0332
+ Ewald error estimate:   0.6771E-04
+ ------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+   5.  TIMINGS
+--------------------------------------------------------------------------------
+
+|    Read coords time           0.00 ( 0.78% of Total)
+|                Build the list             0.02 (77.83% of List )
+|                Other                      0.01 (22.17% of List )
+|             List time                  0.03 ( 8.63% of Nonbo)
+|                   Short_ene time             0.19 (99.09% of Direc)
+|                   Other                      0.00 ( 0.91% of Direc)
+|                Direct Ewald time          0.19 (58.54% of Ewald)
+|                Adjust Ewald time          0.00 ( 0.58% of Ewald)
+|                Self Ewald time            0.00 ( 0.01% of Ewald)
+|                   Fill Bspline coeffs        0.01 ( 5.03% of Recip)
+|                   Fill charge grid           0.02 (12.27% of Recip)
+|                   Scalar sum                 0.03 (22.58% of Recip)
+|                   Grad sum                   0.02 (15.86% of Recip)
+|                   FFT time                   0.06 (44.01% of Recip)
+|                   Other                      0.00 ( 0.25% of Recip)
+|                Recip Ewald time           0.13 (40.79% of Ewald)
+|                Force Adjust               0.00 ( 0.01% of Ewald)
+|                Virial junk                0.00 ( 0.06% of Ewald)
+|                Other                      0.00 ( 0.01% of Ewald)
+|             Ewald time                 0.32 (91.37% of Nonbo)
+|          Nonbond force              0.35 (63.72% of Force)
+|                QMMM ewald setup           0.00 ( 0.01% of QMMM )
+|                Other                      0.12 (100.0% of QMMM )
+|             QMMM setup                 0.12 (58.44% of QMMM )
+|             QMMM Ewald KTable          0.02 ( 8.68% of QMMM )
+|             QMMM list build            0.00 ( 0.41% of QMMM )
+|             QMMM prep coords           0.00 ( 0.81% of QMMM )
+|                   QMMM full matrix dia       0.01 (28.12% of QMMM )
+|                   Other                      0.02 (71.88% of QMMM )
+|                QMMM scf                   0.03 (93.27% of QMMM )
+|                QMMM ewald energy          0.00 ( 4.43% of QMMM )
+|                Other                      0.00 ( 2.30% of QMMM )
+|             QMMM energy                0.04 (17.55% of QMMM )
+|                QMMM DFTB Repul Grad       0.00 ( 0.73% of QMMM )
+|                QMMM DFTB Hzero Grad       0.00 (92.50% of QMMM )
+|                QMMM DFTB Gamma Grad       0.00 ( 6.44% of QMMM )
+|                Other                      0.00 ( 0.33% of QMMM )
+|             QMMM QM-QM force           0.00 ( 1.36% of QMMM )
+|             QMMM QM-MM force           0.00 ( 0.44% of QMMM )
+|             QMMM Ewald force           0.02 (12.19% of QMMM )
+|             QMMM Collate Forces        0.00 ( 0.05% of QMMM )
+|             Other                      0.00 ( 0.06% of QMMM )
+|          QMMM                       0.20 (36.03% of Force)
+|          Bond/Angle/Dihedral        0.00 ( 0.24% of Force)
+|          Other                      0.00 ( 0.02% of Force)
+|       Force time                 0.56 (97.18% of Runmd)
+|       Verlet update time         0.02 ( 2.77% of Runmd)
+|       Other                      0.00 ( 0.05% of Runmd)
+|    Runmd Time                 0.57 (93.28% of Total)
+|    Other                      0.04 ( 5.94% of Total)
+| Total time                 0.61 (100.0% of ALL  )
+
+| Number of list builds   :          1
+
+| Highest rstack allocated:     266708
+| Highest istack allocated:       4458
+
+| Final Performance Info:
+| -----------------------------------------------------
+| Average timings for all steps:
+|     Elapsed(s) =       0.57 Per Step(ms) =      57.22
+|         ns/day =       0.76   seconds/ns =  114430.20
+| -----------------------------------------------------
+
+|           Job began  at 18:53:08.631  on 02/01/2017
+|           Setup done at 18:53:08.673  on 02/01/2017
+|           Run   done at 18:53:09.245  on 02/01/2017
+|     wallclock() was called    1179 times

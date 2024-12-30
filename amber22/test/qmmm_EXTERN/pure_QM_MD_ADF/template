@@ -1,0 +1,28 @@
+Basis
+ type SZ
+ core None
+ createoutput None
+End
+
+ZLMFIT
+  Quality normal
+END
+
+BECKEGRID
+  Quality normal
+END
+
+XC
+LDA
+END
+
+SCF
+iterations 50
+converge   0.10D-05
+END
+
+SYMMETRY NOSYM
+CHARGE  0 0
+
+SAVE TAPE21
+

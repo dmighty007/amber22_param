@@ -1,0 +1,16 @@
+source leaprc.protein.ff14SB
+source leaprc.water.tip3p
+source leaprc.gaff
+LIG = loadpdb /home/gohlke/src/amber/AmberTools/src/FEW/examples/test/calc_p_1t/TGR5_dimer_1-8_-46/topo/TGR5_dimer_1-8_-46_lig_noMem.pdb
+REC = loadpdb /home/gohlke/src/amber/AmberTools/src/FEW/examples/test/calc_p_1t/TGR5_dimer_1-8_-46/topo/TGR5_dimer_1-8_-46_rec_noMem.pdb
+COM = loadpdb /home/gohlke/src/amber/AmberTools/src/FEW/examples/test/calc_p_1t/TGR5_dimer_1-8_-46/topo/TGR5_dimer_1-8_-46_com_noMem.pdb
+saveAmberParm LIG /home/gohlke/src/amber/AmberTools/src/FEW/examples/test/calc_p_1t/TGR5_dimer_1-8_-46/topo/TGR5_dimer_1-8_-46_gb0_pb3_lig.top /home/gohlke/src/amber/AmberTools/src/FEW/examples/test/calc_p_1t/TGR5_dimer_1-8_-46/topo/TGR5_dimer_1-8_-46_gb0_pb3_lig.crd
+savepdb LIG /home/gohlke/src/amber/AmberTools/src/FEW/examples/test/calc_p_1t/TGR5_dimer_1-8_-46/topo/TGR5_dimer_1-8_-46_vac_lig.pdb
+saveAmberParm REC /home/gohlke/src/amber/AmberTools/src/FEW/examples/test/calc_p_1t/TGR5_dimer_1-8_-46/topo/TGR5_dimer_1-8_-46_gb0_pb3_rec.top /home/gohlke/src/amber/AmberTools/src/FEW/examples/test/calc_p_1t/TGR5_dimer_1-8_-46/topo/TGR5_dimer_1-8_-46_gb0_pb3_rec.crd
+savepdb REC /home/gohlke/src/amber/AmberTools/src/FEW/examples/test/calc_p_1t/TGR5_dimer_1-8_-46/topo/TGR5_dimer_1-8_-46_vac_rec.pdb
+saveAmberParm COM /home/gohlke/src/amber/AmberTools/src/FEW/examples/test/calc_p_1t/TGR5_dimer_1-8_-46/topo/TGR5_dimer_1-8_-46_gb0_pb3_com.top /home/gohlke/src/amber/AmberTools/src/FEW/examples/test/calc_p_1t/TGR5_dimer_1-8_-46/topo/TGR5_dimer_1-8_-46_gb0_pb3_com.crd
+savepdb COM /home/gohlke/src/amber/AmberTools/src/FEW/examples/test/calc_p_1t/TGR5_dimer_1-8_-46/topo/TGR5_dimer_1-8_-46_vac_com.pdb
+charge LIG
+charge REC
+charge COM
+quit

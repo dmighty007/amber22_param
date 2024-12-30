@@ -1,0 +1,7 @@
+parm fav8_2x2x2_nowat.parm7
+trajin fav8_2x2x2_nowat.rst7
+center :1-160
+trajout fav8_2x2x2_nowatc.rst7
+trajout fav8_2x2x2_nowatc.pdb
+go
+quit

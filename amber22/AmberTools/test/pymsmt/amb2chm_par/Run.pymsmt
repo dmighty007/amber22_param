@@ -1,0 +1,30 @@
+#!/bin/sh
+
+. ../../program_error.sh
+
+if [ -z "$amb2chm_par" ]; then
+   amb2chm_par="$AMBERHOME/bin/amb2chm_par.py"
+fi
+
+if [ -z "$parmchk2" ]; then
+   parmchk2="$AMBERHOME/bin/parmchk2"
+fi
+
+input=par_merge.in
+output=par_merge.out
+
+awk '$1!="CU" && $1!="FE"' $AMBERHOME/dat/leap/parm/parm10.dat > parm10_noCuFe.dat
+cp $AMBERHOME/dat/leap/parm/frcmod.ff14SB .
+$parmchk2 -i MNS.mol2 -o MNS.frcmod -f mol2 -a Y -s 1
+sed 's/n2/Y4/g' MNS.frcmod  > MNS_new_attyp.frcmod
+$amb2chm_par -i $input -f 2 -o parmff14SB_1okl.prm --nat=1 > $output 2>&1 || error
+
+#For modeling files generation
+$AMBERHOME/AmberTools/test/dacdif MNS.frcmod.save MNS.frcmod
+$AMBERHOME/AmberTools/test/dacdif MNS_new_attyp.frcmod.save MNS_new_attyp.frcmod
+$AMBERHOME/AmberTools/test/dacdif -p 12 parmff14SB_1okl.prm.save parmff14SB_1okl.prm
+
+/bin/rm -f $output parm10_noCuFe.dat ANTECHAMBER.FRCMOD
+
+exit 0
+

@@ -1,0 +1,13 @@
+prefix=/home/suman/Dibyendu/Soft/amber22_src/amber22/
+exec_prefix=/home/suman/Dibyendu/Soft/amber22_src/amber22/
+libdir=/home/suman/Dibyendu/Soft/amber22_src/amber22//lib64
+includedir=/home/suman/Dibyendu/Soft/amber22_src/amber22//include
+ccompiler=/usr/bin/gcc
+
+Name: 
+Description: NetCDF Client Library for C
+URL: http://www.unidata.ucar.edu/netcdf
+Version: 4.6.1
+Libs: -L${libdir} -lnetcdf -lz
+Cflags: -I${includedir}
+

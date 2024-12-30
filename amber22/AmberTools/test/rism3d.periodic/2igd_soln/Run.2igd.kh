@@ -1,0 +1,30 @@
+#! /usr/bin/env sh
+#TEST-PROGRAM rism3d.snglpnt
+#TEST-DESCRIP Tests non-periodic on protein
+#TEST-PURPOSE regression, basic
+#TEST-STATE   undocumented
+
+PROG="$AMBERHOME/bin/rism3d.snglpnt"
+
+if [ -z "$DO_PARALLEL" ]; then
+   DO_PARALLEL=" "
+else
+   numprocs=`echo $DO_PARALLEL | awk -f ../../numprocs.awk `
+   PROG=$PROG.MPI
+   echo "Running $DO_PARALLEL $PROG"
+   if [ ! -x $PROG ]; then
+       echo "$PROG not found... skipping test"
+       exit 0
+   fi
+fi
+
+solvent=../xvv/spc-kh.xvv
+
+$DO_PARALLEL $PROG  --pdb 2igd.pdb \
+               --prmtop 2igd.parm7 --rst 2igd.rst7 \
+               --xvv $solvent --closure kh --tolerance 0.000001 \
+               --grdspc 0.5,0.5,0.5 --buffer 12.0 --verbose 2 \
+               --solvcut 8 \
+               > 2igd.kh.r3d
+
+#../../dacdif -r 1.e-6 2igd.kh.r3d.save 2igd.kh.r3d

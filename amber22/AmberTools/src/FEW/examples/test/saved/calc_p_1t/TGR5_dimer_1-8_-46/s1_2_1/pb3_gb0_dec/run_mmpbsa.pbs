@@ -1,0 +1,68 @@
+#!/bin/csh
+#PBS -N TGR5_dimer_1-8_-46
+#PBS -l nodes=1:ppn=4
+#PBS -l walltime=48:00:00
+#PBS -l cput=192:00:00
+#PBS -l mem=2gb
+#PBS -q wrkst
+#PBS -o TGR5_dimer_1-8_-46.OU
+#PBS -e TGR5_dimer_1-8_-46.ER
+#PBS -V
+
+setenv AMBERHOME /home/src/amber16
+
+################################################################################
+#      Do not modify the script from here onward
+#
+#
+# --- Prepare calculation
+#
+limit stacksize unlimited
+set SCRIPT=/store2/waeschenbach/work/FEW/amber17/AmberTools/src/FEW//examples/test/calc_p_1t/TGR5_dimer_1-8_-46/s1_2_1/pb3_gb0_dec/run_mmpbsa.pbs
+set SY=TGR5_dimer_1-8_-46
+set CALC=TGR5_dimer_1-8_-46_pb3_gb0
+set PARAMS=mmpbsa_FEWmem.in
+set TOPO=/store2/waeschenbach/work/FEW/amber17/AmberTools/src/FEW//examples/test/calc_p_1t/TGR5_dimer_1-8_-46/topo
+set SNAPS=/store2/waeschenbach/work/FEW/amber17/AmberTools/src/FEW//examples/test/calc_p_1t/TGR5_dimer_1-8_-46/snapshots
+set PQR_DIR=/store2/waeschenbach/work/FEW/amber17/AmberTools/src/FEW//examples/test/calc_p_1t/TGR5_dimer_1-8_-46/pqr_snaps
+
+#
+# --- Inform about HOST
+#
+echo $HOSTNAME
+
+#
+# --- Go to working directory 
+#
+set PATH=/store2/waeschenbach/work/FEW/amber17/AmberTools/src/FEW//examples/test/calc_p_1t/TGR5_dimer_1-8_-46/s1_2_1/pb3_gb0_dec
+cd $PATH
+
+#
+# --- Create tmp directory
+#
+cd /tmp
+mkdir $CALC
+cd $CALC
+cp $PATH/* .
+ln -s $TOPO topo
+ln -s $SNAPS snapshots
+ln -s $PQR_DIR pqr_snaps
+
+#
+# --- Execute
+#
+set MMPBSA=/store2/waeschenbach/work/FEW/amber17/AmberTools/src/FEW/miscellaneous/mmpbsa_FEWmem.pl
+perl $MMPBSA $PARAMS
+
+#
+# --- Zipping output
+#
+gzip -9 ${SY}*
+cp * $PATH
+rm -r /tmp/$CALC
+gunzip $PATH/${SY}_statistics.out
+
+#
+# --- Exit this script
+#
+exit

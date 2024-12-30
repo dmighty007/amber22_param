@@ -1,0 +1,30 @@
+This directory contains sample NAB scripts for using HCP.
+
+Example 1:
+   Level 1 HCP-GB MD using 1-charge approximation for thioredoxin.
+   NAB Script:   2trx.nab
+   Input prmtop: 2trx.top
+   Input pdb:    2trx.pdb
+
+   To run HCP-GB MD:
+   1. nab -o 2trx 2trx.nab
+   2. ./2trx
+
+   Outputs:
+   Log file:   2trx.log
+   Trajectory: 2trx.traj
+
+Example 2:
+   Level 2 HCP-GB using 1-charge approximation for nucleosome.
+   NAB Script:   1kx5.nab
+   Input prmtop: 1kx5.top
+   Input pdb:    1kx5.pdb
+
+   To run HCP-GB MD:
+   1. nab -o 1kx5 1kx5.nab
+   2. ./1kx5
+
+   Outputs:
+   Log file:   1kx5.log
+   Trajectory: 1k5.traj
+

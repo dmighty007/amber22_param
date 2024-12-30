@@ -1,0 +1,8 @@
+The fav8_2x1x1.{rst7,pdb} files have the original CSD coordinates
+The fav8_2x1x1c.{rst7,pdb} files used cpptraj to center the molecule at the
+         center of the box
+The fav8_2x1x1o.{rst7,pdb} files used cpptraj to center the molecule at the
+         origin of the box
+
+If you modify Run.fav8 to cycle the pdb,rst7 files among these choices,
+keeping everything else the same, you get three different results.

@@ -1,0 +1,59 @@
+#!/bin/csh -f
+#TEST-PROGRAM sander
+#TEST-DESCRIP TO_BE_DEtermined
+#TEST-PURPOSE regression, basic
+#TEST-STATE   undocumented
+
+set sander = "${AMBERHOME}/bin/sander"
+if( $?TESTsander ) then
+    set sander = $TESTsander
+endif
+
+cat > mdin <<EOF
+Benzene in water ReaxFF/AMBER minimization 
+&cntrl
+  imin   = 1,           !do a minimization
+  maxcyc = 2,           ! max 2 minimization steps
+  ncyc   = 2,           ! switch to conjugate gradient after 2 steps of steepest descent
+  drms   = 0.5,         ! RMS gradient convergence criterium 0.5 (kcal/mol)/A = 2.d-3 au
+  cut    = 9999.9,      !non-bonded interactions cutoff
+  ntb    = 0,           !non-periodic sim.
+  ntpr   = 1,           !print details to log every step
+  ntwx   = 1,           !write coordinates to mdcrd every steps (every 250fs)
+  ntwr   = 2,           !write restart file at last step
+  ioutfm = 1,           !NetCDF MDCRD.
+  ifqnt  = 1,
+ /
+ &qmmm
+  qmmask    = '@*',
+  qm_theory = 'EXTERN',
+  qmcharge  = 0,
+  qmshake   = 0,
+  qm_ewald  = 0,
+  qm_pme    = 0
+ /
+ &reaxff
+ solvtol=1e-14
+ /
+EOF
+
+set output = benz_water_min.out
+rm -f $output
+
+touch dummy
+$sander -O -p benz_water.prmtop -c benz_water.inpcrd -o $output < dummy || goto error
+
+../../dacdif -a 1.0e-03 $output.save $output
+
+/bin/rm -f dummy mdin mdinfo mdcrd dummy restrt
+exit(0)
+
+error:
+if ( `tail $output | grep "reaxff-puremd is not enabled" | wc -l` > 0 ) then
+  echo 'ReaxFF support not installed - Skipping Test...'
+  echo ''
+  exit(0)
+else
+  echo "  ${0}:  Program error"
+  exit(1)
+endif

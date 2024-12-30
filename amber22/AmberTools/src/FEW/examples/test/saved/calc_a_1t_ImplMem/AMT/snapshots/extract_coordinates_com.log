@@ -1,0 +1,57 @@
+
+=>> Init data
+    Presuming executables of amber suite to be in /home/homeyer/Software/amber16_13022016/bin
+
+=>> Reading input parameters
+    Found VERBOSE => 0
+    Found PARALLEL => 0
+    Found PREFIX => AMT
+    Found PATH => ./
+    Found START => 1
+    Found STOP => 1
+    Found OFFSET => 1
+    Found COMPLEX => 1
+    Found RECEPTOR => 1
+    Found LIGAND => 1
+    Found COMPT => ../AMT_gb0_pb3_com.top
+    Found RECPT => ../AMT_gb0_pb3_rec.top
+    Found LIGPT => ../AMT_gb0_pb3_lig.top
+    Found GC => 1
+    Found AS => 0
+    Found DC => 0
+    Found MM => 0
+    Found GB => 0
+    Found PB => 0
+    Found MS => 0
+    Found NM => 0
+    Found BOX => YES
+    Found NTOTAL => 14496
+    Found NSTART => 1
+    Found NSTOP => 3
+    Found NFREQ => 1
+    Found NUMBER_REC_GROUPS => 1
+    Found RSTART => 1
+    Found RSTOP => 1680
+    Found NUMBER_LIG_GROUPS => 1
+    Found LSTART => 1681
+    Found LSTOP => 1709
+    Found TRAJECTORY => ../../../MD_am1/AMT/com/prod/md_prod_001_img.mdcrd.gz
+
+=>> Checking sanity
+    Checking GENERAL
+    Checking GC
+    Checking TRAJ
+
+=>> Creating input
+    make_crd input
+
+=>> Creating coordinates
+    Executing makecrd
+  
+ AmberTools16 Module: make_crg_hg
+  
+ usage: make_crd_hg <  trajectory_file 
+  
+ Box info found:    45.136000000000003        46.634000000000000        66.346999999999994     
+ Box info found:    45.091999999999999        46.454000000000001        66.236000000000004     
+ Box info found:    45.130000000000003        46.409999999999997        66.353999999999999     

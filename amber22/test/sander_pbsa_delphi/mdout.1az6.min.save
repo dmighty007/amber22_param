@@ -1,0 +1,223 @@
+
+          -------------------------------------------------------
+          Amber 16 SANDER                              2016
+          -------------------------------------------------------
+
+| Run on 03/02/2018 at 22:51:14
+
+|   Executable path: /home/rayl/pbsa-dev-fresh4/bin/sander
+| Working directory: /home/rayl/pbsa-dev-fresh4/test/sander_pbsa_delphi
+|          Hostname: rayl8.bio.uci.edu
+
+  [-O]verwriting output
+
+File Assignments:
+|  MDIN: mdin                                                                  
+| MDOUT: mdout.1az6.min                                                        
+|INPCRD: 1az6.crd                                                              
+|  PARM: 1az6.top                                                              
+|RESTRT: restrt                                                                
+|  REFC: refc                                                                  
+| MDVEL: mdvel                                                                 
+| MDFRC: mdfrc                                                                 
+|  MDEN: mden                                                                  
+| MDCRD: mdcrd                                                                 
+|MDINFO: mdinfo                                                                
+|  MTMD: mtmd                                                                  
+|INPDIP: inpdip                                                                
+|RSTDIP: rstdip                                                                
+|INPTRA: inptraj                                                               
+
+
+ Here is the input file:
+
+ test of pbsa                                                                  
+ &cntrl                                                                        
+   ntx=1, imin=1, ipb=1, ntb=0, inp=0                                          
+ /                                                                             
+ &pb                                                                           
+   npbverb=0, istrng=150, iprob=2.0, epsout=80.0, epsin=1.0, space=0.5,        
+   accept=1e-3, dprob=1.5, radiopt=0, fillratio=2, bcopt=7, smoothopt=2, nfocus=1,
+   eneopt=2, cutnb=0, maxitn=10000, arcres=0.0625, frcopt=0                    
+ /                                                                             
+
+--------------------------------------------------------------------------------
+   1.  RESOURCE   USE: 
+--------------------------------------------------------------------------------
+
+| Flags:                                                                        
+| New format PARM file being parsed.
+| Version =    1.000 Date = 11/25/05 Time = 12:53:42
+ NATOM  =     489 NTYPES =      14 NBONH =     236 MBONA  =     258
+ NTHETH =     527 MTHETA =     352 NPHIH =     982 MPHIA  =     483
+ NHPARM =       0 NPARM  =       0 NNB   =    2666 NRES   =      36
+ NBONA  =     258 NTHETA =     352 NPHIA =     483 NUMBND =      29
+ NUMANG =      59 NPTRA  =      22 NATYP =      22 NPHB   =       0
+ IFBOX  =       0 NMXRS  =      21 IFCAP =       0 NEXTRA =       0
+ NCOPY  =       0
+
+
+|     Memory Use     Allocated
+|     Real               44952
+|     Hollerith           1505
+|     Integer            43806
+|     Max Pairs              1
+|     nblistReal             0
+|     nblist Int             0
+|       Total              528 kbytes
+
+| Note: 1-4 EEL scale factors were NOT found in the topology file.
+|       Using default value of 1.2.
+
+| Note: 1-4 VDW scale factors were NOT found in the topology file.
+|       Using default value of 2.0.
+| Duplicated    0 dihedrals
+| Duplicated    0 dihedrals
+
+--------------------------------------------------------------------------------
+   2.  CONTROL  DATA  FOR  THE  RUN
+--------------------------------------------------------------------------------
+
+                                                                                
+
+General flags:
+     imin    =       1, nmropt  =       0
+
+Nature and format of input:
+     ntx     =       1, irest   =       0, ntrx    =       1
+
+Nature and format of output:
+     ntxo    =       2, ntpr    =      50, ntrx    =       1, ntwr    =       1
+     iwrap   =       0, ntwx    =       0, ntwv    =       0, ntwe    =       0
+     ioutfm  =       1, ntwprt  =       0, idecomp =       0, rbornstat=      0
+
+Potential function:
+     ntf     =       1, ntb     =       0, igb     =      10, nsnb    =      25
+     ipol    =       0, gbsa    =       0, iesp    =       0
+     dielc   =   1.00000, cut     =9999.00000, intdiel =   1.00000
+
+Frozen or restrained atoms:
+     ibelly  =       0, ntr     =       0
+
+Energy minimization:
+     maxcyc  =       1, ncyc    =      10, ntmin   =       1
+     dx0     =   0.01000, drms    =   0.00010
+|  INFO: Old style inpcrd file read
+
+
+--------------------------------------------------------------------------------
+   3.  ATOMIC COORDINATES AND VELOCITIES
+--------------------------------------------------------------------------------
+
+                                                                                
+ begin time read from input coords =     0.000 ps
+
+ Number of triangulated 3-point waters found:        0
+
+--------------------------------------------------------------------------------
+   4.  RESULTS
+--------------------------------------------------------------------------------
+
+ Total surface charge      -0.9925
+ Reaction field energy   -337.8132
+| PB NB list                     0.01
+| PB FD grid                     0.00
+| PB Sasa                        0.36
+| PB FD force                   12.82
+| PB Set linear sys             12.18
+| PB Solver                      0.57
+| PB Multiple                    0.00
+| PB Direct                      0.00
+| PB SA srf                      0.01
+| PB SA arc                      0.35
+| PB SA arc setup                0.00
+| PB circle                      0.26
+| PB exclude                     0.09
+| PB exmol                       0.65
+| PB exmol setup                 0.04
+| PB exmol part a                0.00
+| PB exmol part b                0.02
+| PB exmol part c                0.01
+| PB exmol part d                0.00
+| PB exmol part e                0.02
+| PB exmol part f                0.17
+| PB epsbnd                      0.00
+| PB epsmap                      0.02
+| PB calsa                       0.00
+
+
+   NSTEP       ENERGY          RMS            GMAX         NAME    NUMBER
+      1      -1.0955E+03     1.8421E+00     1.2728E+01     H         271
+
+ BOND    =       11.7054  ANGLE   =       74.3739  DIHED      =       74.3941
+ VDWAALS =     -184.9603  EEL     =    -2370.8022  EPB        =     -337.8132
+ 1-4 VDW =       74.9712  1-4 EEL =     1562.6617  RESTRAINT  =        0.0000
+ ECAVITY =        0.0000  EDISPER =        0.0000
+
+
+  Maximum number of minimization cycles reached.
+| PB NB list                     0.00
+| PB FD grid                     0.00
+| PB Sasa                        0.36
+| PB FD force                   12.40
+| PB Set linear sys             12.21
+| PB Solver                      0.12
+| PB Direct                      0.00
+| PB SA srf                      0.01
+| PB SA arc                      0.35
+| PB SA arc setup                0.00
+| PB circle                      0.26
+| PB exclude                     0.09
+| PB exmol                       0.64
+| PB exmol setup                 0.03
+| PB exmol part a                0.00
+| PB exmol part b                0.02
+| PB exmol part c                0.01
+| PB exmol part d                0.00
+| PB exmol part e                0.02
+| PB exmol part f                0.17
+| PB epsbnd                      0.00
+| PB epsmap                      0.02
+
+
+                    FINAL RESULTS
+
+
+
+   NSTEP       ENERGY          RMS            GMAX         NAME    NUMBER
+      1      -1.0955E+03     1.8421E+00     1.2728E+01     H         271
+
+ BOND    =       11.7054  ANGLE   =       74.3739  DIHED      =       74.3941
+ VDWAALS =     -184.9603  EEL     =    -2370.8022  EPB        =     -337.8337
+ 1-4 VDW =       74.9712  1-4 EEL =     1562.6617  RESTRAINT  =        0.0000
+ ECAVITY =        0.0000  EDISPER =        0.0000
+
+--------------------------------------------------------------------------------
+   5.  TIMINGS
+--------------------------------------------------------------------------------
+
+|    Read coords time           0.01 ( 0.02% of Total)
+|             PB Nonbond                25.24 (100.0% of Nonbo)
+|          Nonbond force             25.24 (100.0% of Force)
+|       Force time                25.24 (100.0% of Runmd)
+|    Runmd Time                25.24 (99.83% of Total)
+|    Other                      0.04 ( 0.15% of Total)
+| Total time                25.29 (100.0% of ALL  )
+
+| Number of list builds   :          0
+
+| Highest rstack allocated:          0
+| Highest istack allocated:          0
+|           Job began  at 22:51:13.999  on 03/02/2018
+|           Setup done at 22:51:14.043  on 03/02/2018
+|           Run   done at 22:51:39.287  on 03/02/2018
+|     wallclock() was called     162 times
+
+|3D-RISM memory allocation summary
+|Type          Maximum        Current   
+|Integer       0.00000 GB     0.00000 GB
+|Real          0.00000 GB     0.00000 GB
+|Logical       0.00000 GB     0.00000 GB
+|Character     0.00000 GB     0.00000 GB
+|---------------------------------------
+|Total         0.00000 GB     0.00000 GB

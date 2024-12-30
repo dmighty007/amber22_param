@@ -1,0 +1,13 @@
+Metal atoms
+MASS
+Pt 195.084 0.0000           Platinum surface atoms
+VS 195.000 0.000            Virtual Platinum surface atoms 
+
+NONBON
+  Pt       0.0000    0.00
+  VS       0.0000    0.00
+
+LJEDIT
+  VS  VS   0.00      0.00
+  Pt  Pt   0.00      0.00
+  VS  OW   1.582 0.322 1.582 0.322   

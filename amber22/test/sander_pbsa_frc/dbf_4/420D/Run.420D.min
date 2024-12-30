@@ -1,0 +1,65 @@
+#!/bin/csh -f
+#TEST-PROGRAM sander
+#TEST-DESCRIP TO_BE_DEtermined
+#TEST-PURPOSE regression, basic
+#TEST-STATE   undocumented
+
+if( ! $?TESTsander ) set TESTsander = "${AMBERHOME}/bin/sander"
+
+if( ! $?DO_PARALLEL ) then
+        setenv DO_PARALLEL " "
+else
+    echo "This test not set up for parallel"
+    echo " cannot run in parallel with pbsa"
+    exit 0
+endif
+
+set output = mdout.420D.min
+
+cat > min.in <<EOF
+ test of pbsa
+ &cntrl
+   ntx=1, imin=1,
+   inp=0, ntb=0, ipb=2
+ /
+ &pb
+   epsout=80.0d0, epsin=3.0d0, radiopt=0,
+   sasopt=2, dprob=1.4, radinc=0.798, expthresh=0.08,
+   fillratio=1.5, space=0.5, nfocus = 1,
+   accept=1e-6, laccept=1e-6, solvopt=1, maxitn=10000,
+   cutfd=4.0, cutnb=10.0, cutsa=10.0,
+   npbverb=1, bcopt=5, frcopt=5, eneopt=4,
+ /
+EOF
+
+touch dummy
+$DO_PARALLEL $TESTsander -O -i min.in -o $output < dummy || goto error
+
+   echo "checking 420D force"
+   if ( ! -f force.dat || ! -f force.save ) then
+      echo "FAILED: file not exist"
+      exit(1)
+   endif
+#  if ( `diff force.dat force.save | cat | wc -c` != 0 ) then
+#     echo "FAILED: 420D force"
+#     exit(0)
+#  else
+#     echo "PASSED" 
+#  endif 
+#  rm *.dat
+
+#../../../dacdif $output.save $output
+../../../dacdif -a 1e-4 force.save force.dat
+/bin/rm -f min.in restrt mdinfo dummy $output
+exit(0)
+
+error:
+echo "  ${0}:  Program error"
+exit(1)
+
+
+
+
+
+
+

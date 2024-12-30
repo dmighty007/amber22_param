@@ -1,0 +1,39 @@
+#! /usr/bin/env sh
+#TEST-PROGRAM rism3d.snglpnt
+#TEST-DESCRIP Tests periodic pme on protein
+#TEST-PURPOSE regression, basic
+#TEST-STATE   undocumented
+
+PROG="$AMBERHOME/bin/rism3d.snglpnt"
+
+if [ -z "$DO_PARALLEL" ]; then
+   DO_PARALLEL=" "
+else
+   numprocs=`echo $DO_PARALLEL | awk -f ../../numprocs.awk `
+   if [ "$numprocs" -gt 2 ]; then
+       echo " DO_PARALLEL set to $DO_PARALLEL; max is 2"
+       exit 0
+   fi
+   PROG=$PROG.MPI
+   echo "Running $DO_PARALLEL $PROG"
+   if [ ! -x $PROG ]; then
+       echo "$PROG not found... skipping test"
+       exit 0
+   fi
+fi
+
+solvent=../xvv/NaCl-0.140-pse1.xvv
+
+$DO_PARALLEL $PROG  --periodic pme --pdb 4lzta.pdb \
+               --prmtop 4lzta.parm7 \
+               --rst 4lzta.rst7 \
+               --xvv $solvent \
+               --closure kh --tolerance 1e-10 \
+               --grdspc 0.5,0.5,0.5 --buffer 1.0 --verbose 1 \
+               --solvcut 9.0 --centering 0 \
+               > 4lzta_5.pse1.ewald.r3d
+
+
+grep -E "^rism_|^solute" 4lzta_5.pse1.ewald.r3d > erism.ewald.out
+/bin/rm -f 4lzta_5.pse1.ewald.r3d
+../../dacdif -r 1.e-4 erism.ewald.out.save erism.ewald.out

@@ -1,0 +1,23 @@
+molecule m;
+float 	m_xyz[dynamic], f_xyz[dynamic], v_xyz[dynamic];
+float 	dgrad, fret;
+int 	ier, i; 
+
+m = getpdb("../../nab/ala.pdb");
+readparm(m, "../../nab/ala.parm7");
+allocate m_xyz[3*m.natoms];
+allocate f_xyz[3*m.natoms];
+allocate v_xyz[3*m.natoms];
+mm_options( "e_debug=0, ntpr=1, ntpr_md=1, cut=999.0, dt=0.001, rattle=0, tempi=0, zerov=0");
+mm_options( "rism=1, closure=1, tolerance=1e-6, ngx=64, ngy=64, ngz=64, mdiis_method=1");
+mm_options( "solvboxx=32, solvboxy=32, solvboxz=32, buffer=-1, solvcut=12, verbose=2");
+mm_options( "progress=1, xvvfile=../../rism1d/spc-kh/spc.xvv.save");
+mm_options( "ntwrism=-1, guvfile=guv, cuvfile=cuv, asympfile=a");
+mme_init( m, NULL, "::Z", m_xyz, NULL);
+
+setxyz_from_mol( m, NULL, m_xyz );
+
+ier = md(3*m.natoms,0,m_xyz,f_xyz,v_xyz, mme );
+
+if(mytaskid==0)
+  printf( "md returns %d\n", ier );

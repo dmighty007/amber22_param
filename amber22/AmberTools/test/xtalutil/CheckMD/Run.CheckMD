@@ -1,0 +1,5 @@
+#!/bin/sh
+
+$AMBERHOME/bin/CheckPDB -p prmtop -c inpcrd
+
+../../dacdif resID.txt.save resID.txt

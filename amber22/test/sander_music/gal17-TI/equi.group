@@ -1,0 +1,4 @@
+
+ -O  -i equi_0.mdin -p prmtop0 -c equi_input_0 -inf equi_0.mdinfo -o equi_0.mdout -r equi_0.restrt -e equi_0.mden -x equi_0.mdcrd
+ -O  -i equi_1.mdin -p prmtop1 -c equi_input_1 -inf equi_1.mdinfo -o equi_1.mdout -r equi_1.restrt -e equi_1.mden -x equi_1.mdcrd
+

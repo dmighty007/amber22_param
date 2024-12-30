@@ -1,0 +1,38 @@
+# NetCDF C Configuration Summary
+==============================
+
+# General
+-------
+NetCDF Version:		4.6.1
+Configured On:		Mon Dec 30 19:29:25 IST 2024
+Host System:		x86_64-Linux-4.18.0-513.5.1.el8_9.x86_64
+Build Directory: 	/home/suman/Dibyendu/Soft/amber22_src/amber22_src/build
+Install Prefix:         /home/suman/Dibyendu/Soft/amber22_src/amber22/
+
+# Compiling Options
+-----------------
+C Compiler:		/usr/bin/gcc
+CFLAGS:			 -Wall -Wno-unused-function -Wno-unknown-pragmas -Wno-unused-variable -Wno-unused-but-set-variable -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 
+CPPFLAGS:		 
+LDFLAGS:		 -Wl,--no-undefined 
+AM_CFLAGS:		
+AM_CPPFLAGS:		
+AM_LDFLAGS:		
+Shared Library:		yes
+Static Library:		no
+Extra libraries:	-lz
+
+# Features
+--------
+NetCDF-2 API:		yes
+HDF4 Support:		no
+NetCDF-4 API:		no
+NC-4 Parallel Support:	no
+PNetCDF Support:	no
+DAP2 Support:		no
+DAP4 Support:		no
+Diskless Support:	no
+MMap Support:		yes
+JNA Support:		no
+CDF5 Support:		no
+ERANGE fill Support:	no

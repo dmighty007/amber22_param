@@ -1,0 +1,15 @@
+#! /usr/bin/env sh
+
+solvent=../xvv/spc-kh.xvv
+
+rism3d.snglpnt --periodic pme --pdb fav8_2x2x2_nowat.pdb \
+               --prmtop fav8_2x2x2_nowat.parm7 \
+               --rst fav8_2x2x2_nowat.rst7 \
+               --xvv $solvent \
+               --closure kh --tolerance 0.000001 \
+               --grdspc 0.35,0.35,0.35 --buffer 1.0 --verbose 2 --volfmt ccp4 \
+               --solvcut 9.0 --centering 0 --noprogress \
+               --guv fav8_2x2x2.guv \
+               > fav8_2x2x2.kh.pme.r3d
+
+../../dacdif -r 1.e-6 fav8_2x2x2.kh.pme.r3d.save fav8_2x2x2.kh.pme.r3d

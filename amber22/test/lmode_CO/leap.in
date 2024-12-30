@@ -1,0 +1,6 @@
+set default nocenter on
+loadAmberParams frcmod.hemall
+CMO = loadMol2 cmo.mol2
+x = loadpdb co.pdb
+saveamberparm x prmtop inpcrd
+quit

@@ -1,0 +1,5 @@
+mdin1 and mdout1 -> normal setup of SolvHybrid (Correction on and direct space)
+
+mdin2 and mdout2 -> No correction but direct space
+
+mdin3 and mdout3 -> PME on and no correction
